@@ -32,10 +32,13 @@ Si ricordino i teoremi:
 - **del valore finale**: $\lim_{t\to+\infty}y(t)=\lim_{s\to0}sY(s)$, se entrambi i limiti esistono e sono finiti (basta verificare in particolare che $sY(s)$ non abbia poli nel semipiano destro chiuso ($=$ incluso $0$) $\implies$ $sY(s)$ deve avere tutti i poli a parte reale strettamente negativa)
 ### Risposte di sistemi del primo ordine
 $\deg(D_H)=1$, quindi $\deg(N_H)=0\implies$ il numeratore è una costante
-$$H(s)=\frac{K^\star}{s-p}$$ ($p$ è l'unico polo della FdT). In questo caso la FdT scritta in forma **polinomiale** equivale alla scrittura in forma **zeri-poli**.
+$$H(s)=\frac{K^\star}{s-p}$$
+($p$ è l'unico polo della FdT). In questo caso la FdT scritta in forma **polinomiale** equivale alla scrittura in forma **zeri-poli**.
 #### Risposta all'impulso
-Se $u(t)=\overline{u}\delta(t)\implies U(s)=\overline{u}$ allora la risposta forzata (che coincide con l'intera risposta) è $$Y(s)=H(s)\overline{u}=\frac{K^\star}{s-p}\overline{u}$$
-Posso tranquillamente anti-trasformare per ottenere $$y(t)=K^\star\overline{u}e^{pt}\epsilon(t)$$
+Se $u(t)=\overline{u}\delta(t)\implies U(s)=\overline{u}$ allora la risposta forzata (che coincide con l'intera risposta) è 
+$$Y(s)=H(s)\overline{u}=\frac{K^\star}{s-p}\overline{u}$$
+Posso tranquillamente anti-trasformare per ottenere 
+$$y(t)=K^\star\overline{u}e^{pt}\epsilon(t)$$
 ovvero **la risposta all'impulso è un esponenziale, divergente se $p>0$, convergente a $0$ se $p<0$, e degenera in una costante per $p=0$**.
 
 **Il grafico della risposta parte sempre dal punto $(0, K^\star\overline{u})$**.
@@ -43,11 +46,14 @@ ovvero **la risposta all'impulso è un esponenziale, divergente se $p>0$, conver
 I teoremi di valore iniziale e finale, quando sono applicabili, ci confermano il tutto.
 ![Pasted image 20231125190748.png](/img/user/img/Pasted%20image%2020231125190748.png)
 #### Risposta al gradino
-Se $u(t)=\overline{u}\epsilon(t)\implies U(s)=\overline{u}/s$ allora la risposta forzata (che coincide con l'intera risposta) è $$Y(s)=H(s)\frac{\overline{u}}{s}=\frac{K^\star}{s(s-p)}\overline{u}$$
+Se $u(t)=\overline{u}\epsilon(t)\implies U(s)=\overline{u}/s$ allora la risposta forzata (che coincide con l'intera risposta) è 
+$$Y(s)=H(s)\frac{\overline{u}}{s}=\frac{K^\star}{s(s-p)}\overline{u}$$
 Abbiamo quindi due poli, $s=0$ e $s=-p$. 
-Il caso $p=0$ lo possiamo trattare separatamente, in quanto è più facile: al denominatore non abbiamo più un polo in $s=-p$ ma un polo di molteplicità $2$ in $s=0$. In questo caso l'antitrasformata ha la forma specifica: $$y(t)=K^\star\overline{u}t\epsilon(t)$$
-- se $p\ne0$, invece, converrà fare la scomposizione in fratti semplici, e poi antitrasformare per ottenere: $$y(t)=\frac{K^\star}{-p}\overline{u}[1-e^{pt}]\epsilon(t)$$
-![Pasted image 20231127160844.png](/img/user/img/Pasted%20image%2020231127160844.png)
+Il caso $p=0$ lo possiamo trattare separatamente, in quanto è più facile: al denominatore non abbiamo più un polo in $s=-p$ ma un polo di molteplicità $2$ in $s=0$. In questo caso l'antitrasformata ha la forma specifica: 
+$$y(t)=K^\star\overline{u}t\epsilon(t)$$
+- se $p\ne0$, invece, converrà fare la scomposizione in fratti semplici, e poi antitrasformare per ottenere: 
+	- $$y(t)=\frac{K^\star}{-p}\overline{u}[1-e^{pt}]\epsilon(t)$$
+	- ![Pasted image 20231127160844.png](/img/user/img/Pasted%20image%2020231127160844.png)
 
 ovvero **la risposta al gradino converge esponenzialmente per $p<0$, diverge linearmente se $p=0$, diverge esponenzialmente per $p>0$**.
 
@@ -61,7 +67,8 @@ In questo caso il teorema del valore iniziale è applicabile e ci da come risult
 Il teorema del valore finale è invece applicabile solo nel caso $p<0$ (nessun polo nel semipiano destro chiuso $\implies$ **BIBO-stabile**) - ci dice allora che il valore finale è $\frac{K^\star}{-p}\overline{u}$.
 ##### Parametri specifici per risposta al gradino di sistemi del I ordine BIBO-stabili
 Nelle risposte di questo tipo di sistemi BIBO-stabili chiamiamo $\frac{K^\star}{-p}=K$ e quindi diciamo che il valore finale è $K\overline{u}$. Inoltre chiamiamo $\left|\frac{1}{p}\right|=\tau>0$ **costante di tempo del sistema**.
-Allora si può anche scrivere la $H(s)$ come $$H(s)=\frac{K}{1+\tau s}$$
+Allora si può anche scrivere la $H(s)$ come 
+$$H(s)=\frac{K}{1+\tau s}$$
 (**forma di Bode**).
 
 - Nel caso $p<0$ è importante anche il **tempo di salita $t_r$** che è il tempo che l'uscita impiega a portarsi dal $10\%$ al $90\%$ del valore finale.
@@ -73,6 +80,7 @@ Allora si può anche scrivere la $H(s)$ come $$H(s)=\frac{K}{1+\tau s}$$
 >Cercheremo di generalizzare questi concetti per i sistemi del secondo ordine, che tecnicamente non hanno una costante di tempo, ma c'è un valore che si può considerare equivalente ad una costante di tempo.
 ##### Formulazione del problema: arrivare alla FdT partendo da un grafico della risposta al gradino
 Se ho questo grafico:
+
 ![Pasted image 20231127163811.png](/img/user/img/Pasted%20image%2020231127163811.png)
 
 che sembra proprio la risposta al gradino di un sistema del primo ordine BIBO-stabile, posso facilmente scrivere la sua funzione di trasferimento osservando i parametri caratteristici: 
