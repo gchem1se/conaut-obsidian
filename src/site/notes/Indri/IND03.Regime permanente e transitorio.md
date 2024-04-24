@@ -55,7 +55,8 @@ Altre definizioni:
 Si verifica che in BF gli zeri della catena aperta $\approx$ i poli della catena chiusa e in AF i poli della catena aperta sono $\approx$ i poli della catena chiusa.
 Per pulsazioni attorno a $\omega_{\text{crossover}}$ (nel transitorio) invece sarà necessario cercare di approssimare con sistemi del secondo ordine il tutto.
 #### Cosa succede in sistemi del secondo ordine?
-La FdT in catena chiusa di un sistema del secondo ordine ha espressione $$W_y(s)=\frac{\omega_n^2}{s^2+2\zeta\omega_ns+\omega_n^2}$$ con $\omega_n$ e $\zeta$ che sono pulsazione naturale e smorzamento dei due poli complessi che ha questa cosa. (generalmente ti viene dato $\omega_n$ e invece $\zeta$ devi assumere sia $\in[0.3,0.7]$ perchè altrimenti avresti picco di risonanza pesante e quindi probabilmente sistema vicino all'instabilità).
+La FdT in catena chiusa di un sistema del secondo ordine ha espressione 
+$$W_y(s)=\frac{\omega_n^2}{s^2+2\zeta\omega_ns+\omega_n^2}$$ con $\omega_n$ e $\zeta$ che sono pulsazione naturale e smorzamento dei due poli complessi che ha questa cosa. (generalmente ti viene dato $\omega_n$ e invece $\zeta$ devi assumere sia $\in[0.3,0.7]$ perchè altrimenti avresti picco di risonanza pesante e quindi probabilmente sistema vicino all'instabilità).
 Ma è anche vero che $W_y=\frac{G_a}{1+G_a}\implies G_a=\frac{W_y}{1+W_y}=\frac{\omega_n^2}{s(s+2\zeta\omega_n)}$
 
 ##### Parametri di progetto della $G_a$
