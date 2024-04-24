@@ -1,0 +1,32 @@
+name: Eleventy Build
+on:
+ push:
+   branches: ["main"]
+ workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - run: npm install
+    - run: npm run build
+  create_pages_artifact:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Upload GitHub Pages artifact
+          uses: actions/upload-pages-artifact@v3.0.1
+          with:
+            # Path of the directory containing the static assets.
+            path: /dist
+            name: my-art
+  deploy:
+      needs: build
+      runs-on: ubuntu-latets
+      steps:
+          - name: Deploy GitHub Pages site
+            uses: actions/deploy-pages@v4.0.5
+            with:
+              artifact_name: my-art
