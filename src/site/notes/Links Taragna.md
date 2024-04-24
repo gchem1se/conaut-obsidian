@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/links-taragna/","tags":["gardenEntry"]}
+{"dg-publish":true,"permalink":"/links-taragna/"}
 ---
 
 [[Taragna/Modellistica\|Modellistica]]
