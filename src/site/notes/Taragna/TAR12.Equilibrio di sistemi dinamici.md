@@ -6,10 +6,14 @@ Per *equilibrio di un sistema dinamico* si intende uno specifico *movimento che 
 
 Tali parametri sono detti *ingresso di equilibrio* $\overline{u}\in\mathbb{R}^p$, *uscita di equilibrio* $\overline{y}\in\mathbb{R}^q$ e *stato di equilibrio* $\overline{x}\in\mathbb{R}^n$; la coppia $(\overline{x},\overline{u})$ è detta *punto di equilibrio*.
 ## Condizione di equilibrio per sistemi TC
-Dalle equazioni differenziali che caratterizzano un qualsiasi sistema dinamico a tempo continuo: $$\dot{x}(t)=f(x(t), u(t))$$$$y(t)=g(x(t), u(t))$$
+Dalle equazioni differenziali che caratterizzano un qualsiasi sistema dinamico a tempo continuo: 
+$$\dot{x}(t)=f(x(t), u(t))$$
+$$y(t)=g(x(t), u(t))$$
 Si nota che $\dot{x}(t)=\dot{\overline{x}}=0$ dato che $\overline{x}$ è costante; dunque *il punto di equilibrio è quello che annulla il secondo membro dell'equazione di stato del sistema*:
 $$f(\overline{x},\overline{u})=0$$
-e *a tali valori corrispondono le uscite di equilibrio*:$$\overline{y}=g(\overline{x}, \overline{u})$$
+e *a tali valori corrispondono le uscite di equilibrio*:
+$$\overline{y}=g(\overline{x}, \overline{u})$$
+
 ## Condizione di equilibrio per sistemi LTI TC
 Un sistema dinamico LTI TC presenta questa forma specifica di equazioni rappresentative:
 $$\dot{x}(t)=Ax(t)+Bu(t)$$
