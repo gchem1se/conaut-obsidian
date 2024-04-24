@@ -8,7 +8,8 @@ L'analisi della risposta di un sistema dinamico ad un dato ingresso standard (il
 
 Parleremo solo dei sistemi LTI (TC), notando che questo tipo di analisi è particolarmente utile nel caso di sistemi LTI *esternamente stabili* (funzione di trasferimento con solo poli a parte reale strettamente negativa). In questi casi, infatti, è possibile partendo dai soli dati sperimentali studiare il comportamento del sistema *nella transizione da uno stato di equilibrio ad un altro*, e in alcuni casi, di *determinare esattamente la funzione di trasferimento del sistema*, in quanto esce una congruenza tra il modello semplificato che costruisco e quello effettivo.
 
-La funzione di trasferimento del sistema LTI TC è $$H(s)=C(sI_n-A)^{-1}B+D$$
+La funzione di trasferimento del sistema LTI TC è 
+$$H(s)=C(sI_n-A)^{-1}B+D$$
 e si può scrivere come una funzione razionale fratta:
 $$H(s)=\frac{N_H(s)}{D_H(s)}$$
 Con $N_H$ e $D_H$ polinomi senza radici in comune. Quando $D_H$ è un polinomio di primo grado, la funzione di trasferimento è detta *del primo ordine*, quando è di secondo grado, *del secondo ordine*, ecc.
@@ -44,6 +45,7 @@ ovvero **la risposta all'impulso è un esponenziale, divergente se $p>0$, conver
 **Il grafico della risposta parte sempre dal punto $(0, K^\star\overline{u})$**.
 
 I teoremi di valore iniziale e finale, quando sono applicabili, ci confermano il tutto.
+
 ![Pasted image 20231125190748.png](/img/user/img/Pasted%20image%2020231125190748.png)
 #### Risposta al gradino
 Se $u(t)=\overline{u}\epsilon(t)\implies U(s)=\overline{u}/s$ allora la risposta forzata (che coincide con l'intera risposta) è 
