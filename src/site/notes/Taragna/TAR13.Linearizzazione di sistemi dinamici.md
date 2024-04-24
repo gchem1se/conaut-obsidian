@@ -3,8 +3,11 @@
 ---
 
 ## Linearizzazione di una funzione reale
-Una funzione $f(x):\mathbb{R}\rightarrow\mathbb{R}$ può essere sviluppata in serie di Taylor in un intorno di ampiezza $\delta x=x-x_0$ di un punto qualsiasi $x_0$ come: $$f(x)=f(x_0+\delta x)=$$$$=\left.f(x_0)+\frac{df(x)}{dx}\right|_{x=x_0}\delta x$$
+Una funzione $f(x):\mathbb{R}\rightarrow\mathbb{R}$ può essere sviluppata in serie di Taylor in un intorno di ampiezza $\delta x=x-x_0$ di un punto qualsiasi $x_0$ come:
+$$f(x)=f(x_0+\delta x)=$$
+$$=\left.f(x_0)+\frac{df(x)}{dx}\right|_{x=x_0}\delta x$$
 che è lo sviluppo in serie di Taylor arrestato al termine di primo grado. La funzione che approssima è in tutto e per tutto una retta passante per $x_0$ con pendenza uguale alla derivata dell a funzione (quindi è la retta tangente al punto $x_0$). L'approssimazione è migliore tanto più è piccolo $\delta x$ ovviamente (tanto più $x$ è effettivamente vicino a $x_0$).
+
 ![taylor](/img/user/img/taylor.png)
 ## Linearizzazione di un sistema dinamico
 I sistemi dinamici reali *non sono mai lineari*, ma possono essere approssimati nell'intorno di punti specifici (es. l'equilibrio) mediante **linearizzazione**. Ci interessa farlo perchè le tecniche per il controllo automatico di un sistema lineare funziona è ormai ben consolidata mentre quella dei sistemi non lineari no.
@@ -13,7 +16,10 @@ Esempio: un braccio robotico che deve fare una saldatura: quando si muove di tan
 
 Dato un sistema dinamico a dimensione finita MIMO TC non lineare **stazionario** (le espressioni di variabili di stato e uscita non dipendono esplicitamente da $t$), si identificano dei "punti di funzionamento, o movimenti, *nominali*" che sono semplicemente punti di funzionamento, o movimenti, di interesse per il progettista. Quindi si prendono in considerazione:
 - un movimento *nominale* $\tilde{x}(t)$, che è quello che si vorrebbe analizzare e determinare (es. il movimento che il braccio robotico fa per fare la saldatura), ottenuto applicando un ingresso *nominale* $\tilde{u}(t)$ al sistema, posto in uno stato iniziale *nominale* $\tilde{x}_0$, a cui corrisponde un'uscita $\tilde{y}(t)$ *nominale*; essi devono essere ammissibili, quindi devono soddisfare le equazioni di stato e di uscita del sistema preso in considerazione:
-  $$\dot{\tilde{x}}(t)=f(\tilde{x}(t),\tilde{u}(t))$$$$\tilde{y}(t)=g(\tilde{x}(t),\tilde{u}(t))$$$$\tilde{x}(0)=\tilde{x}_0$$
+  $$\dot{\tilde{x}}(t)=f(\tilde{x}(t),\tilde{u}(t))$$
+  $$\tilde{y}(t)=g(\tilde{x}(t),\tilde{u}(t))$$
+  $$\tilde{x}(0)=\tilde{x}_0$$
+  
 - un movimento *perturbato* $x(t)$ ottenuto applicando un ingresso differente (*perturbato*) al sistema, posto in uno stato iniziale differente (*perturbato*), a cui corrisponde un'uscita *perturbata*. 
 
 Quindi si sta cercando di approssimare un sistema con un modello che lo approssimi bene intorno ad un suo punto, magari di equilibrio ma non per forza, semplicemente che sia di interesse; qui il $\delta x$ di Taylor sarebbe la "distanza" tra il sistema nominale e il sistema perturbato, ovvero la loro differenza *parametrica* in termini di:
@@ -32,7 +38,8 @@ $$\dot{y}(t)=g(x(t),u(t))\implies\dot{(\delta y)}(t)=g(\delta x(t),\delta u(t))$
 $$\dot{(\delta x)}(t)=\frac{d(x-\tilde{x})(t)}{dt}=\dot{x}-\dot{\tilde{x}}$$
 $$\dot{(\delta y)}(t)=\frac{d(y-\tilde{y})(t)}{dt}=\dot{y}-\dot{\tilde{y}}$$
 E che:
-$$\dot{\tilde{x}}(t)=f(\tilde{x}(t),\tilde{u}(t))$$$$\tilde{y}(t)=g(\tilde{x}(t),\tilde{u}(t))$$
+$$\dot{\tilde{x}}(t)=f(\tilde{x}(t),\tilde{u}(t))$$
+$$\tilde{y}(t)=g(\tilde{x}(t),\tilde{u}(t))$$
 Quindi:
 $$\dot{(\delta x)}(t)=f(x(t),u(t))-f(\tilde{x}(t),\tilde{u}(t))$$
 $$\dot{(\delta y)}(t)=g(x(t),u(t))-g(\tilde{x}(t),\tilde{u}(t))$$
@@ -51,7 +58,8 @@ $$A(t)=\frac{\partial f(x,u)}{\partial x}\Bigg\rvert_{\substack{x=\tilde{x}\\u=\
 >^^ Jacobiano di $f$ rispetto ad $x$: in ogni riga c'è il gradiente di $f_i$ rispetto ad $x$
 
 Poi è anche $$B(t)=\left.\begin{bmatrix}   \partial f_1/\partial u_1 & \dots & \partial f_1/\partial u_n\\   \vdots & \ddots & \vdots   \\   \partial f_n/\partial u_1 & \dots & \partial f_n/\partial u_n   \end{bmatrix}\right\rvert_{\substack{x=\tilde{x}\\u=\tilde{u}}}\in\mathbb{R}^{n\times n}$$
-E si può dire $$\dot{(\delta{x})}\approx A(t)\delta x(t)+B(t)\delta u(t)$$
+E si può dire 
+$$\dot{(\delta{x})}\approx A(t)\delta x(t)+B(t)\delta u(t)$$
 >^^ In generale, $A(t)$ e $B(t)$ sono infatti dipendenti dal tempo. 
 
 Analogamente, 
@@ -74,7 +82,10 @@ $$D(t)=\left.\begin{bmatrix}   \partial g_1/\partial u_1 & \dots & \partial g_1/
 **Questa approssimazione vale sempre a patto che le perturbazioni $\delta$ siano piccole**.
 ## Tempo discreto
 Anche il sistema a tempo discreto non lineare si può linearizzare:
+
 ![Pasted image 20231124142644.png](/img/user/img/Pasted%20image%2020231124142644.png)
 ## Linearizzazione nell'intorno dell'equilibrio
 Se il movimento nominale che scegliamo è un movimento costante, dato da un punto di equilibrio, succede che **le matrici Jacobiane non dipendono più dal tempo**: quindi diventano $A,B,C,D$ costanti ed è chiaro che il sistema linearizzato a questo punto sia **un sistema LTI**.
+
 ![Pasted image 20231124142838.png](/img/user/img/Pasted%20image%2020231124142838.png)
+
