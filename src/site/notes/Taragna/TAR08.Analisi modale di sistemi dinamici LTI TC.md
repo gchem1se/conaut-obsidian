@@ -11,6 +11,7 @@ consideriamo solo la parte $\dot{x}(t)=Ax$.
 $x(t)=x_l+x_f$ e dalla formula di Lagrange si vede che $x_l(t)=e^{At}x(0^-)$, quindi mi serve lo stato iniziale noto e mi serve anche la matrice esponenziale. 
 ### Matrice esponenziale
 La matrice esponenziale $e^{At}$, *ponendo che sia $A$ una matrice diagonale e con $n$ autovalori reali e distinti*, non è altro che una matrice diagonale a sua volta, con sulla diagonale principale $e^{\lambda_it}$, per ogni autovalore $\lambda_i$.
+
 ![Pasted image 20231120172740.png](/img/user/img/Pasted%20image%2020231120172740.png)
 ![Pasted image 20231120172756.png](/img/user/img/Pasted%20image%2020231120172756.png)
 
@@ -41,7 +42,10 @@ I blocchi corrispondenti agli autovalori di $A$ che sono reali e distinti e hann
 
 I modi naturali che ne escono sono quindi del tipo $e^{\lambda_i t}$
 
-Se $A$ ha solo autovalori di questo tipo, $e^{\tilde{A}t}$ esce così: ![Pasted image 20231122154407.png](/img/user/img/Pasted%20image%2020231122154407.png)
+Se $A$ ha solo autovalori di questo tipo, $e^{\tilde{A}t}$ esce così: 
+
+![Pasted image 20231122154407.png](/img/user/img/Pasted%20image%2020231122154407.png)
+
 Un modo naturale associato ad un autovalore reale di molteplicità unitaria è esattamente $=e^{\lambda_i t}$, quindi è ulteriormente definibile come:
 - **esponenzialmente convergente**: $\Re(\lambda)<0$ (es. $e^{-2t}$)
 - **limitato (costante)**: $\Re(\lambda)=0$ (es. $e^{0t}=\epsilon(t)$)
@@ -63,10 +67,13 @@ I modi naturali associati a questi autovalori sono, in numero, $\mu'\le\mu$ ($\m
 >[!Info]
 >**Calcolo di $\mu'$**
 >La molteplicità geometrica di un autovalore di una matrice $A$ è il numero di autovettori *linearmente indipendenti* associati all'autovalore.
->Se vuoi proprio farlo, devi fare il calcolo "quasi esplicito" degli autovalori; cioè imposti $$(\lambda I_n-A)\vec{v}=[0\quad0]^T$$ e vedi quanti vincoli ti si vengono a creare.
+>Se vuoi proprio farlo, devi fare il calcolo "quasi esplicito" degli autovalori; cioè imposti 
+>$$(\lambda I_n-A)\vec{v}=[0\quad0]^T$$
+> e vedi quanti vincoli ti si vengono a creare.
 >$$\mu'=\mu-d+1\ge\mu$$
->Esempio: ![Pasted image 20240418143144.png](/img/user/img/Pasted%20image%2020240418143144.png)
->Infatti $v_2=0$ è un vincolo e quindi $d=1$.
+>Esempio: 
+>![Pasted image 20240418143144.png](/img/user/img/Pasted%20image%2020240418143144.png)
+>>Infatti $v_2=0$ è un vincolo e quindi $d=1$.
 >
 >Il discorso è che tanto non ti serve davvero calcolare sta cosa, in quanto sia $t^5e^{\sigma}t$ che $t^{5456}e^{\sigma}t$ seguono l'andamento dell'esponenziale, che come direbbe Simone, è più forte.
  
@@ -90,7 +97,8 @@ Si possono classificare come:
 >
 >![Pasted image 20240418133017.png](/img/user/img/Pasted%20image%2020240418133017.png)
 ### Costanti di tempo dei modi naturali
-Per ogni autovalore **con parte reale negativa**, si definisce la **costante di tempo ad esso associata** come $$\tau=\left|\frac{1}{\Re(\lambda)}\right|$$
+Per ogni autovalore **con parte reale negativa**, si definisce la **costante di tempo ad esso associata** come 
+$$\tau=\left|\frac{1}{\Re(\lambda)}\right|$$
 Questa costante di tempo è **la costante di tempo del modo naturale associato** (convergente), cioè rappresenta una misura della rapidità con la quale $e^{\lambda_i t}$ scende a $0$. 
 >Esempio: il modo $e^{-2t}$ ha costante di tempo $0.5$ s, quindi converge a zero più rapidamente di $e^{-t}$, che ha costante di tempo $1$ s.
 
