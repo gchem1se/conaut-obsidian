@@ -47,7 +47,10 @@ Quando questa matrice ha *rango pari ad $n$*, il sistema è completamente raggiu
 >In pratica, significa che prendendo le righe (colonne) della matrice e trattandole come vettori separati, usandoli come una base, si può creare uno spazio vettoriale (combinando linearmente questi vettori) di dimensione pari al rango.
 >Rimuovendo dalla base un vettore non linearmente indipendente (quindi che si può creare come combinazione lineare degli altri), lo spazio vettoriale generato non cambia, in quanto quel vettore che ora è stato rimosse non è mai davvero stato necessario alla generazione.
 >
->Il rango di una matrice si può vedere "ad occhio" nel momento in cui è palese il rapporto che esiste tra le righe. Per esempio, in $$\left(\begin{matrix}1 & 2 & 7 \\ 2 & 4 & 9 \\ 3 & 6 & 19\end{matrix}\right)$$
+>Il rango di una matrice si può vedere "ad occhio" nel momento in cui è palese il rapporto che esiste tra le righe. Per esempio, in 
+>
+>$$\left(\begin{matrix}1 & 2 & 7 \\ 2 & 4 & 9 \\ 3 & 6 & 19\end{matrix}\right)$$
+>
 >Il rango è $2$, in quanto la prima e la terza colonna sono evidentemente linearmente indipendenti, mentre la colonna centrale è ricavabile moltiplicando la prima per $2$.
 >A volte però non è ben visibile questo rapporto, per cui il metodo più comune per il calcolo del rango prevede la riduzione della matrice (mediante mosse di Gauss).
 >
@@ -56,7 +59,8 @@ Quando questa matrice ha *rango pari ad $n$*, il sistema è completamente raggiu
 >Dato che la matrice $M_R$ ha di per sè $n$ righe, perchè si abbia rango $=n$ è necessario che si abbia rango massimo (che quindi tutte le sue righe / colonne siano linearmente indipendenti).
 >Una conseguenza della presenza di righe o colonne non linearmente indipendenti è che il determinante della matrice va a $0$. Quindi a noi basterà semplicemente verificare che la matrice non sia singolare.
 
-Nel caso invece di un sistema con più di un ingresso, la matrice di raggiungibilità si costruisce come $$M_R = [B\ AB\ \dots\ A^{n-b}B]$$
+Nel caso invece di un sistema con più di un ingresso, la matrice di raggiungibilità si costruisce come 
+$$M_R = [B\ AB\ \dots\ A^{n-b}B]$$
 dove $b$ è il rango di $B$ (che generalmente è più semplice calcolare, ma non si sa mai davvero). In effetti, il caso con un solo ingresso ha $b=1$.
 
 > [!MATLAB]
