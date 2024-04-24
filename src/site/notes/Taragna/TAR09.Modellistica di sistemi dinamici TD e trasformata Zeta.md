@@ -59,12 +59,15 @@ Le matrici quindi sono:
 ### Sistemi dinamici a dati campionati
 Un sistema dinamico a dati campionati tecnicamente è un sistema a TD, con quindi entrata discreta e uscita discreta.
 In realtà è costituito da un sistema a tempo continuo, con entrata e uscita continue, che però sono ricavate da convertitori D/A (detto *filtro di tenuta*) e A/D (detto *campionatore*).
+
 ![Pasted image 20231123151140.png](/img/user/img/Pasted%20image%2020231123151140.png)
 ![Pasted image 20231123151740.png](/img/user/img/Pasted%20image%2020231123151740.png)
+
 Sistema in cui si usa? ABS.
 #### Discretizzazione
 La discretizzazione di un sistema continuo corrisponde a studiare l'evoluzione degli stati, che sono variabili continue, ma solo agli istanti di campionamento. Quindi si parte dalle matrici $A,B,C,D$ e si arriva alle 4 matrici del sistema TD $A_d,B_d,C_d,D_d$ associato al sistema TC secondo la frequenza del campionatore.
 Ci sono formule che permettono di fare questo massaggio (bisogna usare la formula di Lagrange con specifici istanti):
+
 ![Pasted image 20231123152130.png](/img/user/img/Pasted%20image%2020231123152130.png)
 ![Pasted image 20231123152149.png](/img/user/img/Pasted%20image%2020231123152149.png)
 ## Trasformata Zeta
@@ -88,7 +91,9 @@ $$F(z)=\mathcal{Z}\{f(k)\}=\sum_{k=0}^{\infty}f(k)z^{-k},\ z\in\mathbb{C}$$
 Come risolvo sta cosa? Non ho delle $z$ al numeratore.
 Allora non mi conviene mai proseguire così:
 per non avere problemi, mi conviene partire con una funzione di trasferimento *pre-divisa per $z$*, successivamente fare la anti-trasformazione e solo dopo moltiplicare per $z$:
+
 ![Pasted image 20231123153926.png](/img/user/img/Pasted%20image%2020231123153926.png)![Pasted image 20231123153933.png](/img/user/img/Pasted%20image%2020231123153933.png)
 Nel caso delle coppie di radici complesse coniugate:
+
 ![Pasted image 20231123154050.png](/img/user/img/Pasted%20image%2020231123154050.png)
 
