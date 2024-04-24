@@ -99,12 +99,15 @@ con
 
 La FdT tuttavia se la scrivi per esteso è **improprio quindi irrealizzabile** => va aggiunto un **polo di chiusura** all'interno del blocco derivativo. Quindi la FdT reale di un controllore PID è:
 $$K_P\left(1+\frac{1}{T_Is}+\frac{T_Ds}{1+\frac{T_D}{N}s}\right)$$
+
 ![Pasted image 20240211212928.png](/img/user/img/Pasted%20image%2020240211212928.png)
 
 Solo che pure questa cosa presenta problemi: in particolare, la parte derivativa ha ora una Delta di Dirac come risposta al gradino.
 Per ovviare si può decidere di modificare lo schema in due modi:
-- applicare la rete derivativa solo sull'uscita e poi sommarla agli altri due contributi (gli zeri dalla catena chiusa diventano l'unione tra quelli del modello matematico del sistema fisico e lo zero della parte integrativa, mentre i poli restano invariati)![Pasted image 20240211213348.png](/img/user/img/Pasted%20image%2020240211213348.png)
-- per non far comparire lo zero della parte integrativa nella funzione di trasferimento della catena chiusa, si può spostare anche la parte proporzionale (i poli restano comunque invariati) ![Pasted image 20240211213343.png](/img/user/img/Pasted%20image%2020240211213343.png)
+- applicare la rete derivativa solo sull'uscita e poi sommarla agli altri due contributi (gli zeri dalla catena chiusa diventano l'unione tra quelli del modello matematico del sistema fisico e lo zero della parte integrativa, mentre i poli restano invariati)
+	- ![Pasted image 20240211213348.png](/img/user/img/Pasted%20image%2020240211213348.png)
+- per non far comparire lo zero della parte integrativa nella funzione di trasferimento della catena chiusa, si può spostare anche la parte proporzionale (i poli restano comunque invariati) 
+	- ![Pasted image 20240211213343.png](/img/user/img/Pasted%20image%2020240211213343.png)
 ### Metodi di taratura
 Taratura = scegliere i 3 parametri $K_P$, $K_D$, $K_I$.
 #### In anello chiuso - metodo di Ziegler-Nichols
