@@ -17,6 +17,7 @@ $$x(k)=A^kx(0)+\sum_{i=0}^{k-1}A^{k-i-1}Bu(i)=x_l(k)+x_f(k)$$
 In particolare la parte libera, quindi 
 $$x_l(k)=A^kx(0)$$
 Il calcolo di $A^k$ va fatto ed è immediato solo se $A$ è diagonale, perchè presenta i suoi autovalori sulla diagonale principale e basta elevarli tutti alla $k$.
+
 ![Pasted image 20231123165326.png](/img/user/img/Pasted%20image%2020231123165326.png)
 
 In tutti gli altri casi, ed esattamente come nel caso del TC, ci si deve ricondurre ad una matrice più semplice, *in forma di Jordan* (diagonale, o diagonale a blocchi), tramite un'operazione di cambio di base / prodotto di similarità che non altera gli autovalori ma semplifica la matrice elevata a potenza.
@@ -27,6 +28,7 @@ I *blocchi di Jordan* sono sottomatrici quadrate associate ognuna ad uno specifi
 La forma dipende dagli autovalori di $A$.
 #### Blocchi corrispondenti ad autovalori reali con molteplicità unitaria
 Come nel caso TC: l'intera matrice $\tilde{A}$ sarà una diagonale con gli autovalori sulla diagonale principale, quindi
+
 ![Pasted image 20231123171718.png](/img/user/img/Pasted%20image%2020231123171718.png)
 
 e i modi naturali che ne deriveranno saranno del tipo $\lambda_i^k$.
@@ -43,6 +45,7 @@ Essi potranno essere classificati ulteriormente come
 I blocchi di Jordan corrispondenti a questi, considerando che questi possono scriversi come $$\lambda_{1,2}=\sigma\pm j\omega=\upsilon e^{\pm j\theta}$$
 **(in effetti, in questo caso bisogna scrivere gli autovalori in forma modulo e fase invece che in forma algebrica)**
 sono della forma:
+
 ![Pasted image 20231123173122.png](/img/user/img/Pasted%20image%2020231123173122.png)
 
 danno origine allora a modi naturali *oscillanti* del tipo $$\upsilon^k\cos(\theta k),\ \upsilon^k\sin(\theta k)$$ 
@@ -52,9 +55,11 @@ Questi modi si possono classificare come:
 - **geometricamente divergenti (oscillanti)**: $\upsilon>1$ 
 #### Blocchi corrispondenti ad autovalori reali con molteplicità multipla
 I blocchi collegati ad autovalori reali con molteplicità algebrica $> 1$ sono matrici diagonali a blocchi, i quali blocchi contengono sottomatrici triangolari del tipo:
+
 ![Pasted image 20231123174354.png](/img/user/img/Pasted%20image%2020231123174354.png)
 
-Danno origine a $\mu'<\mu$  ($\mu'$ molteplicità geometrica) modi naturali contenenti termini del tipo $$k^{\mu'-1}\lambda^k,...\,,k\lambda^k,\lambda^k$$
+Danno origine a $\mu'<\mu$  ($\mu'$ molteplicità geometrica) modi naturali contenenti termini del tipo 
+$$k^{\mu'-1}\lambda^k,...\,,k\lambda^k,\lambda^k$$
 i quali sono classificabili come:
 - **geometricamente convergenti**: $|\lambda|<1$
 - **polinomialmente divergenti**: $|\lambda|=1$
@@ -63,7 +68,8 @@ i quali sono classificabili come:
 I blocchi hanno forma analoga al caso reale.
 
 I modi naturali (in numero $\mu'<\mu$) che vengono generati sono del tipo:
-$$k^{\mu'-1}\upsilon^k\cos(\theta k),...,k\upsilon^k\cos(\theta k),\upsilon^k\cos(\theta k)$$$$k^{\mu'-1}\upsilon^k\sin(\theta k),...,k\upsilon^k\sin(\theta k),\upsilon^k\sin(\theta k)$$
+$$k^{\mu'-1}\upsilon^k\cos(\theta k),...,k\upsilon^k\cos(\theta k),\upsilon^k\cos(\theta k)$$
+$$k^{\mu'-1}\upsilon^k\sin(\theta k),...,k\upsilon^k\sin(\theta k),\upsilon^k\sin(\theta k)$$
 Gli inviluppi sono i termini $k^{\mu'-...}\upsilon^k$. I termini sono sicuramente oscillanti.
 
 I modi naturali si possono classificare come:
