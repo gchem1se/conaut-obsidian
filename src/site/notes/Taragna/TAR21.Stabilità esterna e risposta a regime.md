@@ -2,7 +2,8 @@
 {"dg-publish":true,"permalink":"/taragna/tar-21-stabilita-esterna-e-risposta-a-regime/"}
 ---
 
-Un sistema dinamico, a dimensione finita (numero finito di variabili di stato), LTI, inizialmente a riposo (quindi che abbia risposta libera $= 0$, o meglio $$y(t)=\mathcal{L}^{-1}\{H(s)U(s)\}$$), è detto **BIBO-stabile** (*bounded input - bounded output*) o **esternamente stabile** se la sua risposta forzata a ingressi limitati è sempre limitata.
+Un sistema dinamico, a dimensione finita (numero finito di variabili di stato), LTI, inizialmente a riposo (quindi che abbia risposta libera $= 0$, o meglio 
+$$y(t)=\mathcal{L}^{-1}\{H(s)U(s)\}$$), è detto **BIBO-stabile** (*bounded input - bounded output*) o **esternamente stabile** se la sua risposta forzata a ingressi limitati è sempre limitata.
 Per noi, le condizioni sono:
 - sistema con tutte le cancellazioni zero-polo fatte è un *sistema in forma minima*
 - un sistema è BIBO-stabile se tutti i poli della funzione di trasferimento hanno parte reale strettamente negativa (nel caso TC) oppure modulo strettamente minore di 1 (nel caso TD)
