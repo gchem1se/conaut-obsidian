@@ -16,11 +16,17 @@ Noi tratteremo nel corso:
 - **Identificazione** (che cagheremo di meno nel corso): noti $u(\text{...})$ e $y(\text{...})$, determinare $S$ (praticamente reverse engineering della black box).
 ## Classificazione dei sistemi
 - Sistema **statico**
-	Il legame tra ingresso e uscita è *statico, algebrico, istantaneo* - il valore dell'uscita dipende esattamente dal valore degli ingressi. $$y(t) = g(u(t))$$Nessun sistema reale si comporta così, ma è un'approssimazione (es. resistore ideale che si comporta secondo la legge di Ohm, che è un modello matematico semplificato del sistema resistore reale - ad alte frequenze, i resistori reali presentano effetti induttivi).
+	Il legame tra ingresso e uscita è *statico, algebrico, istantaneo* - il valore dell'uscita dipende esattamente dal valore degli ingressi. 
+	$$y(t) = g(u(t))$$
+	Nessun sistema reale si comporta così, ma è un'approssimazione (es. resistore ideale che si comporta secondo la legge di Ohm, che è un modello matematico semplificato del sistema resistore reale - ad alte frequenze, i resistori reali presentano effetti induttivi).
 
 - Sistema **dinamico** (oggetto del controllo automatico)
-	Il legame tra ingresso e uscita non dipende solo dall'ingresso nello stesso istante, ma anche dalla storia precedente del sistema (dallo **stato**). $$y(t) = g(u(]-\infty, t]))$$Es. condensatore reale.
-	Per riassumere la storia passata del sistema si introduce una variabile (detta *di stato*) che condensa la *memoria* del passato:	$$y(t) = g(x(\tau), u(]\tau, t])),\ \ \ \ \ \ \forall \ t > \tau$$Nel caso del condensatore reale, il modello prevede:
+	Il legame tra ingresso e uscita non dipende solo dall'ingresso nello stesso istante, ma anche dalla storia precedente del sistema (dallo **stato**). 
+	$$y(t) = g(u(]-\infty, t]))$$
+	Es. condensatore reale.
+	Per riassumere la storia passata del sistema si introduce una variabile (detta *di stato*) che condensa la *memoria* del passato:
+	$$y(t) = g(x(\tau), u(]\tau, t])),\ \ \ \ \ \ \forall \ t > \tau$$
+	Nel caso del condensatore reale, il modello prevede:
 	- ingresso:
 		- $$u(t)=i_C(t)=C\frac{dV(t)}{dt}$$
 	- uscita:
@@ -28,10 +34,13 @@ Noi tratteremo nel corso:
 	- variabile di stato:
 		- $$x(\tau)=v_C(\tau)=\frac{1}{C}\int_{-\infty}^\tau i_C(\sigma)d\sigma$$
 		- da cui:
-			- $$y(t)=\frac{1}{C}\int_{-\infty}^t i_C(\sigma)d\sigma=$$$$=\frac{1}{C}\int_{-\infty}^\tau i_C(\sigma)d\sigma+\frac{1}{C}\int_\tau^t i_C(\sigma)d\sigma=$$$$=x(\tau)+\frac{1}{C}\int_{-\tau}^t i_C(\sigma)d\sigma$$
+			- $$y(t)=\frac{1}{C}\int_{-\infty}^t i_C(\sigma)d\sigma=$$
+			- $$=\frac{1}{C}\int_{-\infty}^\tau i_C(\sigma)d\sigma+\frac{1}{C}\int_\tau^t i_C(\sigma)d\sigma=$$
+			- $$=x(\tau)+\frac{1}{C}\int_{-\tau}^t i_C(\sigma)d\sigma$$
 	Ma perchè la variabile di stato è proprio quella? Perchè la variabile di stato è quella che diventa una condizione al contorno per la risoluzione della equazione differenziale, la quale condizione è sempre imposta sulla variabile che viene derivata. Infatti nel caso dell'induttore la variabile di stato è la corrente che vi ci passa.
 ## Definizione assiomatica di un sistema 
-Il sistema dinamico è un ente definito da 6 insiemi: $$S(T,U,\Omega,X,Y,\Gamma,\phi,\eta)$$
+Il sistema dinamico è un ente definito da 6 insiemi: 
+$$S(T,U,\Omega,X,Y,\Gamma,\phi,\eta)$$
 - $T$: insieme ordinato dei tempi
 - $U$: insieme dei valori assumibili dall'ingresso $u$
 - $\Omega$: insieme delle funzioni di ingresso $\{u(\text{...}): T \rightarrow U\}$ (insieme dei modi in cui variano)
@@ -80,15 +89,15 @@ Facendo le stesse semplificazioni di prima:
 	- $y(k)=g(k, x(k), u(k))=C(k)x(k)+D(k)u(k)$
 - Lineare, tempo-invariante: sparisce la dipendenza da $k$.
 ### Riassunto: classificazione sistema
-| classificazione                                                                  | si vede da                                                                     |     |
-| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | --- |
-| statico/dinamico                                                                 | statico se $y$ dipende solo da $u$ (non esiste dipendenza tra uscita e stato)  |     |
-| tempo discreto/continuo                                                          | discreto se ci sono equazioni alle differenze, altrimenti ci sono eq. diff.    |     |
-| SISO/MIMO                                                                        | se ingressi=uscite=1, allora SISO; else: MIMO                                  |     |
-| dimensione del sistema                                                           | = numero equazioni di stato, se $n$ finito -> sistema a dimensione finita      |     |
-| lineare/non lineare                                                              | lineare se **tutte** le equazioni sono combinazioni lineari di $x$ e $u$       |     |
-| tempo invariante/tempo variante                                                  | tempo invariante se **nessuna** equazione dipende dal tempo **esplicitamente** |     |
-| proprio/improprio (anche: fisicamente realizzabile/non fisicamente realizzabile) | proprio se $y$ non dipende esplicitamente (e quindi istantaneamente) da $u$.   |     |
+| classificazione                                                                  | si vede da                                                                     |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| statico/dinamico                                                                 | statico se $y$ dipende solo da $u$ (non esiste dipendenza tra uscita e stato)  |
+| tempo discreto/continuo                                                          | discreto se ci sono equazioni alle differenze, altrimenti ci sono eq. diff.    |
+| SISO/MIMO                                                                        | se ingressi=uscite=1, allora SISO; else: MIMO                                  |
+| dimensione del sistema                                                           | = numero equazioni di stato, se $n$ finito -> sistema a dimensione finita      |
+| lineare/non lineare                                                              | lineare se **tutte** le equazioni sono combinazioni lineari di $x$ e $u$       |
+| tempo invariante/tempo variante                                                  | tempo invariante se **nessuna** equazione dipende dal tempo **esplicitamente** |
+| proprio/improprio (anche: fisicamente realizzabile/non fisicamente realizzabile) | proprio se $y$ non dipende esplicitamente (e quindi istantaneamente) da $u$.   |
 **Esercizio su quaderno pag 3**
 
 
