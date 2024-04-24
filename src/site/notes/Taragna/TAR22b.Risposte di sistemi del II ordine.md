@@ -8,9 +8,13 @@ Innanzitutto quando parliamo di sistemi del secondo ordine quello di cui parliam
 - Nei sistemi di II ordine, dato che ci possono essere due poli, questi possono anche essere complessi coniugati, cosa che non succedeva nel caso di sistemi del I ordine.
 - Inoltre, la risposta all'impulso per sistemi del II ordine la ignoreremo: si parlerà **solo di risposta al gradino**.
 
-Qui abbiamo sempre $$u(t)=\overline{u}\epsilon(t)$$quindi anche $$U(s)=\frac{\overline{u}}{s}$$ e $$Y(s)=H(s)U(s)=H(s)\frac{\overline{u}}{s}$$(perchè si, stiamo ancora considerando il caso in cui il sistema parte a riposo, quindi abbiamo solo una risposta forzata).
+Qui abbiamo sempre 
+$$u(t)=\overline{u}\epsilon(t)$$quindi anche 
+$$U(s)=\frac{\overline{u}}{s}$$ e 
+$$Y(s)=H(s)U(s)=H(s)\frac{\overline{u}}{s}$$(perchè si, stiamo ancora considerando il caso in cui il sistema parte a riposo, quindi abbiamo solo una risposta forzata).
 ### Due poli reali e distinti
-Abbiamo $$H(s)=\frac{K^\star}{(s-p_1)(s-p_2)}$$
+Abbiamo 
+$$H(s)=\frac{K^\star}{(s-p_1)(s-p_2)}$$
 con $p_1\ne p_2$ ed entrambi $\ne0$.
 Allora:
 $$Y(s)=\frac{K^\star\overline{u}}{s(s-p_1)(s-p_2)}$$
@@ -26,6 +30,7 @@ $$\tau_{eq}\approx\tau_1+\tau_2$$
 (Questa approssimazione è tanto migliore più sono distanti tra loro i poli del sistema).
 Se poi uno vuole, può effettivamente graficare o comunque studiare meglio questa funzione $y(t)$ per capirne l'andamento oltre che ai punti iniziale e finale, che sono di per sè simili al caso del sistema di I ordine.
 Si ottiene anche un grafico molto simile alla convergenza esponenziale della risposta al gradino di un sistema di I ordine, tuttavia c'è una sostanziale differenza: in $t=0$ il segnale **parte con una tangente orizzontale**, quindi ha un punto di flesso.
+
 ![Pasted image 20231128111846.png](/img/user/img/Pasted%20image%2020231128111846.png)
 ![Pasted image 20231128111836.png](/img/user/img/Pasted%20image%2020231128111836.png)
 
@@ -34,18 +39,22 @@ In effetti, la risposta che questo sistema ci da è veramente tanto simile alla 
 ![Pasted image 20231128112452.png](/img/user/img/Pasted%20image%2020231128112452.png)
 
 ### Due poli reali e distinti e uno zero reale
-Se la FdT ha forma $$H(s)=\frac{K^\star(s-z)}{(s-p_1)(s-p_2)}$$
+Se la FdT ha forma 
+$$H(s)=\frac{K^\star(s-z)}{(s-p_1)(s-p_2)}$$
 con $p_1,\ p_2,\ z$ distinti e non nulli, allora
 $$Y(s)=H(s)U(s)=\frac{K^\star(s-z)\overline{u}}{s(s-p_1)(s-p_2)}$$
 che antitrasformando diventa 
 $$y(t)=\frac{K^\star z\overline{u}}{p_1p_2}\left[1-\frac{(p_1-z)p_2}{z(p_1-p_2)}e^{p_1t}+\frac{(p_2-z)p_1}{z(p_1-p_2)}e^{p_2t}\right]$$
 **Se non ci sono sotto o sovra elongazione, vedi sotto,** ha sempre un grafico dello stesso tipo di prima, una specie di esponenziale convergente ma che schiribissa alla partenza
+
 ![Pasted image 20231128115845.png](/img/user/img/Pasted%20image%2020231128115845.png)
 
 Variando $z$ notiamo che la risposta del sistema è sempre più "veloce" (raggiunge prima il valore $0.63y_\infty$) quanto più $z$ è vicino allo $0$.
+
 ![Pasted image 20231128115954.png](/img/user/img/Pasted%20image%2020231128115954.png)
 
-In effetti, possiamo approssimare la costante di tempo immaginando anche una costante di tempo associata allo zero e scrivendo: $$\tau_{eq}=\left(\sum_i \left|\frac{1}{p_i}\right|\right)-\left|\frac{1}{z}\right|$$
+In effetti, possiamo approssimare la costante di tempo immaginando anche una costante di tempo associata allo zero e scrivendo: 
+$$\tau_{eq}=\left(\sum_i \left|\frac{1}{p_i}\right|\right)-\left|\frac{1}{z}\right|$$
 **La costante di tempo non ha senso se ci sono elongazioni, se ho capito bene.**
 Notiamo però che a seconda della posizione dello zero $z$ rispetto ai poli e a $0$ possono verificarsi i fenomeni di:
 - **un cazzo di niente** se lo zero si trova a sinistra del polo a modulo minore (e puoi calcolare la costante di tempo equivalente di un sistema di primo grado molto simile) - al più, più lo zero vicino è in modulo allo $0$ più la risposta è veloce
@@ -61,14 +70,17 @@ con
 - $K$ guadagno,
 - $\omega_n$ pulsazione naturale (della coppia di complessi coniugati),
 - $0<\zeta<1$ smorzamento (della coppia di complessi coniugati)
-![Pasted image 20230426154439.png](/img/user/img/Pasted%20image%2020230426154439.png)
+- ![Pasted image 20230426154439.png](/img/user/img/Pasted%20image%2020230426154439.png)
 
 Definiamo allora una **costante di tempo** come $\tau=1/\zeta\omega_n$.
 
 La risposta la calcoliamo dall'antitrasformata di $Y(s)=H(s)U(s)$ come prima, e a sto giro faccio copia e incolla prima di uccidermi:
+
 ![Pasted image 20231201112717.png](/img/user/img/Pasted%20image%2020231201112717.png)
 
-Cioè abbiamo $$\text{costante}\cdot(1-\text{inviluppo esponenziale decrescente (poli a parte reale strettamente negativa)}\cdot\text{termine oscillante)}$$
+Cioè abbiamo 
+$$\text{costante}\cdot(1-\text{inv. esp. dec. (poli con parte reale < 0)}\cdot\text{termine oscillante)}$$
+
 ![Pasted image 20231201113240.png](/img/user/img/Pasted%20image%2020231201113240.png)
 
 Presenta **sia sovra-elongazione sia sottoelongazione**, inoltre dopo questi due picchi continua ad oscillare, fermandosi dopo poco dato l'inviluppo esponenziale. La risposta quindi non è assolutamente monotona.
@@ -84,15 +96,18 @@ I parametri tipici sono:
 	- ![Pasted image 20231201114713.png](/img/user/img/Pasted%20image%2020231201114713.png)
 - tempo di assestamento al $5\%$ - tempo perchè la risposta differisca dal valore finale di non più del $5\%$. (sarebbe il rise time da $0\%$ al $95\%$).
 Ci sono anche formule che ti permettono di calcolare alcuni di questi parametri senza plottare, per cui la sovraelongazione massima dipende unicamente dallo smorzamento, mentre tempo di picco sia da smorzamento che da pulsazione naturale (valgono solo nel caso di questi valori complessi coniugati, non nel caso di secondo ordine quelli di prima coi poli reali):
+
 ![Pasted image 20231201114114.png](/img/user/img/Pasted%20image%2020231201114114.png)
 ![Pasted image 20231201114627.png](/img/user/img/Pasted%20image%2020231201114627.png)
 ![Pasted image 20231201114829.png](/img/user/img/Pasted%20image%2020231201114829.png)
 ![Pasted image 20231201114917.png](/img/user/img/Pasted%20image%2020231201114917.png)
 
 Vediamo che al variare del solo smorzamento abbiamo questo tipo di effetto sulla risposta (più oscillazioni):
+
 ![Pasted image 20231201115054.png](/img/user/img/Pasted%20image%2020231201115054.png)
 
 Al variare della sola pulsazione naturale, invece, le elongazioni restano uguali ma si velocizza la risposta:
+
 ![Pasted image 20231201115133.png](/img/user/img/Pasted%20image%2020231201115133.png)
 
 #### Caso $\zeta=1$
