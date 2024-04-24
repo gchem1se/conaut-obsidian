@@ -21,10 +21,13 @@ jobs:
         path: dist
         name: my-art
   deploy:
+      permissions:
+       contents: 'read'
+       id-token: 'write'
       needs: create_pages_artifact
       runs-on: ubuntu-latest
       steps:
-          - name: Deploy GitHub Pages site
-            uses: actions/deploy-pages@v4.0.5
-            with:
-              artifact_name: my-art
+      - name: Deploy GitHub Pages site
+        uses: actions/deploy-pages@v4.0.5
+        with:
+          artifact_name: my-art
