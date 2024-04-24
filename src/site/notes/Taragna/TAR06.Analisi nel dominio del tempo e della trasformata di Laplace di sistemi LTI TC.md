@@ -3,7 +3,9 @@
 ---
 
 ## Soluzione nel dominio del tempo
-Il comportamento dinamico di un sistema LTI TC a dimensione finita è descritto dalle equazioni di ingresso-stato-uscita $$\dot{x}(t) = Ax(t)+Bu(t)$$$$y(t) = Cx(t)+Du(t)$$
+Il comportamento dinamico di un sistema LTI TC a dimensione finita è descritto dalle equazioni di ingresso-stato-uscita 
+$$\dot{x}(t) = Ax(t)+Bu(t)$$
+$$y(t) = Cx(t)+Du(t)$$
 dove:
 - $x$ è il vettore colonna delle variabili di stato e ha $n$ righe
 - $u$ è il vettore colonna degli ingressi e ha $p$ righe
@@ -14,8 +16,11 @@ di conseguenza:
 - $C$ è una matrice rettangolare $q\times n$
 - $D$ è una matrice rettangolare $q\times p$
 A partire da uno stato iniziale $x(t=0_-)$ noto e conoscendo le matrici $A$ e $B$, e $u(t)$ si dovrà quindi, per conoscere l'evoluzione del sistema nel tempo, risolvere la prima equazione differenziale in modo da trovare $x(t)$ (il *movimento* dello stato). Una volta trovato quello dalla prima equazione (che serve solo a quello) si può sostituire nell'equazione delle uscite e ottenere un'associazione input-output.
-L'espressione di $x(t)$ si calcola con la **formula di Lagrange** (che è un casino inutile da scrivere e non si usa negli esercizi) - l'importante è che la soluzione dipende da due parti:![Pasted image 20230426105530.png](/img/user/img/Pasted%20image%2020230426105530.png)
-- il primo contributo dipende solo dallo stato iniziale $x(0_-)$, ovvero dall'equazione omogenea associata all'equazione differenziale $$\dot{x}(t)=Ax(t)$$Questo contributo è detto *movimento libero* dello stato.
+L'espressione di $x(t)$ si calcola con la **formula di Lagrange** (che è un casino inutile da scrivere e non si usa negli esercizi) - l'importante è che la soluzione dipende da due parti:
+![Pasted image 20230426105530.png](/img/user/img/Pasted%20image%2020230426105530.png)
+- il primo contributo dipende solo dallo stato iniziale $x(0_-)$, ovvero dall'equazione omogenea associata all'equazione differenziale 
+	- $$\dot{x}(t)=Ax(t)$$
+- Questo contributo è detto *movimento libero* dello stato.
 - il secondo contributo (*movimento forzato* dello stato) è invece un prodotto di convoluzione che dipende dall'ingresso e non dallo stato iniziale.
 L'andamento di $y(t)$, detto *movimento dell'uscita*, si ottiene dalla sua relazione statica sostituendo per $x(t)$ l'espressione data dalla formula di Lagrange. Anche l'uscita, quindi, è la somma di una *risposta libera* e di una *risposta forzata*.
 Il problema principale di questo calcolo è la matrice esponenziale $e^{At}$, che è una matrice con le stesse dimensioni della matrice $A$, ma è una *matrice di funzioni nel tempo* che non abbiamo davvero voglia di fare, perciò cercheremo vie alternative. E poi c'è un bruttissimo prodotto di convoluzione a destra.
@@ -29,7 +34,8 @@ $$F(s)=\mathcal{L}\{f(t)\}=\int_{0_-}^{+\infty}{f(t)e^{-st}dt}$$
 - $\mathcal{L}\{\int_{0_-}^t{f}(\tau)d\tau\}=\frac{F(s)}{s}$ (sembra quasi il reciproco della trasormata della derivata, ma nessuna dipendenza da $f(0_-)$)
 - $\mathcal{L}\{f(t-\tau)\}=F(s)e^{-\tau s},\ e^{-s\tau}\in\mathbb{C}$
 - $\mathcal{L}\{f_1(t)* f_2(t)\}=F_1(s)F_2(s)$
-- tabella delle trasformate utili:	![Tabella delle trasformate utili](/img/user/img/laplace_trasformate_utili.png)
+- tabella delle trasformate utili:	
+	- ![Tabella delle trasformate utili](/img/user/img/laplace_trasformate_utili.png)
 Esempio: 
 	segnale a rampa unitaria: integrale nel tempo del segnale $\epsilon(t)$. La sua trasformata di Laplace è quindi $\frac{1}{s}$ per la trasformata del gradino. (quindi $\frac{1}{s^2}$).
 
@@ -41,7 +47,8 @@ In $e^{at}$, $a$ può essere $\in \mathbb{C}$.
 
 *La trasformata della matrice esponenziale* è una matrice quadrata di espressione $(sI_n-A)^{-1}$, con $I_n$ la matrice identità di dimensioni $n\times n$.
 ### Soluzione nel dominio della frequenza
-- Si applica la trasformata di Laplace alle equazioni dello stato nel dominio del tempo $$\mathcal{L}[\dot{x}(t)]=\mathcal{L}[Ax(t)+Bu(t)]$$
+- Si applica la trasformata di Laplace alle equazioni dello stato nel dominio del tempo 
+	- $$\mathcal{L}[\dot{x}(t)]=\mathcal{L}[Ax(t)+Bu(t)]$$
 - Lavorandoci si ottengono la trasformata di Laplace dei movimenti dello stato e di uscita (porto a primo membro tutti i termini che dipendono da $X(s)$, ricordando che il prodotto matriciale non è commutativo - se trovi una somma tra scalare e matrice, moltiplica per $I_n$ lo scalare). Poi puoi dividere per una matrice (ovvero moltiplicare per l'inversa, *se esiste*).
 	- L'inversa esiste se il determinante $\ne 0$
 	- Il determinante di $(sI_n-A)$ è un polinomio in $s$ di grado $n$ a coefficienti reali 
@@ -54,7 +61,8 @@ Dalle proprietà di linearità e di derivazione nel tempo della TdL:
 $$AX(s)+BU(s)=sX(s)-x(0^-)$$
 $$BU(s)+x(0^-)=sX(s)-AX(s)$$
 $$BU(s)+x(0^-)=(sI-A)X(s)$$
-$$(sI-A)^{-1}BU(s)+(sI-A)^{-1}x(0^-)=(sI-A)^{-1}(sI-A)X(s)$$
+$$(sI-A)^{-1}BU(s)+(sI-A)^{-1}x(0^-)=$$
+$$=(sI-A)^{-1}(sI-A)X(s)$$
 Da cui
 $$X(s)=(sI-A)^{-1}x(0^-)+(sI-A)^{-1}BU(s)=$$
 $$=X_l(s)+X_f(s)$$
@@ -62,11 +70,14 @@ Facendo la trasformata di Laplace di ambo i membri dell'equazione dell'uscita $y
 $$y(t)=Cx(t)+Du(t)$$
 $$Y(s)=CX(s)+DU(s)$$
 $$Y(s)=C[(sI_n-A)^{-1}x_{0_-}+(sI_n-A)^{-1}BU(s)]+DU(s)$$
-$$Y(s)=C(sI_n-A)^{-1}x_{0_-}+[C(sI_n-A)^{-1}B+D]U(s)$$$$Y(s)=C[(sI_n-A)^{-1}x_{0_-}+(sI_n-A)^{-1}BU(s)]+DU(s)$$
+$$Y(s)=C(sI_n-A)^{-1}x_{0_-}+[C(sI_n-A)^{-1}B+D]U(s)$$
+$$Y(s)=C[(sI_n-A)^{-1}x_{0_-}+(sI_n-A)^{-1}BU(s)]+DU(s)$$
 $$Y(s)=H_0x_{0_-}+H(s)U(s)$$
 Con $H(s)$ che è la matrice di trasferimento del sistema. Questa funzione può, da sola, rappresentare l'intero sistema, a patto che si parta da $x_{0_-}=0$, ovvero che nell'istante iniziale il sistema si possa considerare "a riposo".
 Questa funzione è, in generale, una matrice complessa rettangolare $p\times q$, i cui elementi sono rapporti di polinomi (= *funzioni razionali fratte*) nella variabile complessa $s$.
+
 ![Pasted image 20230426150304.png](/img/user/img/Pasted%20image%2020230426150304.png)
+
 Dunque ogni elemento della matrice di trasferimento è *un peso*, il peso con cui un certo ingresso influenza una certa uscita. 
 Dalla sommatoria si vede come una funzione di trasferimento possa essere il rapporto tra l'uscita (una particolare uscita) e un particolare ingresso solo a patto che tutti gli altri ingressi siano spenti (=> nei sistemi dinamici LTI TC vale quindi il *principio di sovrapposizione*).
 ### Rappresentazioni della matrice di trasferimento
@@ -85,7 +96,9 @@ Il termine $K_\infty$ è un guadagno, detto *guadagno infinito* e si calcola com
 Consideriamo il polinomio $p=s^2+a_1s+a_0$. Esso ha due radici complesse coniugate che scriviamo come $\sigma_0+j\omega_0$ e $\sigma_0-j\omega_0$. (qui si considera $\sigma_0$ negativo).
 Una scrittura del tipo $p=(s-\sigma_0-j\omega_0)(s+\sigma_0+j\omega_0)$ sarebbe quindi corretta, ma sconveniente perchè compare l'unità immaginaria.
 Definendo invece *pulsazione naturale* $\omega_n$ e *smorzamento* $\zeta$ della coppia di radici, dove la pulsazione naturale è la distanza tra lo $0$ e la radice nel piano complesso ($\sqrt{\sigma_0^2+\omega_0^2}$) e lo smorzamento è il seno dell'angolo $\theta$ compreso tra l'asse immaginario e la retta congiungente lo $0$ con la radice.
+
 ![Pasted image 20230426154439.png](/img/user/img/Pasted%20image%2020230426154439.png)
+
 Per cui esistono le formule:
 - $\sigma_0=-\zeta\omega_n$
 - $\omega_0=\omega_n\sqrt{1-\zeta^2}$
