@@ -23,12 +23,14 @@ Dati:
 Ricordando la definizione di continuità di una funzione (a valore reale e di variabile reale $x$) nell'intorno di un punto $x_0$: la funzione $f(x)$ è detta continua nell'intorno di $x_0$ se, per ogni $\epsilon > 0$, esiste un $\gamma > 0$ tale che:
 $$\forall x\in \mathbb{R}: |x-x_0| < \gamma({\epsilon})\implies |f(x)-f(x_0)|\le\epsilon$$
 ovvero vale il limite: $\lim_{x\rightarrow x_0}f(x)=f(x_0)$.
-In modo analogo Lyapunov definì la stabilità del movimento in questo modo:$$\forall t\in [0, +\infty): ||x_0-\tilde{x_0}|| \le \gamma\implies |x(t)-\tilde{x}(t)|\le\epsilon$$
+In modo analogo Lyapunov definì la stabilità del movimento in questo modo:
+$$\forall t\in [0, +\infty): ||x_0-\tilde{x_0}|| \le \gamma\implies |x(t)-\tilde{x}(t)|\le\epsilon$$
 Nell'immagine vedi uno che si può definire *semplicemente stabile*, comunque essendo stabile rispetta la proprietà di cui sopra:
 
 ![](/img/user/img/sreal.png)
 
-Un movimento *asintoticamente stabile*, oltre a soddisfare questa proprietà, soddisfa anche $$\lim_{t\rightarrow +\infty} ||x(t)-\tilde{x}(t)||=0 $$ (cioè si muove ma alla fine converge nello stesso punto come se non ci fosse stata nessuna perturbazione)
+Un movimento *asintoticamente stabile*, oltre a soddisfare questa proprietà, soddisfa anche 
+$$\lim_{t\rightarrow +\infty} ||x(t)-\tilde{x}(t)||=0 $$ (cioè si muove ma alla fine converge nello stesso punto come se non ci fosse stata nessuna perturbazione)
 
 ![](/img/user/img/graficamente_stab1.png)
 
