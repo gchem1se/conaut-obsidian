@@ -12,9 +12,13 @@
 	- $v$ sono le derivate delle posizioni relative delle estremità dello smorzatore, ovvero le loro velocità relative
 ### Equazioni del moto per sistemi in traslazione
 - Si introducono assi di riferimento concordi fra loro per indicare le posizioni di ogni corpo in traslazione;
-- Per ogni massa $M_i$ con posizione $p_i$ e velocità $v_i=\dot{p}_i$, vale la seconda legge di Newton scritta come: $$M_ia_i=M_i\ddot{p}_i(t)=\sum{F_k^{\text{est}}(t)}-\sum{F_k^{\text{int}}(t)}$$con le forza interne $F$ che tengono conto dell'interazione tra l'elemento $M_i$ considerato e gli altri corpi $M_j$ tramite: 
-	- Molle ideali $$K_{ij}[p_i(t)-p_j(t)]$$
-	- Smorzatori ideali $$\beta_{ij}[\dot{p}_i(t)-\dot{p}_j(t)]$$
+- Per ogni massa $M_i$ con posizione $p_i$ e velocità $v_i=\dot{p}_i$, vale la seconda legge di Newton scritta come: 
+	- $$M_ia_i=M_i\ddot{p}_i(t)=\sum{F_k^{\text{est}}(t)}-\sum{F_k^{\text{int}}(t)}$$
+- con le forza interne $F$ che tengono conto dell'interazione tra l'elemento $M_i$ considerato e gli altri corpi $M_j$ tramite: 
+	- Molle ideali 
+		- $$K_{ij}[p_i(t)-p_j(t)]$$
+	- Smorzatori ideali 
+		- $$\beta_{ij}[\dot{p}_i(t)-\dot{p}_j(t)]$$
 - Quindi sempre "la $p$ (o $v$) del corpo che sto considerando in questo momento $-$ l'altra".
 ### Rappresentazione in variabili di stato
 - Si scrivono le equazioni del moto per ogni corpo puntiforme di massa $M_i$ (eventualmente nulla) in traslazione, avente posizione $p_i$ e velocità $v_i=\dot{p}_i$ 
@@ -23,10 +27,10 @@
 - Si ricavano le equazioni di stato, che sono sempre nella forma di equazioni differenziali ordinarie del primo ordine.
 	- sono in una forma tale che le prime due equazioni di stato sono semplicemente $\dot{x}_1=x_3$ e $\dot{x}_2=x_4$
 - Si scrivono le equazioni di uscita (che sono istantanee, come al solito)
-**Esercizio su quaderno (che non ho portato, diocane e cancro)** Slide 38.
+**Esercizio su quaderno** Slide 38.
 PS: per catturare l'effetto dell'attrito viscoso si può considerare di mettere in parallelo ad eventuali smorzatori / molle già presenti un ulteriore smorzatore e / o considerare uno smorzatore *equivalente* avente come $\beta$ la somma dei vari $\beta$ degli smorzatori.
 Nel caso si volessero considerare effetti come quello dell'attrito radente o dello smorzamento coulombiano, si può aggiungere uno smorzatore *con un $\beta$ opportuno* (non costante).
-**Esercizio su quaderno su levitatore magnetico (che non ho portato, diocane e cancro)**
+**Esercizio su quaderno su levitatore magnetico**
 **Esercizio su quaderno con punto materiale a massa nulla (slide 94)** - si vede che non va bene prendere $\dot{p}_A$ come variabile di stato, perchè si scopre non essere linearmente indipendente dalle altre variabili di stato (in particolare, $\dot{p}_A$ dipende da $\dot{p}$ e $p_A$). In tal caso la si butta e si considera una variabile di stato in meno. 
 *I punti materiali sono l'equivalente delle reti elettriche degeneri nal caso di sistemi elettrici.*
 Inoltre, **si vede una variabile di uscita che non serve perchè nessuno è interessato (quindi si può buttare via sia l'uscita sia la variabile di stato, dato che da essa dipendeva solo quella stessa uscita)**.
@@ -35,7 +39,9 @@ Morale della favola... non considerare proprio le leggi del moto dei punti mater
 Si consideri un sistema di riferimento per cui una rotazione in senso antiorario individua un vettore *coppia* $\vec{T}$ *positivo*.
 - Utile disegnare in 2D, considerando una sezione dello spazio 3D che contenga l'asse di rotazione.
 ### Elementi fondamentali
-- Corpo puntiforme in rotazione di inerzia $J$ e coppia di inerzia $J\ddot{\theta}(t)$, con $\theta(t)=$ velocità angolare del corpo ($T=$ torque, coppia). La coppia si indica come vettori rotanti o con un vettore $\vec{T}$ che esce seguendo la regola della mano destra rispetto ai vettori rotanti. $$J\ddot{\theta}(t)=J\frac{d^2\theta(t)}{dt^2}=T(t)$$![Torque](/img/user/img/torque.png)
+- Corpo puntiforme in rotazione di inerzia $J$ e coppia di inerzia $J\ddot{\theta}(t)$, con $\theta(t)=$ velocità angolare del corpo ($T=$ torque, coppia). La coppia si indica come vettori rotanti o con un vettore $\vec{T}$ che esce seguendo la regola della mano destra rispetto ai vettori rotanti. 
+	- $$J\ddot{\theta}(t)=J\frac{d^2\theta(t)}{dt^2}=T(t)$$
+	- ![Torque](/img/user/img/torque.png)
 - Molla ideale
 	Caratterizzata dalla *coppia elastica*
 	$$T(t)= K[\theta_+(t)-\theta_-(t)]$$
