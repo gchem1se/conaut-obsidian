@@ -22,8 +22,9 @@ jobs:
         name: my-art
   deploy:
       permissions:
-       contents: 'read'
-       id-token: 'write'
+       contents: read
+       id-token: write
+       pages: write
       needs: create_pages_artifact
       runs-on: ubuntu-latest
       steps:
