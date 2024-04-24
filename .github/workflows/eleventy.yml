@@ -6,6 +6,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+  create_pages_artifact:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -13,19 +16,16 @@ jobs:
         node-version: 18
     - run: npm install
     - run: npm run build
-  create_pages_artifact:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-        - name: Upload GitHub Pages artifact
-          uses: actions/upload-pages-artifact@v3.0.1
-          with:
-            # Path of the directory containing the static assets.
-            path: /dist
-            name: my-art
+
+    - name: Upload GitHub Pages artifact
+      uses: actions/upload-pages-artifact@v3.0.1
+      with:
+        # Path of the directory containing the static assets.
+        path: /dist
+        name: my-art
   deploy:
       needs: create_pages_artifact
-      runs-on: ubuntu-latets
+      runs-on: ubuntu-latest
       steps:
           - name: Deploy GitHub Pages site
             uses: actions/deploy-pages@v4.0.5
