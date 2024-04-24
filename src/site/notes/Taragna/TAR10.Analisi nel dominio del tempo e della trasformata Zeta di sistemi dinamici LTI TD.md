@@ -4,8 +4,10 @@
 
 ## Soluzione nel dominio del tempo (e confronto con TC)
 >RECAP: Nel caso del sistema a TC, la soluzione nel dominio del tempo era effettivamente troppo complessa per dei giovani ingegneri sbarbatelli che col cazzo che conoscono la matematica, perchè infatti nel tempo l'unico modo di risolvere era tramite la formula di Lagrange, con la matrice esponenziale e un prodotto di convoluzione: ![Pasted image 20230426105530.png](/img/user/img/Pasted%20image%2020230426105530.png)
-Allora ci eravamo inventati di usare la trasformata di Laplace, per spostarci nel dominio della frequenza, risolvere in quel dominio (più semplice) e successivamente tornare nel dominio del tempo con un'antitrasformazione del risultato.In particolare, nei sistemi TC l'equazione di stato era del tipo differenziale, come $$\dot{x}(t)=Ax(t)+Bu(t)$$
-Di conseguenza, prima dicevamo che $$X(s)=(sI-A)^{-1}x(0^-)+(sI-A)^{-1}BU(s)$$ e poi antitrasformata, e via.
+Allora ci eravamo inventati di usare la trasformata di Laplace, per spostarci nel dominio della frequenza, risolvere in quel dominio (più semplice) e successivamente tornare nel dominio del tempo con un'antitrasformazione del risultato.In particolare, nei sistemi TC l'equazione di stato era del tipo differenziale, come 
+$$\dot{x}(t)=Ax(t)+Bu(t)$$
+Di conseguenza, prima dicevamo che 
+$$X(s)=(sI-A)^{-1}x(0^-)+(sI-A)^{-1}BU(s)$$ e poi antitrasformata, e via.
 
 *Nel dominio del tempo discreto la soluzione è invece facile da scrivere*, infatti abbiamo un'equazione alle differenze e non un'equazione differenziale come equazione di stato.
 $$x(k+1)=Ax(k)+Bu(k)$$
@@ -28,9 +30,11 @@ In particolare vanno trasformate le equazioni di stato e uscita:
 		- $h=1\implies\mathcal{Z}\{x(k+1)\}=zX(z)-zx(0)$
 			- **notare la $z$ che moltiplica la condizione iniziale, che nel dominio di Laplace non c'era**
 	- $zX(z)-x(0)=AX(z)+BU(z)$
-		- $X(z)=z(zI-A)^{-1}x(0)+(zI-A)^{-1}BU(z)=X_l(z)+X_f(z)$
+		- $X(z)=z(zI-A)^{-1}x(0)+(zI-A)^{-1}BU(z)=$
+		- $=X_l(z)+X_f(z)$
 			- **notare che qui c'è una $z$ che moltiplica nell'espressione del movimento libero, cosa che nel dominio di Laplace non c'era** 
 	- poi basta antitrasformare
 - Per l'uscita basta sostituire la $X(z)$ trovata prima, ed esce:
-	- $Y(z)=zC(zI-A)^{-1}x(0)+[C(zI-A)^{-1}B+D]U(z)=Y_l(z)+Y_f(z)$
+	- $Y(z)=zC(zI-A)^{-1}x(0)+[C(zI-A)^{-1}B+D]U(z)=$
+	- $=Y_l(z)+Y_f(z)$
 		- La parte $C(zI-A)^{-1}B+D$ è considerabile la funzione di trasferimento del sistema.
