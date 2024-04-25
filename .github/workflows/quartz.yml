@@ -19,7 +19,7 @@ jobs:
         uses: konstfish/quartz-build-action@v1
         with:
           source: /src/markdown
-          destination: /dist
+          destination: dist
           page_title: "ConAut"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
