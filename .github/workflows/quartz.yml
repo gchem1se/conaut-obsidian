@@ -23,7 +23,7 @@ jobs:
           destination: dist
       - name: Set homepage
         run: |
-          mv dist/content/Introduzione.md dist/content/index.md
+          mv content/Introduzione.md content/index.md
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
