@@ -18,7 +18,7 @@ jobs:
       - name: Build
         uses: konstfish/quartz-build-action@v1
         with:
-          source: /src/markdown
+          source: ./
           destination: /dist
           page_title: "ConAut"
       - name: Upload GitHub Pages artifact
@@ -26,14 +26,17 @@ jobs:
         with:
           # Artifact name
           name: gh-pages-artfct
-          path: dist/
+          path: dist
   deploy:
-    runs-on: ubuntu-latest
+    # Add a dependency to the build job
     needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4 
         with:
-          name: gh-pages-artfct
-          url: ${{ steps.deployment.outputs.page_url }}
+          artifact_name: gh-pages-artfct
