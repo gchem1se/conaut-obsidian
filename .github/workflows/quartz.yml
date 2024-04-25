@@ -18,8 +18,8 @@ jobs:
       - name: Build
         uses: konstfish/quartz-build-action@v1
         with:
-          source: ./
-          destination: /dist
+          source: .
+          destination: dist
           page_title: "ConAut"
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3.0.1
