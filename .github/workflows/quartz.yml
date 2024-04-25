@@ -3,14 +3,14 @@ on:
  # push:
  #   branches: ["main"]
   workflow_dispatch:
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 jobs:
   build:
+    permissions:
+        contents: read
+        pages: write
+        id-token: write
     runs-on: ubuntu-latest
-    steps:
+     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
@@ -30,6 +30,10 @@ jobs:
   deploy:
     # Add a dependency to the build job
     needs: build
+    permissions:
+        contents: read
+        pages: write
+        id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
