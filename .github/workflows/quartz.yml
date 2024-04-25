@@ -21,9 +21,6 @@ jobs:
           source: .
           page_title: "ConAut"
           destination: dist
-      - name: Set homepage
-        run: |
-          sudo mv dist/Introduzione.html dist/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
