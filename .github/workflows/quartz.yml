@@ -24,7 +24,7 @@ jobs:
       - name: Set homepage
         run: |
           ls -lR
-          mv dist/Introduzione.md dist/index.md
+          mv dist/Introduzione.html dist/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
