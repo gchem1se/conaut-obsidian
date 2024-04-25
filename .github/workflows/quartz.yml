@@ -25,6 +25,9 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
          path: dist
+      - name: Set homepage
+        run: |
+          mv dist/content/Introduzione.md dist/content/index.md
   deploy:
     runs-on: ubuntu-latest
     needs: build
