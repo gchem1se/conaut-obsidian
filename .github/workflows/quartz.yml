@@ -27,7 +27,7 @@ jobs:
          path: dist
       - name: Set homepage
         run: |
-          mv dist/content/Introduzione.md dist/content/index.md
+          mv dist/Introduzione.html dist/index.html
   deploy:
     runs-on: ubuntu-latest
     needs: build
