@@ -1,5 +1,5 @@
 name: Build Quartz Site
-on:
+on: 
  # push:
  #   branches: ["main"]
   workflow_dispatch:
