@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 **Posto che ci sia asintotica stabilità,** ci siamo garantiti l’esistenza di un regime permanente, in cui il sistema finisce dopo un transitorio.  
