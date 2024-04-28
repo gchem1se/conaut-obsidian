@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 ## [TAR17.Raggiungibilità e controllabilità](./TAR17.Raggiungibilit%C3%A0%20e%20controllabilit%C3%A0.md)  
