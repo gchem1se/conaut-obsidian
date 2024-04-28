@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 ## [TAR21.Stabilità esterna e risposta a regime](./TAR21.Stabilit%C3%A0%20esterna%20e%20risposta%20a%20regime.md)  
