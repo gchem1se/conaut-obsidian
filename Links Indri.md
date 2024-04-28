@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 [IND01.Introduzione ai sistemi di controllo](./IND01.Introduzione%20ai%20sistemi%20di%20controllo.md)  
