@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 Dato lo stato iniziale del sistema e una sua rappresentazione, si vuole arrivare a risolverne le equazioni differenziali rispetto ad $x(t)$, il *movimento dello stato*.  

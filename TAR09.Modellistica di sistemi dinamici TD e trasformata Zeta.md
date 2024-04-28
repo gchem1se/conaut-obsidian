@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 >**Non avremo mai esercizi sulla modellistica di sistemi dinamici a tempo discreto, perchè richiedono linguaggio naturale nel testo.**  

@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 ## Stimatore dinamico  
@@ -9,6 +8,16 @@ Lo stato di un sistema si può stimare tramite un ulteriore sistema dinamico che
 ![Pasted image 20240206234328.png](./img/Pasted%20image%2020240206234328.png)  
   
 Questo ovviamente nello *stimare* compirà degli errori; l'errore di stima è $\hat{x}(t)-x(t)=e(t)$ ma esso potrebbe annullarsi per $t\to\infty$, caso in cui si dice che lo stimatore è *uno stimatore asintotico dello stato*. Ciò è estremamente conveniente perchè vuol dire che a regime lo stimatore sarà perfetto nel ritrovare lo stato del sistema.  
+  
+>[!Warning]  
+>**Possibilità di errore nella stima dello stato**  
+Anche qui come nel caso della raggiungibilità, nel caso in cui il sistema non sia completamente osservabile, allora si hanno alcuni autovalori relativi alla parte osservabile e alcuni relativi alla parte non osservabile.  
+>   
+> ![Pasted image 20240206232914.png](./img/Pasted%20image%2020240206232914.png)  
+>   
+> La parte non osservabile del sistema, per definizione, non può influenzare l'uscita del sistema, quindi se guardando $y$ ne traggo la conclusione che il sistema è partito da uno stato iniziale $x_{0}\in X_R$, potrei commettere un errore (magari era partito da $X_1\in X_{NR}$).  
+>   
+> La certezza che funzioni tutto la hai solo se il sistema è **completamente osservabile**.  
   
 Tuttavia anche l'errore di stima non possiamo saperlo, ma sappiamo tramite ***magheggi folli*** che esso è pari a:  
 $$e(t) = e^{[(A − LC)t]}e(0)$$  

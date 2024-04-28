@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 ## Linearizzazione di una funzione reale  

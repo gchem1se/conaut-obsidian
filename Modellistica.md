@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 Il senso è: modellizzare un sistema che ci viene dato; classificarlo; arrivare a darne una rappresentazione in variabili di stato.  

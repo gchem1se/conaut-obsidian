@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 I controllori digitali sono **algoritmi** che simulano quello che farebbe un controllore analogico come quelli che abbiamo trattato fino ad ora ma lo fanno via software (sono filtri software) - è come fare un passabasso con MATLAB mettendogli i poli e facendo una funzione di trasferimento invece che prendere delle merde di resistenze e condensatori e fare una fisica rete LC che poi magari si brucia pure.  

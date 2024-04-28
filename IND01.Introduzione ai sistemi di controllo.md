@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 Esempio di sistema di controllo: l'automobile. In questo caso, il regolatore dinamico (o meglio, *il controllore*) sono io. Attraverso il piede (che è il mio *ingresso di controllo*) implemento la legge di controllo, che tiene conto dell'attuale uscita (la forza sul pedale), dell'obiettivo voluto (andare ad 80 Km/h) e dello stato attuale (l'attuale velocità), che vedo attraverso l'occhio (lo stimatore).  
