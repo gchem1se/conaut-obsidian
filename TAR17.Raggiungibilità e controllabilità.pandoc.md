@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 Proprietà strutturali {#proprietà-strutturali heading="Proprietà strutturali"}  
