@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 ## [TAR12.Equilibrio di sistemi dinamici](./TAR12.Equilibrio%20di%20sistemi%20dinamici.md)  
