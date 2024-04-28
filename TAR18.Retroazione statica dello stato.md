@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 Un sistema SISO, LTI e TC di base fa quello che gli pare, in base a   
@@ -30,9 +29,25 @@ $$y(t)=(C-DK)x(t)+D\alpha r(t)$$
 si nota che ciò che accade è una modifica in tempo reale della matrice di stato (da $A$ ad $A-BK$): questo sicuramente modifica il comportamento del sistema.  
 In particolare, modifica gli *autovalori del sistema*, i quali sappiamo bene come siano indicatori della stabilità interna del sistema: questo significa che possiamo anche forzare un sistema instabile a diventare stabile.  
 ## Assegnazione degli autovalori o legge di controllo  
-> Quindi sostanzialmente lo scopo di questa parte è: gli autovalori determinano il comportamento dinamico del sistema, se ti trovi un sistema davanti che non ti piace come si comporta, puoi modificarne gli autovalori.  
   
-*Il problema dell'assegnazione degli autovalori mediante l'applicazione della retroazione statica dello stato ammette soluzione se e solo se la coppia di matrici $(A,B)$ soddisfa la condizione di completa raggiungibilità* (puoi dire subito che il sistema è completamente raggiungibile se lo hanno scritto nell'esercizio già in forma canonica di raggiungibilità, else: devi controllare con MATLAB il rango della $M_r$.  
+Sostanzialmente lo scopo di questa parte è: gli autovalori determinano il comportamento dinamico libero del sistema - cioè l'evoluzione libera dello stato, che a sua volta prende parte alla determinazione dell'uscita libera del sistema.  
+Se ti trovi un sistema davanti che non ti piace come si comporta (nella sua uscita), puoi modificarne gli autovalori.   
+  
+In realtà non modifichi gli autovalori *del sistema* in sè, ma piuttosto inglobi il sistema in un sistema più grande, che presenta lo schema della retroazione e che nel complesso abbia gli autovalori che desideri (ecco perchè si dice *assegnazione* e non *modifica o regolazione* degli autovalori).  
+All'interno di questo sistema più grande c'è il tuo sistema originale, che ora ha come ingresso un segnale che viene determinato in ogni istante "spiando" l'uscita tramite la retroazione, in modo che al sistema originale arrivino sempre e solo ingressi che lo portino a produrre in uscita segnali noti e desiderati.  
+  
+*La condizione di raggiungibilità è quindi necessaria*. Se un sistema è raggiungibile, possiamo sapere come un sistema si comporterà nella sua uscita (o nella sua evoluzione dello stato, che quindi tramite $y=Cx+Du$ mi da anche l'evoluzione dell'uscita) all'applicarsi di un dato ingresso (appena computato) - anche prima di "provare" a darlo in pasto al sistema e registrare l'uscita.  
+*È un modo per fare una stima a priori*. E se puoi fare questa stima a priori, allora puoi anche computare correttamente un ingresso che in ogni istante forzi il sistema a comportarsi come vuoi tu. Il senso è sempre quello.  
+  
+>[!Warning]  
+>**Possibilità di errore nella computazione del comando**  
+(nel senso che pur dando in pasto al sistema un comando computato apposta per far dare in output un certo segnale, il sistema comunque da in output un altra roba)  
+>   
+>![Pasted image 20240428170306.png](./img/Pasted%20image%2020240428170306.png)  
+>   
+>La parte non raggiungibile del sistema può influenzare l'uscita del sistema tanto quanto quella raggiungibile, quindi è possibile che il sistema non risponda come previsto ad un certo input. La certezza che funzioni tutto la hai solo se il sistema è **completamente raggiungibile**.  
+  
+*Il problema dell'assegnazione degli autovalori mediante l'applicazione della retroazione statica dello stato ammette soluzione se e solo se la coppia di matrici $(A,B)$ soddisfa la condizione di completa raggiungibilità* (puoi dire subito che il sistema è completamente raggiungibile se lo hanno scritto nell'esercizio già in forma canonica di raggiungibilità, else: devi controllare con MATLAB il rango della $M_r$).  
   
 Altrimenti la legge di controllo modificherebbe solo $\text{rank}(M_r)$ autovalori (quelli che sono corrispondenti alla parte raggiungibile del sistema). Potrebbe anche andare bene così in certi sistemi, ma sicuramente non potresti risolvere problemi legati agli autovalori non raggiungibili. Ad esempio, se uno di quegli autovalori non raggiungibili è associato ad un modo naturale divergente, non sarà possibile stabilizzare il sistema con questo metodo.  
   
