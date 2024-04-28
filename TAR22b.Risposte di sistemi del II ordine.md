@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 ## Introduzione   
