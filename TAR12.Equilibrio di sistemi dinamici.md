@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 Per *equilibrio di un sistema dinamico* si intende uno specifico *movimento che permane nel tempo identico allo stesso stato iniziale*, se gli ingressi sono costanti. Anche l'uscita del sistema sarà quindi costante.  
