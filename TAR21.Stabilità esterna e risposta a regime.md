@@ -1,5 +1,4 @@
 ---  
-dg-publish: true  
 share: true  
 ---  
 Un sistema dinamico, a dimensione finita (numero finito di variabili di stato), LTI, inizialmente a riposo (quindi che abbia risposta libera $= 0$, o meglio   
