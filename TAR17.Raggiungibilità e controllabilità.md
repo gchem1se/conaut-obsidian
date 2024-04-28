@@ -11,6 +11,10 @@ In pratica, questo significa che le proprietà strutturali sono proprietà del s
 ## Raggiungibilità  
 Uno stato $x^\star$ è detto *raggiungibile dallo stato $x_0$ al tempo $t^\star$* se con un particolare ingresso $u^\star(t)$ riesco ad ottenere $x(t^\star)=x^\star(t)$.  
   
+>[!Riassunto]  
+>Se un sistema è completamente raggiungibile, è sempre possibile prevedere in quale stato il sistema si sposterà in seguito all'applicazione di un particolare ingresso. [From future](./TAR18.Retroazione%20statica%20dello%20stato.mdassegnazione-degli-autovalori-o-legge-di-controllo): questo ci è utile per computare a priori degli ingressi da dare in pasto al sistema sapendo cosa vogliamo che lo stesso sistema dia in output.  
+  
+  
 ![Pasted image 20240206190616.png](./img/Pasted%20image%2020240206190616.png)  
   
 Esiste quindi un *insieme di raggiungibilità $X_R(t^\star)$* che mi racchiude tutti gli stati raggiungibili partendo dallo stato $x_0$ in un tempo finito (in particolare, $t^\star$).  
@@ -30,15 +34,16 @@ In sistemi a tempo discreto $X_R$ potrebbe essere un po' più piccolo: se $A$ no
 Gli autovalori della matrice di stato $A$ determinano completamente l'andamento della risposta (libera) del sistema. È per questo che facciamo l'analisi modale: già analizzando gli autovalori di $A$ si possono ottenere tante informazioni sul sistema, in particolare, informazioni sulla sua stabilità.  
   
 Gli autovalori di $A$ sono da classificarsi in base alla raggiungibilità del sistema.  
-In un sistema LTI **non completamente raggiungibile** succede che *alcuni autovalori della matrice $A$ sono "da associare" al sottospazio di raggiungibilità e alcuni al sottospazio di non raggiungibilità*. Per ora non è troppo chiaro, ma lo sarà vedendo la legge di controllo per la retroazione statica dello stato. [TAR18.Retroazione statica dello stato > Assegnazione degli autovalori o legge di controllo](./TAR18.Retroazione%20statica%20dello%20stato.mdassegnazione-degli-autovalori-o-legge-di-controllo)  
+In un sistema LTI **non completamente raggiungibile** succede che *alcuni autovalori della matrice $A$ sono "da associare" al sottospazio di raggiungibilità e alcuni al sottospazio di non raggiungibilità*.   
   
 ### Sistemi LTI SISO - analisi della raggiungibilità  
+  
 L’analisi sulla raggiungibilità di un sistema a singolo ingresso può essere fatta a partire dalle matrici di stato e degli ingressi. A partire da queste, si può costruire la *matrice di raggiungibilità* del sistema e fare un test su questa per determinare se il sistema sia completamente raggiungibile o meno.  
   
 Nel caso di un sistema con un *singolo ingresso*, la matrice di raggiungibilità ha la forma:   
 $$M_R = [B\ AB\ \dots\ A^{n-1}B]$$  
 dove $n$ è la $n$ della $R^{n,n}$ a cui appartiene $A$, ovver la *dimensione del sistema*, cioè il numero di equazioni di stato / variabili di stato.  
-Quando questa matrice ha *rango pari ad $n$*, il sistema è completamente raggiungibile.  
+Quando questa matrice ha *rango pari ad $n$*, il sistema è completamente raggiungibile.   
   
 >[!info]  
 >**Rango e come non calcolarlo**  
@@ -63,13 +68,21 @@ Nel caso invece di un sistema con più di un ingresso, la matrice di raggiungibi
 $$M_R = [B\ AB\ \dots\ A^{n-b}B]$$  
 dove $b$ è il rango di $B$ (che generalmente è più semplice calcolare, ma non si sa mai davvero). In effetti, il caso con un solo ingresso ha $b=1$.  
   
+>[!Info]  
+>La dimostrazione del perchè funziona questa cosa l'abbiamo fatta solo a TD, perchè era più facile. Comunque non l'ho scritta, non la ricordo, non penso la scriverò mai. Il senso della dimostrazione è che la matrice di raggiungibilità deve essere formata da colonne (o righe?) che formino una *base ortogonale* per lo spazio degli stati $x$, quindi la matrice deve essere formata da colonne (o righe?) linearmente indipendenti tra loro.   
+>- Per generare uno spazio vettoriale come quello di $x$ che sono vettori in $n$ dimensioni, serve una base formata da $n$ vettori, quindi la matrice deve avere almeno $n$ colonne / righe.  
+>- Se una matrice non ha rango massimo, la matrice non ha tutte le colonne (o righe?) linearmente indipendenti tra loro.  
+>- Basi non ortogonali (almeno credo) sono composte da vettori non tutti linearmente indipendenti tra loro. Comunque usare una base del genere per generare uno spazio funziona; solo che alcuni dei vettori di questa base verranno generati a loro volta come combinazioni degli altri, quindi rimuoverli completamente dalla base non cambierebbe nulla.  
+>Unendo queste tre cose, si ha che una matrice di raggiungibilità, che normalmente sarebbe dipendente dal tempo, determinata ad un tempo specifico che le faccia avere $n$ colonne (a TD è facile fare questa cosa perchè si conta a passi, ma comunque andiamo avanti), e avente rango massimo ovvero determinante diverso da $0$, è una specifica sufficiente per dire che il sistema è completamente raggiungibile.  
+  
+  
 > [!MATLAB]  
 >   
 > ![Pasted image 20240206191842.png](./img/Pasted%20image%2020240206191842.png)  
 >   
 > ![Pasted image 20240206191849.png](./img/Pasted%20image%2020240206191849.png)  
 >   
-> La matrice di raggiungibilità si può calcolare direttamente con il comando `ctrb(A)`.  
+> La matrice di raggiungibilità si può calcolare direttamente con il comando `ctrb(A, B)`.  
   
 ## Realizzazione di una funzione di trasferimento secondo la forma canonica di raggiungibilità  
 Sostanzialmente la domanda è:  
