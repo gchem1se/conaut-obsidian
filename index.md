@@ -1,11 +1,10 @@
 ---  
-dg-publish: true  
-dg-home: true  
 share: true  
 title: Introduzione al corso  
 ---  
+*0x0*  
+  
 [Sito corso](http://www.ladispe.polito.it/corsi/ContrAutoInf270)  
-[Roba in locale](file:///home/gchemise/Uni/terzo_anno/con_aut)  
   
 [Esercizi di Taragna](http://corsiadistanza.polito.it/on-line/FdA/index.htm)  
   
