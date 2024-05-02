@@ -23,7 +23,7 @@ Ci sono quindi delle implicazioni che legano i due tipi di stabilità:
  ![Pasted image 20240502161926.png](./img/Pasted%20image%2020240502161926.png)  
 Queste implicazioni ci semplificano di parecchio il lavoro di verifica della stabilità:  
 - se ci viene detto che il sistema è asintoticamente stabile, è automaticamente anche esternamente stabile  
-- - se ci viene detto che il sistema è in forma minima e ci viene data la FdT, per verificare la stabilità interna ci basta scomporre il $D(s)$ (o se non vogliamo scomporlo, possiamo usare i criteri di Cartesio, Routh o Jury) e verificare la solita condizione: così otterremo sia l'informazione sulla stabilità interna che sulla stabilità esterna  
+- se ci viene detto che il sistema è in forma minima e ci viene data la FdT, per verificare la stabilità interna ci basta scomporre il $D(s)$ (o se non vogliamo scomporlo, possiamo usare i criteri di Cartesio, Routh o Jury) e verificare la solita condizione: così otterremo sia l'informazione sulla stabilità interna che sulla stabilità esterna  
 - se ci viene detto che il sistema è in forma minima e ci vengono date le matrici, per verificare la stabilità interna possiamo calcolare la $H(s)$ e verificare la solita condizione sui poli invece che cercare di calcolare gli autovalori. Ma questo è idiota come processo perchè è molto più veloce calcolare il polinomio caratteristico e al massimo usare Routh/Jury, al posto di fare $C(sI-A)^{-1}B+D$ e poi rischiare di dover usare comunque Routh/Jury perchè il denominatore non si scompone facilmente o ha parametri variabili  
 - #todo forse ci sta anche qualche semplificazione se il sistema ci viene dato in forma matriciale e canonica di raggiungibilità / controllabilità, ma non ne sono sicuro.  
   
