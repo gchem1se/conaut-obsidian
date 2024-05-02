@@ -13,7 +13,7 @@ I sistemi dinamici reali *non sono mai lineari*, ma possono essere approssimati 
   
 Esempio: un braccio robotico che deve fare una saldatura: quando si muove di tanto, non lo riesco a prevedere facilmente, ma ci riesco in intorni di punti. Se il braccio robotico non è esattamente dove dovrebbe saldare, ma lì vicino, posso linearizzare il sistema del braccio per ottenere previsione e controllo sul movimento del braccio abbastanza fedeli, sebbene si tratti di un'approssimazione.  
   
-Dato un sistema dinamico a dimensione finita MIMO TC non lineare **stazionario** (le espressioni di variabili di stato e uscita non dipendono esplicitamente da $t$), si identificano dei "punti di funzionamento, o movimenti, *nominali*" che sono semplicemente punti di funzionamento, o movimenti, di interesse per il progettista. Quindi si prendono in considerazione:  
+Dato un sistema dinamico a dimensione finita MIMO TC in generale non lineare, ma tempo invariante, si identificano dei "punti di funzionamento, o movimenti, *nominali*" che sono semplicemente punti di funzionamento, o movimenti, di interesse per il progettista. Quindi si prendono in considerazione:  
 - un movimento *nominale* $\tilde{x}(t)$, che è quello che si vorrebbe analizzare e determinare (es. il movimento che il braccio robotico fa per fare la saldatura), ottenuto applicando un ingresso *nominale* $\tilde{u}(t)$ al sistema, posto in uno stato iniziale *nominale* $\tilde{x}_0$, a cui corrisponde un'uscita $\tilde{y}(t)$ *nominale*; essi devono essere ammissibili, quindi devono soddisfare le equazioni di stato e di uscita del sistema preso in considerazione:  
   $$\dot{\tilde{x}}(t)=f(\tilde{x}(t),\tilde{u}(t))$$  
   $$\tilde{y}(t)=g(\tilde{x}(t),\tilde{u}(t))$$  
