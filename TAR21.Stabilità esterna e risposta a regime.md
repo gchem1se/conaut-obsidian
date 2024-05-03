@@ -10,9 +10,10 @@ Partendo da questa si può dire che il sistema è detto **BIBO-stabile** (*bound
 > [!Info]  
 > **Forma minima**  
 > Un sistema può essere rappresentato in mille modi, ma quando un sistema è rappresentato in una forma tale che sia completamente raggiungibile e completamente osservabile è detto **in forma minima**. Un sistema in forma minima contiene il numero minimo di variabili di stato per descriversi.  
-> Scrivendo la funzione di trasferimento del sistema nella forma $H(s)=\frac{N(s)}{D(s)}$ tramite $H(s)=C(sI-A)^{-1}B+D$ avrai che le radici del denominatore, dette *poli* del sistema, sono in generale un *sottoinsieme* degli autovalori di $A$. Questo perchè potrebbero avvenire delle cancellazioni zeri-poli e quindi arriveresti ad avere una funzione di trasferimento con un numero di poli minore del numero degli autovalori.  
 >   
-> Se il sistema è in forma minima, però, i poli coincidono esattamente con gli autovalori.  
+> In generale, scrivendo la funzione di trasferimento del sistema nella forma $H(s)=\frac{N(s)}{D(s)}$ tramite $H(s)=C(sI-A)^{-1}B+D$ avrai che le radici del denominatore, dette *poli* del sistema, sono in generale un *sottoinsieme* degli autovalori di $A$. Questo perchè potrebbero avvenire delle cancellazioni zeri-poli e quindi arriveresti ad avere una funzione di trasferimento con un numero di poli minore del numero degli autovalori.  
+>   
+> Se il sistema è in forma minima, però, i poli coincidono esattamente con gli autovalori. Inoltre la risposta libera di un sistema in forma minima sarà sempre nulla e il sistema sarà quindi interamente descrivibile tramite la sola funzione di trasferimento tra ingresso e uscita (non esistono parti non osservabili o non raggiungibili nel sistema).  
   
 La condizione per la stabilità esterna è praticamente la stessa della stabilità interna, **ma applicata solo ai poli**.  
 Il sistema è BIBO-stabile se tutti i poli della funzione di trasferimento hanno parte reale strettamente negativa (nel caso TC) oppure modulo strettamente minore di 1 (nel caso TD).  
