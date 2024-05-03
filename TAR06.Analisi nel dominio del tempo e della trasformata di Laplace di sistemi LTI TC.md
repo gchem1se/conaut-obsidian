@@ -72,8 +72,17 @@ $$Y(s)=C[(sI_n-A)^{-1}x_{0_-}+(sI_n-A)^{-1}BU(s)]+DU(s)$$
 $$Y(s)=C(sI_n-A)^{-1}x_{0_-}+[C(sI_n-A)^{-1}B+D]U(s)$$  
 $$Y(s)=C[(sI_n-A)^{-1}x_{0_-}+(sI_n-A)^{-1}BU(s)]+DU(s)$$  
 $$Y(s)=H_0x_{0_-}+H(s)U(s)$$  
-Con $H(s)$ che è la matrice di trasferimento del sistema. Questa funzione può, da sola, rappresentare l'intero sistema, a patto che si parta da $x_{0_-}=0$, ovvero che nell'istante iniziale il sistema si possa considerare "a riposo".  
-Questa funzione è, in generale, una matrice complessa rettangolare $p\times q$, i cui elementi sono rapporti di polinomi (= *funzioni razionali fratte*) nella variabile complessa $s$.  
+Con $H(s)$ che è la **matrice di trasferimento del sistema**. Questa funzione **può, da sola, rappresentare l'intero sistema, a patto che si parta da $x_{0_-}=0$**, ovvero che nell'istante iniziale il sistema si possa considerare "a riposo".   
+  
+>[!Info]  
+>Le due rappresentazioni del sistema LTI (tramite rappresentazione in variabili di stato / eventualmente matriciale e tramite la sola funzione di trasferimento) non sono in generale equivalenti.  
+>Esse sono equivalenti, in generale, solo se supponiamo che il sistema si muova da $x_0=\vec{0}$, ovvero che tutte le variabili di stato siano inizialmente a valore nullo. Quello che ne deriva è che consideriamo unicamente la risposta *forzata* del sistema, che dipende solo dagli ingressi e non la risposta libera, che appunto dipende dallo stato iniziale (decidiamo deliberatamente di ignorarla, magari perchè non rilevante in termini di intensità rispetto alla risposta forzata).  
+>  
+>C'è anche un caso in cui le rappresentazioni sono equivalenti a prescindere e interscambiabili, ovvero il caso in cui la risposta del sistema è *veramente* solo la risposta forzata: quando il sistema è in [forma minima](./Stabilit%C3%A0%20esterna%20e%20analisi%20della%20risposta.md).  
+>  
+>In tal caso è possibile anche passare dalla rappresentazione in FdT ad una (una delle possibili) *realizzazioni* di tale FdT (quindi ad un sistema che la implementi, scritto come rappresentazione in variabili di stato / eventualmente matriciale) *senza perdita di alcuna informazione sul sistema*. Esempi dal futuro su come ricavare una realizzazione da una FdT: [Realizzazione 1](./TAR19.Osservabilit%C3%A0%20e%20rilevabilit%C3%A0.mdrealizzazione-di-una-funzione-di-trasferimento-secondo-la-forma-canonica-di-osservabilita), [Realizzazione 2](./TAR17.Raggiungibilit%C3%A0%20e%20controllabilit%C3%A0.mdrealizzazione-di-una-funzione-di-trasferimento-secondo-la-forma-canonica-di-raggiungibilita)  
+   
+ Questa funzione $H(s)$ è, in generale, una matrice complessa rettangolare $p\times q$, i cui elementi sono rapporti di polinomi (= *funzioni razionali fratte*) nella variabile complessa $s$.  
   
 ![Pasted image 20230426150304.png](./img/Pasted%20image%2020230426150304.png)  
   
