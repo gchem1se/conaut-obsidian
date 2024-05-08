@@ -6,10 +6,6 @@ title: Introduzione al corso
   
 [Sito corso](http://www.ladispe.polito.it/corsi/ContrAutoInf270)  
   
-[Esercizi di Taragna](http://corsiadistanza.polito.it/on-line/FdA/index.htm)  
-  
-[Esercizi di Inri](http://corsiadistanza.polito.it/on-line/Controlli_automatici/index.htm)  
-  
 [Links Taragna](./Links%20Taragna.md)  
 [Links Indri](./Links%20Indri.md)  
   
