@@ -16,8 +16,6 @@ Piccolo preambolo sui numeri complessi and shit:
 ## Diagrammi di Bode  
 I diagrammi di Bode per modulo e fase hanno in ascissa la pulsazione $\omega$ in scala logaritmica e sulle ordinate il modulo $M$ espresso in Decibel oppure la fase $\varphi$ espressa in gradi.  
   
-> In genere noi non andremo mai ad effettuare il calcolo a mano dei diagrammi di Bode [...]  
-  
 Prendi la funzione di trasferimento; ne fai il modulo in Decibel che vuol dire scrivere una roba del tipo:  
 $$20\log_{10}(G(j\omega))=20\log_{10}\left(200\frac{j\omega+0.1}{j\omega(-\omega^2+0.2j\omega+1)(j\omega+10)}\right)=$$  
 $$=20\log_{10}(200)+20\log_{10}(j\omega+0.1)-20\log_{10}(j\omega)-20\log_{10}(j\omega(-\omega^2+0.2j\omega+1)-20\log_{10}(j\omega+10)$$  
