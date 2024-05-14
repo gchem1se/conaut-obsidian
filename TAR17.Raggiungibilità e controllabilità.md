@@ -11,7 +11,7 @@ In pratica, questo significa che le proprietà strutturali sono proprietà del s
 Uno stato $x^\star$ è detto *raggiungibile dallo stato $x_0$ al tempo $t^\star$* se con un particolare ingresso $u^\star(t)$ riesco ad ottenere $x(t^\star)=x^\star(t)$.  
   
 >[!Riassunto]  
->Se un sistema è completamente raggiungibile, è sempre possibile prevedere in quale stato il sistema si sposterà in seguito all'applicazione di un particolare ingresso. [From future](./TAR18.Retroazione%20statica%20dello%20stato.mdassegnazione-degli-autovalori-o-legge-di-controllo): questo ci è utile per computare a priori degli ingressi da dare in pasto al sistema sapendo cosa vogliamo che lo stesso sistema dia in output.  
+>Se un sistema è completamente raggiungibile, è sempre possibile prevedere in quale stato il sistema si sposterà in seguito all'applicazione di un particolare ingresso. Da qui, per qualche motivo (probabilmente tramite la formula di Lagrange o roba simile), ci si sposta a dire che è possibile prevedere quale input dare al sistema perchè *il suo output*, quindi la risposta più che lo stato, insegua un segnale desiderato). [From future](./TAR18.Retroazione%20statica%20dello%20stato.mdassegnazione-degli-autovalori-o-legge-di-controllo): questo ci è utile per computare a priori degli ingressi da dare in pasto al sistema sapendo cosa vogliamo che lo stesso sistema dia in output.  
   
   
 ![Pasted image 20240206190616.png](./img/Pasted%20image%2020240206190616.png)  
