@@ -103,9 +103,9 @@ Il termine $K_\infty$ è un guadagno, detto *guadagno infinito* e si calcola com
 #### Forma zeri e poli generalizzata a polinomi aventi radici complesse  
 Consideriamo il polinomio $p=s^2+a_1s+a_0$. Esso ha due radici complesse coniugate che scriviamo come $\sigma_0+j\omega_0$ e $\sigma_0-j\omega_0$. (qui si considera $\sigma_0$ negativo).  
 Una scrittura del tipo $p=(s-\sigma_0-j\omega_0)(s+\sigma_0+j\omega_0)$ sarebbe quindi corretta, ma sconveniente perchè compare l'unità immaginaria.  
-Definendo invece *pulsazione naturale* $\omega_n$ e *smorzamento* $\zeta$ della coppia di radici, dove la pulsazione naturale è la distanza tra lo $0$ e la radice nel piano complesso ($\sqrt{\sigma_0^2+\omega_0^2}$) e lo smorzamento è il seno dell'angolo $\theta$ compreso tra l'asse immaginario e la retta congiungente lo $0$ con la radice.  
+Definendo invece *pulsazione naturale* $\omega_n$ e *smorzamento* $\zeta$ della coppia di radici, dove la pulsazione naturale è la distanza tra lo $0$ e la radice nel piano complesso $\sqrt{\sigma_0^2+\omega_0^2}$ e lo smorzamento è il seno dell'angolo $\theta$ compreso tra l'asse immaginario e la retta congiungente lo $0$ con la radice. L'angolo è da prendere negativo, se lo vedi andando in senso antiorario come facciamo noi.  
   
-![Pasted image 20230426154439.png](./img/Pasted%20image%2020230426154439.png)  
+![marianna.excalidraw](./Excalidraw/marianna.svg)  
   
 Per cui esistono le formule:  
 - $\sigma_0=-\zeta\omega_n$  
