@@ -107,7 +107,7 @@ Il diagramma di Nyquist alla fine è un diagramma polare, o meglio una loro este
 > [!Info]  
 > **Perchè va fatto così? (Lo capisce solo Gabriele sto pezzo)**  
 > Il fatto che ci sia una simmetria per cui il diagramma va disegnato ribaltato deriva dal fatto che $\omega<0$ è come dire che stiamo graficando sia $G(j\omega)$ che $G(-j\omega)$.  
-> Il grafico di Nyquist è una "catena chiusa" perchè in teoria sta graficando la funzione $G(s)$ da $0^+ a +\infty e da $-\infty$ a $0^-$, e i punti di $0^-$ e $0^+$ sono coincidenti, così come i punti di $+\infty$ e $-\infty$.  
+> Il grafico di Nyquist è una "catena chiusa" perchè in teoria sta graficando la funzione $G(s)$ da $0^+$ a $+\infty$ e da $-\infty$ a $0^-$, e i punti di $0^-$ e $0^+$ sono coincidenti, così come i punti di $+\infty$ e $-\infty$.  
   
 ![Pasted image 20240425004422.png](./img/Pasted%20image%2020240425004422.png)  
   
