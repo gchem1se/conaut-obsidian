@@ -92,13 +92,22 @@ In particolare:
 	- **per noi, i sistemi saranno sempre strettamente propri. In questo caso, il diagramma termina sempre nell'origine**.  
 	- la *fase finale* è la fase con cui arriva nell'origine ed è multipla di 90 gradi secondo $$\varphi_{\text{fin}}=\varphi_{\text{in}}-90(n_{\text{np}}+m_\text{p})+90(n_\text{p}+m_\text{np})$$ dove $n_\text{np}$ è il numero di poli a parte reale *non positiva* (esclusi quelli nell'origine), $m_\text{p}$ è il numero di zeri a parte reale positiva, ecc.  
   
-![Pasted image 20240425004354.png](./img/Pasted%20image%2020240425004354.png)  
+![mariuolo.excalidraw](./Excalidraw/mariuolo.svg)  
   
 ## Diagramma di Nyquist  
-Il diagramma di Nyquist alla fine è un diagramma polare, o meglio una loro estensione, infatti la pulsazione non è più solo positiva qui  ma è $\in[-\infty, +\infty]$. Quindi che succede?  
+Il diagramma di Nyquist alla fine è un diagramma polare, o meglio una loro estensione, infatti la pulsazione non è più solo positiva qui ma è $\in[-\infty, +\infty]$. Quindi che succede?  
 - Devi **disegnare due volte il diagramma polare**, quando finisci di disegnarlo devi **disegnarlo ribaltato rispetto all'asse reale sullo stesso grafico** e **unire i valori che vanno all'infinito con semi-circonferenze che vanno in senso orario, di raggio infinito**.  
 	- Se non hai poli nell'origine, ottieni subito un percorso chiuso.  
 	- Se hai $n$ poli nell'origine, **devi fare $n$ semi-circonferenze**.  
+  
+>[!MATLAB]  
+>Su MATLAB i diagrammi polari non ci stanno, ci sta solo il comando `nyquist(F)` e tra l'altro viene anche visualizzato con una brutta scala: meglio se zoommi sempre intorno all'origine per capire come stanno le cose. Inoltre, non ci saranno mai le circonferenze a raggio infinito.  
+>Potrebbe esserti utile (ma anche no) usare `axis equal` dopo.  
+  
+> [!Info]  
+> **Perchè va fatto così? (Lo capisce solo Gabriele sto pezzo)**  
+> Il fatto che ci sia una simmetria per cui il diagramma va disegnato ribaltato deriva dal fatto che $\omega<0$ è come dire che stiamo graficando sia $G(j\omega)$ che $G(-j\omega)$.  
+> Il grafico di Nyquist è una "catena chiusa" perchè in teoria sta graficando la funzione $G(s)$ da $0^+ a +\infty e da $-\infty$ a $0^-$, e i punti di $0^-$ e $0^+$ sono coincidenti, così come i punti di $+\infty$ e $-\infty$.  
   
 ![Pasted image 20240425004422.png](./img/Pasted%20image%2020240425004422.png)  
   
