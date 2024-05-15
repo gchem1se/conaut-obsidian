@@ -10,31 +10,42 @@ Ora come ora la struttura completa del sistema controllato è questa:
   
 Per cui la FdT è:  
 - *a catena aperta / ad anello aperto*: $G_a(s)=C(s)F(s)$  
-- *a catena chiusa / ad anello chiuso*: $W(s)=y(s)/r(s)$  
+- *a catena chiusa / ad anello chiuso*: $W(s)=y(s)/r(s)=\frac{G_a(s)}{1+G_a(s)}$  
   
 La **stabilità del sistema** la abbiamo fino ad ora identificata tramite il *criterio di Routh* in TC e il *criterio di Jury* in TD.   
-Cioè, il senso era, dato che per essere asintoticamente stabile un sistema deve avere tutti i modi propri associati alla matrice $A$ del sistema LTI sono convergenti, ovvero che *tutte le radici del polinomio caratteristico di $A$, quello le cui radici sono gli autovalori, quindi tutti gli autovalori, avessero parte reale strettamente negativa nel caso TC e strettamente minore di 1 nel caso TD*. Invece di andare a trovare gli autovalori esplicitamente, però, cercavamo di carpire solo le informazioni che ci interessavano, appunto i segni delle parti reali o i moduli. Per farlo sfruttavamo questi criteri che ci davano condizioni necessarie e sufficienti affinchè si verificasse quella condizione, senza necessità del calcolo esplicito.  
-  
-Alternativamente, dato che qui non abbiamo le matrici ma abbiamo le funzioni di trasferimento (e sicuramente si può trovare la funzione di trasferimento partendo dalle matrici, ma partendo dalla funzione di trasferimento ne trovi infinite di matrici che la implementano), andavamo a fare una verifica analitica, ovvero:  
-- in TC, controllavamo che *i poli* della $H(z)$ avessero tutti parte reale strettamente negativa  
-- in TD, controllavamo che i poli avessero tutti modulo strettamente minore di 1.  
+Dato che per essere esternamente stabile un sistema deve avere tutti i suoi poli nella regione di asintotica stabilità, quindi a parte reale strettamente minore di $0$ nel caso TC oppure modulo strettamente minore di $1$ nel caso TD.   
+Invece di andare a trovare i poli esplicitamente, comunque, perchè non sempre è semplice scomporre il polinomio che troviamo a denominatore della funzione di trasferimento e comunque non sempre ci serve davvero conoscere puntualmente tali radici, cercavamo di carpire solo le informazioni che ci interessavano (appunto i segni delle parti reali o i moduli di tali radici).   
+Per farlo sfruttavamo questi criteri, di Routh e di Jury, che ci davano condizioni necessarie e sufficienti affinchè si verificassero quelle condizioni sulle suddette radici, senza necessità di trovarle esplicitamente.  
   
 **Questo metodo non ha senso però quando siamo in fase di progetto di controllore.**  
-Infatti questi metodi ci dicono che il sistema è asintoticamente stabile, ma non ci danno hint sul progetto del controllore (su quale debba essere $C(s)$ affinchè $y(s)/r(s)$ sia asintoticamente stabile nel suo complesso), e inoltre non ci informano in nessun modo sulla **robustezza** di tale stabilità (che succede se la funzione di trasferimento della catena aperta non ha parametri di guadagno e fase fissi ma variabili, perchè magari è stata realizzata fisicamente male oppure perchè era necessario avere guadagno e/o fase variabili? *Resta stabile o no se il controllore lo realizzo di merda?*).  
+Infatti con questo metodo possiamo, al massimo, analizzare la stabilità del sistema in sè e, in seguito alla costruzione di un certo $C(s)$, provare anche la sua stabilità in catena aperta e in catena chiusa. Il $C(s)$ lo avremo progettato imponendo che abbia alcuni parametri, che tuttavia potrebbero risultare non precisamente realizzati in un controllore costruito nella realtà (es. un parametro di un controllore per un sistema elettrico potrebbe essere una certa resistenza, ma nella vita vera una resistenza non è mai "di $10$ Ohm", ma sempre "di $10\pm5\%$ Ohm"). Il metodo che abbiamo sempre usato per analizzare la stabilità del sistema, allora, non ci darà mai informazioni sulle *tolleranze* massime che il sistema nel complesso ha rispetto a questi parametri - non abbiamo informazioni sulla *robustezza* della stabilità.   
+Inoltre questo metodo, applicato alla catena aperta, non ci darà mai informazioni su come $C(s)$ andasse costruito.  
   
-Invece, il **criterio di Nyquist** ci da queste informazioni.  
-Il criterio di Nyquist ci dice se la FdT in catena chiusa ($y(s)/r(s)$) è asintoticamente stabile facendo alcune considerazioni sul diagramma di Nyquist della *FdT in catena aperta* $G_a(s)$. In particolare, ci dice che perchè la FdT in catena chiusa sia asintoticamente stabile, ovvero *perchè il numero di poli instabili (parte reale positiva) della FdT in catena chiusa sia $n_{\text{i, c}}=0$* è necessario che *il numero di giri completi compiuti in senso orario - il numero di giri completi compiuti in senso antiorario dal diagramma di Nyquist della $G_a(j\omega)$ attorno a $(-1,0)$ (detto **punto critico di Nyquist**) sia $N=-n_{\text{i, a}}$*, ossia uguale all'opposto del numero di poli instabili della stessa $G_a(j\omega)$.  
-In pratica, **i giri in senso antiorario, netti, devono compensare i poli instabili**.  
+Invece, il **criterio di Nyquist** ci da molte più informazioni.  
+In particolare, ci da due cose:  
+- ci lega la stabilità del sistema in catena chiusa alla stabilità del sistema in catena aperta (!!!) - quindi ci aiuta nel progettare il controllore!  
+	- progettare una $C(s)$ tale che $G_a(s)=C(s)G(s)$ sia asintoticamente stabile e abbia certe proprietà ci basta per avere la stabilità anche di $W(s)=\frac{G_a}{1+G_a}$. Rendere stabile $C(s)G(s)$ è più semplice che rendere stabile $\frac{C(s)G(s)}{1+C(s)G(s)}$: in pratica mi concentro solo sul numeratore della funzione di trasferimento in catena chiusa, ma ottengo la stabilità di tutta la funzione gratis.  
+ - ci da dei *margini di stabilità*, per cui possiamo parlare della robustezza della stabilità che andiamo a conferire al sistema.  
+   
+**Enunciato del teorema di Nyquist**:  
+- detto $n_{i,c}>0$ il numero dei poli instabili della FdT in catena chiusa $W(s)=\frac{G_a}{1+G_a}$  
+- detto $n_{i,a}>0$ il numero dei poli instabili della FdT in catena aperta $G_a(s)$  
+- detto il punto $(-1,0)$ *punto critico*  
+- detto $N$ il numero di giri completi, *in senso orario (se in senso anti-orario, sono negativi)*, che il diagramma di Nyquist compie attorno al punto critico  
+- *Il criterio è applicabile solo se il diagramma di Nyquist non passa per il punto critico*.  
+Si può dimostrare $N=n_{i,c}-n_{i,a}$. Quindi, se voglio $n_{i,c}=0$, deve essere $N=-n_{i,a}$.  
   
-***N.B.: se il diagramma di Nyquist di $G_a(j\omega)$ passa proprio per il punto critico, non puoi applicare il criterio.**  
+In pratica, il numero di "giri orari netti" attorno al punto critico deve essere uguale ed opposto al numero di poli instabili nella FdT di catena aperta. Se succede questo, la FdT in catena chiusa è asintoticamente stabile.  
   
 ![Pasted image 20240425004449.png](./img/Pasted%20image%2020240425004449.png)  
   
-![Pasted image 20240425004534.png](./img/Pasted%20image%2020240425004534.png)  
+![salvato.excalidraw](./Excalidraw/salvato.svg)  
+  
 ### Guadagno variabile per la FdT a catena aperta  
-Se la FdT della catena aperta ha un guadagno variabile rischia di portare la catena chiusa ad essere stabile solo per alcuni valori di quel guadagno. Infatti il grafico potrebbe, variando di guadagno, crescere e finire ad includere o toccare il punto critico (guadagno = raggio della circonferenza, remember).  
+Se la FdT della catena aperta ha un guadagno variabile rischia di portare la catena chiusa ad essere instabile quando questo guadagno cresce troppo.   
 $$G_a(s)=K_cG_{a,f}(s)$$  
-dove $K_c$ è una variabile. **Per non dover disegnare duecentotrentamila diagrammi di Nyquist** piuttosto disegnamo *diverse scale* sulle ascisse, in modo quindi che il punto critico abbiamo posizione $\left(-\frac{1}{K_c}, 0\right)$ e si muova liberamente sulle ascisse.  
+Infatti il grafico potrebbe, variando di guadagno, crescere (nel senso di *scalarsi* come quando su Photoshop ingrandisci un'immagine prendendola dalla maniglia su uno degli angoli) e finire ad includere, o toccare, il punto critico (guadagno = raggio della circonferenza, remember).  
+Dove $K_c$ è una variabile. **Per non dover disegnare duecentotrentamila diagrammi di Nyquist** piuttosto disegnamo *diverse scale* sulle ascisse, in modo quindi che il punto critico abbiamo posizione $\left(-\frac{1}{K_c}, 0\right)$ e si muova liberamente sulle ascisse.  
 #### Sistemi con retroazione negativa  
 ![NyquistGuadagnoApertaVariabile.excalidraw](./img/Excalidraw/NyquistGuadagnoApertaVariabile.svg)  
   
@@ -42,7 +53,7 @@ dove $K_c$ è una variabile. **Per non dover disegnare duecentotrentamila diagra
   
   
 #### Sistemi con retroazione positiva  
-**TUTTO AL CONTRARIO**. Cioè il punto critico nel caso di retroazione positiva con guadagno unitario è $(+1,0)$ quindi il resto della trattazione resta uguale.  
+**TUTTO RIBALTATO**. Cioè il punto critico nel caso di retroazione positiva con guadagno unitario è $(+1,0)$. Il resto della trattazione resta uguale.  
 ## Margini di stabilità  
 Formalizziamo la cosa di dire che "il guadagno può stare sta $0$ e $K_{\text{critico}}$ e il sistema resta stabile" ecc.  
 Sostanzialmente, definiamo i **margini di stabilità**.  
