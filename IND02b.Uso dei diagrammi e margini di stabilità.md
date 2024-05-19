@@ -99,7 +99,7 @@ $$m_G=\frac{1}{|x_A|}\text{ dal diagramma di Nyquist}$$
 ### Margine di fase  
 **Stiamo agendo ancora sotto quelle ipotesi.**  
   
-La fase la si vede dal diagramma di Nyquist come *l'angolo che si forma tra l'asse reale e la retta che passa per l'intersezione tra il grafico **del diagramma polare soltanto** e la circonferenza a modulo unitario, in senso orario*. La pulsazione del punto di intersezione è detta *pulsazione di crossover* $\omega_c$*.  
+La fase la si vede dal diagramma di Nyquist come *l'angolo che si forma tra l'asse reale e la retta che passa per l'intersezione tra il grafico **del diagramma polare soltanto** e la circonferenza a modulo unitario, in senso orario, e l'origine*. La pulsazione del punto di intersezione è detta *pulsazione di crossover* $\omega_c$*.  
   
 ![Pasted image 20240425004610.png](./img/Pasted%20image%2020240425004610.png)  
   
@@ -109,9 +109,10 @@ $$m_\varphi=180\degree-\angle G_a(j\omega_c)$$
 Dal diagramma di Bode anche si può vedere: è la fase che si ha in corrispondenza della stessa pulsazione per cui hai che il modulo di $G_a(s)=1$ *in unità naturali*, ovvero l'intersezione con l'asse delle ascisse praticamente perchè modulo $=1$ vuol dire $0$ dB.  
   
 ![Pasted image 20240208160707.png](./img/Pasted%20image%2020240208160707.png)  
+  
 ### Dai margini di stabilità alla stabilità effettiva  
 **Sempre agendo sotto quelle ipotesi** se sia $m_G$ che $m_\varphi$ sono $>0$ **allora il sistema è asintoticamente stabile**.  
-Per questo tipo di sistemi, praticamente si può dire se la FdT di catena chiusa sia stabile o meno **semplicemente guardando i diagrammi di Bode della FdT in catena aperta**. In particolare, un sistema che sia stabile per qualunque valore positivo del guadagno non superiore alla soglia $m_G$ è detto *a stabilità regolare*.  
+Per questo tipo di sistemi, praticamente si può dire se la *FdT di catena chiusa* sia stabile o meno **semplicemente guardando i diagrammi di Bode della FdT in catena *aperta***. In particolare, un sistema che sia stabile per qualunque valore positivo del guadagno non superiore alla soglia $m_G$ è detto *a stabilità regolare*.  
   
 Invece, **ci sono dei casi particolari**:  
 - *esistenza di più pulsazioni per cui la fase della $G_a(j\omega)$ sia $=-180\degree$* (mi da problemi nel trovare $m_G$ perchè ne avrei più di uno)  
@@ -125,14 +126,13 @@ Invece, **ci sono dei casi particolari**:
 	- nel diagramma di Bode del modulo ho più intersezioni con l'asse $|G_a(j\omega)|=0$ dB.   
 	- si trovano due o più "candidati" per $m_\varphi$ e:  
 		- il margine di fase è definito come *la massima fase che si può perdere*, e continuando con questa definizione, la pulsazione di crossover sarà quella corrispondente al punto del diagramma di Nyquist, che si interseca alla circonferenza a raggio unitario, tra tutti *più vicino all'asse reale*  
-			  > Esempio:  
-			  > ![Pasted image 20240208163317.png](./img/Pasted%20image%2020240208163317.png)  
-			  > Il diagramma polare interseca in $3$ punti la circonferenza a raggio unitario, ma dato che $C$ è il punto più vicino all'asse reale, sul diagramma di Bode devo prendere come $\omega_c$ quella di $C$  
-			  > ![Pasted image 20240208163513.png](./img/Pasted%20image%2020240208163513.png)  
-			    
-		- può succedere che le intersezioni che il diagramma polare ha con la circonferenza unitaria *non abbiano tutte fase $>-180\degree$*, quindi vedrai che alcuni punti di intersezione saranno nei quadranti primo e secondo del piano cartesiano.   
-		  ![Pasted image 20240208163856.png](./img/Pasted%20image%2020240208163856.png)  
-		  In tal caso, esisteranno **due margini di fase** - uno per la massima perdita di fase e uno per il massimo acquisto di fase. Quindi l'effettivo margine di fase è dato dall'intervallo compreso tra le due soglie.  
+			- Esempio:  
+				- ![Pasted image 20240208163317.png](./img/Pasted%20image%2020240208163317.png)  
+				- Il diagramma polare interseca in $3$ punti la circonferenza a raggio unitario, ma dato che $C$ è il punto più vicino all'asse reale, sul diagramma di Bode devo prendere come $\omega_c$ quella di $C$  
+					- ![Pasted image 20240208163513.png](./img/Pasted%20image%2020240208163513.png)  
+					- può succedere che le intersezioni che il diagramma polare ha con la circonferenza unitaria *non abbiano tutte fase $>-180\degree$*, quindi vedrai che alcuni punti di intersezione saranno nei quadranti primo e secondo del piano cartesiano.   
+						- ![Pasted image 20240208163856.png](./img/Pasted%20image%2020240208163856.png)  
+						- In tal caso, esisteranno **due margini di fase** - uno per la massima perdita di fase e uno per il massimo acquisto di fase. Quindi l'effettivo margine di fase è dato dall'intervallo compreso tra le due soglie.  
 - $G_a(j\omega)$ *non a minima rotazione di fase - quindi poli a parte reale $> 0$ - quindi instabile* (il problema è che se la catena aperta è instabile allora bisogna vedere cosa succede a catena chiusa per definire se il sistema in catena chiusa sia stabile o meno).  
 	- ![Pasted image 20240208164622.png](./img/Pasted%20image%2020240208164622.png)  
 #### Con MATLAB  
