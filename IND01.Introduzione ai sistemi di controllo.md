@@ -22,6 +22,23 @@ I blocchi in parallelo sommano la loro $F(s)$ e quelli in serie la moltiiplicano
 ![Pasted image 20240207124841.png](./img/Pasted%20image%2020240207124841.png)  
   
 La $F(s)$ di un anello è $\frac{G(s)}{1\mp G(s)H(s)}$. Quindi al denominatore c'è un $-$ se è una retroazione positiva e c'è un $+$ se è una retroazione positiva.  
+Nota importante che servirà solo tra un po':  
+  
+![Pasted image 20240519182914.png](./img/Pasted%20image%2020240519182914.png)  
+  
+è equivalente a   
+  
+![Pasted image 20240519182931.png](./img/Pasted%20image%2020240519182931.png)  
+  
+però la funzione d'anello diventa $G_a(s)=\frac{C(s)F(s)}{K_r}$ e il segnale $e$ ora è sostituito da $e/K_r$ detto *errore ridotto*.  
+La funzione di trasferimento della catena chiusa sarà $W(s)=\frac{y(s)}{r(s)}=\frac{C(s)F(s)}{1+G_a(s)}$ cioè $\frac{K_rG_a(s)}{1+G_a(s)}$.  
+Useremo molto più questo secondo schema negli esercizi e negli esami.  
+  
+>[!Danger]  
+>Nel materiale c'è un confronto tra il primo e il secondo schema per quanto riguarda le specifiche in regime permanente. Occhio qunidi: magari prendi appunti solo sulle cose relative al secondo schema.  
+>  
+>![Pasted image 20240519183722.png](./img/Pasted%20image%2020240519183722.png)  
+  
 ## Specifiche di progetto  
 Le specifiche di progetto definiscono il modo in cui l’uscita deve inseguire il riferimento. Le principali specifiche di progetto riguardano:  
 - La stabilità del sistema di controllo (è la cosa più importante)  
