@@ -41,11 +41,31 @@ In pratica, il numero di "giri orari netti" attorno al punto critico deve essere
   
 ![salvato.excalidraw](./Excalidraw/salvato.svg)  
   
+>[!Info]  
+>**Sì, ma come faccio a posizionare il punto critico correttamente sul grafico?**  
+>Lo fa MATLAB. Punto. A te interessa fare *su carta* un diagramma qualitativo, per capire se su MATLAB stai zoomando abbastanza (anche se secondo me è una troiata), poi lo fai fare a MATLAB e vedi dal grafico dove è la croce rossa.  
+>  
+>In realtà ti converrebbe vedere in che punto hai che il diagramma di Nyquist ha un attraversamento dell'asse reale, ovvero in che punto il diagramma di Bode ha modulo unitario, con fase di $-180°$. In base alle coordinate di questo allora ti regoli su dove si va a posizionare il punto critico.  
+  
+>[!Info]  
+>**Ma quindi se passa per il punto critico?**  
+ È vero che se il diagramma di Nyquist passa per il punto critico allora il criterio di Nyquist non è applicabile; tuttavia, se passa per il punto critico $(-1,0)$, *il sistema ha almeno un polo sull'asse immaginario*. In queste condizioni, il sistema sicuramente non può essere asintoticamente stabile.  
+  
 ### Guadagno variabile per la FdT a catena aperta  
 Se la FdT della catena aperta ha un guadagno variabile rischia di portare la catena chiusa ad essere instabile quando questo guadagno cresce troppo.   
 $$G_a(s)=K_cG_{a,f}(s)$$  
 Infatti il grafico potrebbe, variando di guadagno, crescere (nel senso di *scalarsi* come quando su Photoshop ingrandisci un'immagine prendendola dalla maniglia su uno degli angoli) e finire ad includere, o toccare, il punto critico (guadagno = raggio della circonferenza, remember).  
-Dove $K_c$ è una variabile. **Per non dover disegnare duecentotrentamila diagrammi di Nyquist** piuttosto disegnamo *diverse scale* sulle ascisse, in modo quindi che il punto critico abbiamo posizione $\left(-\frac{1}{K_c}, 0\right)$ e si muova liberamente sulle ascisse.  
+Esempi:  
+  
+![untitled1.png](./img/untitled1.png)  
+  
+![untitled2.png](./img/untitled2.png)  
+  
+![untitled3.png](./img/untitled3.png)  
+  
+  
+  
+$K_c$ è una variabile. **Per non dover disegnare duecentotrentamila diagrammi di Nyquist** piuttosto disegnamo *diverse scale* sulle ascisse, in modo quindi che il punto critico abbiamo posizione $\left(-\frac{1}{K_c}, 0\right)$ e si muova liberamente sulle ascisse.  
 #### Sistemi con retroazione negativa  
 ![NyquistGuadagnoApertaVariabile.excalidraw](./img/Excalidraw/NyquistGuadagnoApertaVariabile.svg)  
   
