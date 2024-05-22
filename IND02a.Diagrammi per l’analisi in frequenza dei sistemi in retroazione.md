@@ -81,7 +81,7 @@ Invece, se il fattore si trova al numeratore della funzione di trasferimento e n
 I diagrammi polari di funzioni complesse sono praticamente rappresentazioni grafiche sul piano di Gauss (parte reale sulle ascisse, parte immaginaria sulle ordinate). Le quantità a *modulo costante* si trovano *sulla stessa circonferenza*, quelle alla stessa fase (arctan...), *sulla stessa semiretta*.  
   
 I diagrammi polari *li facciamo guardando quelli di Bode*.  
-Fondamentalmente, tu del diagramma polare determini "manualmente" soltanto il *comportamento iniziale e finale* quindi per $\omega\to0^+$ e per $\omega\to+\infty$ (e anche questo, guardando Bode) e poi filli la restante parte del diagramma sempre guardando Bode.  
+Fondamentalmente, tu del diagramma polare determini "manualmente" soltanto il *comportamento iniziale e finale* quindi per $\omega\to0^+$ e per $\omega\to+\infty$ (e anche questo, guardando Bode) e poi raccordi, sempre guardando Bode.  
 In particolare:  
 - **comportamento iniziale**:   
 	- se il sistema *non ha poli nell'origine* allora il diagramma polare parte da un punto sull'asse reale, avente quindi fase nulla mi pare di poter dire, e modulo iniziale che posso vedere da Bode.  
@@ -112,7 +112,5 @@ Il diagramma di Nyquist alla fine è un diagramma polare, o meglio una loro este
 ![Pasted image 20240425004422.png](./img/Pasted%20image%2020240425004422.png)  
   
 ## Diagramma di Nichols  
-> Ma mi serve? Perchè mi sa che non l'abbiamo fatto a lezione. Vabbè...  
-  
-In pratica è un diagramma di Bode "unico" infatti in ascissa ci sono i gradi e in ordinata i Decibel. Vabbè... okay.  
-  
+È un diagramma che fondamentalmente sintetizza i diagrammi di Bode in uno solo: infatti il piano di Nichols è "fase in gradi" $\times$ "modulo in dB".  
+Il suo utilizzo è meglio vederlo in [IND02b.Uso dei diagrammi e margini di stabilità](./IND02b.Uso%20dei%20diagrammi%20e%20margini%20di%20stabilit%C3%A0.md).
