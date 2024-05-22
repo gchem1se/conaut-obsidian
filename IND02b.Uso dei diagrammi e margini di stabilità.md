@@ -1,8 +1,11 @@
 ---  
 share: true  
 tags:  
+  - TODO  
   - continuare  
 ---  
+#TODO: sta pagina fa cagare  
+  
 ## Criterio di Nyquist  
 Ora come ora la struttura completa del sistema controllato è questa:  
   
@@ -39,22 +42,25 @@ In pratica, il numero di "giri orari netti" attorno al punto critico deve essere
   
 ![Pasted image 20240425004449.png](./img/Pasted%20image%2020240425004449.png)  
   
+#TODO aggiusta sto disegno qua sotto... non ha senso la cosa del vedere le curve soltanto.  
+  
 ![salvato.excalidraw](./Excalidraw/salvato.svg)  
   
 >[!Info]  
 >**Sì, ma come faccio a posizionare il punto critico correttamente sul grafico?**  
->Lo fa MATLAB. Punto. A te interessa fare *su carta* un diagramma qualitativo, per capire se su MATLAB stai zoomando abbastanza (anche se secondo me è una troiata), poi lo fai fare a MATLAB e vedi dal grafico dove è la croce rossa.  
+>Lo fa MATLAB. Punto. A te interessa fare *su carta* un diagramma qualitativo, per capire se su MATLAB stai zoomando abbastanza (anche se secondo me è una troiata), poi lo fai fare a MATLAB e vedi dal grafico *dove è la croce rossa*.  
 >  
->In realtà ti converrebbe vedere in che punto hai che il diagramma di Nyquist ha un attraversamento dell'asse reale, ovvero in che punto il diagramma di Bode ha modulo unitario, con fase di $-180°$. In base alle coordinate di questo allora ti regoli su dove si va a posizionare il punto critico.  
+>In realtà controllerai su MATLAB anche tutti gli attraversamenti dell'asse reale, ovvero in che punto il diagramma di Bode ha modulo unitario.   
+>In base alle coordinate di questi ci regoleremo sulla stabilità in caso di *guadagno variabile* (vedi dopo).  
   
 >[!Info]  
 >**Ma quindi se passa per il punto critico?**  
  È vero che se il diagramma di Nyquist passa per il punto critico allora il criterio di Nyquist non è applicabile; tuttavia, se passa per il punto critico $(-1,0)$, *il sistema ha almeno un polo sull'asse immaginario*. In queste condizioni, il sistema sicuramente non può essere asintoticamente stabile.  
   
 ### Guadagno variabile per la FdT a catena aperta  
-Se la FdT della catena aperta ha un guadagno variabile rischia di portare la catena chiusa ad essere instabile quando questo guadagno cresce troppo.   
+Se la FdT della catena aperta ha un *guadagno variabile*, l'analisi della stabilità del sistema in catena chiusa tramite il criterio di Nyquist deve essere integrata con ulteriori considerazioni.  
 $$G_a(s)=K_cG_{a,f}(s)$$  
-Infatti il grafico potrebbe, variando di guadagno, crescere (nel senso di *scalarsi* come quando su Photoshop ingrandisci un'immagine prendendola dalla maniglia su uno degli angoli) e finire ad includere, o toccare, il punto critico (guadagno = raggio della circonferenza, remember).  
+Infatti il grafico potrebbe, variando di guadagno, crescere (nel senso di *scalarsi* come quando su Photoshop ingrandisci un'immagine prendendola dalla maniglia su uno degli angoli) e finire ad includere, o toccare, il punto critico (guadagno = raggio della circonferenza).  
 Esempi:  
   
 ![untitled1.png](./img/untitled1.png)  
@@ -64,21 +70,24 @@ Esempi:
 ![untitled3.png](./img/untitled3.png)  
   
   
+$K_c$ è quindi una variabile e il metodo di controllare la stabilità del sistema passerebbe per il fare tanti, tanti diagrammi di Nyquist, tra l'altro con MATLAB perchè senza di questo non siamo in grado di quotare gli attraversamenti dell'asse reale, o di regolarci sulla posizione del punto critico.   
+**Per non dover disegnare duecentotrentamila diagrammi di Nyquist** piuttosto consideriamo lo stesso disegno ed immaginiamo di usare, sullo stesso grafico, *diverse scale* sulle ascisse, in modo quindi che il punto critico abbiamo posizione $\left(-\frac{1}{K_c}, 0\right)$. Lo facciamo "slittare" liberamente sulle ascisse, individuando varie *regioni* dell'asse reale.   
+L'analisi della stabilità consiste quindi nell'individuare in quali di queste regioni il punto critico potrebbe trovarsi perchè il sistema sia stabile: dai vincoli sull'ascissa del "punto critico mobile" $-1/K_c$ ricaviamo vincoli su $K_c$ (rispondiamo alla domanda: in che range deve trovarsi $K_c$ perchè il sistema sia stabile? *Un'eventuale controllore "statico" che guadagno deve avere?*)  
   
-$K_c$ è una variabile. **Per non dover disegnare duecentotrentamila diagrammi di Nyquist** piuttosto disegnamo *diverse scale* sulle ascisse, in modo quindi che il punto critico abbiamo posizione $\left(-\frac{1}{K_c}, 0\right)$ e si muova liberamente sulle ascisse.  
-#### Sistemi con retroazione negativa  
-![NyquistGuadagnoApertaVariabile.excalidraw](./img/Excalidraw/NyquistGuadagnoApertaVariabile.svg)  
-  
-![NyquistCatenaApertaGuadagnoVariabileNegativo.excalidraw](./img/Excalidraw/NyquistCatenaApertaGuadagnoVariabileNegativo.svg)  
-  
-  
-#### Sistemi con retroazione positiva  
-**TUTTO RIBALTATO**. Cioè il punto critico nel caso di retroazione positiva con guadagno unitario è $(+1,0)$. Il resto della trattazione resta uguale.  
+> [!Warning]  
+> Si può fare lo stesso discorso sia per sistemi a retroazione negativa che per sistemi a retroazione positiva.  
+> Nel caso della retroazione positiva, l'unico accorgimento di cui bisogna tenere conto è che il punto critico diventa $(+1,0)$, e quindi per guadagno variabile si considerà $(1/K_c, 0)$.  
+>   
 ## Margini di stabilità  
-Formalizziamo la cosa di dire che "il guadagno può stare sta $0$ e $K_{\text{critico}}$ e il sistema resta stabile" ecc.  
+*Formalizziamo* il discorso de "il guadagno può stare sta $0$ e $K_{\text{critico}}$ e il sistema resta stabile" ecc.  
 Sostanzialmente, definiamo i **margini di stabilità**.  
 ### Margine di guadagno  
-Sia $Ga(j\omega) = Kc G_{a,f}(j\omega)$, $G_{a,f}(j\omega)$ a guadagno stazionario positivo (nel senso se fai limite per $s\to0$ ecc), priva di poli a parte reale positiva (ovvero è **a minima rotazione di fase**), e sia il suo diagramma polare tale da attraversare una sola volta il semiasse reale negativo in un punto alla destra del punto critico.  
+Consideriamo prima delle *ipotesi semplificative* e dopo approfondiamo il resto dei casi.  
+Se $G_{a}(s)$ ha le seguenti caratteristiche:  
+- $\lim_{s\to0} G_a(s)>0$ (ha *guadagno stazionario positivo*)  
+- non ha *singolarità* (nè zeri nè poli) a parte reale positiva (è a *minima rotazione di fase*)  
+- esiste una sola pulsazione per cui il modulo di $G_a(s)$ sia $=1$ unità naturali ($=0$ dB)  
+- esiste una sola pulsazione per cui la fase di $G_a(s)$ sia $=-180°$  
   
 > Nsomma così:  
 > ![marginediguadagnofacile.excalidraw](./img/Excalidraw/marginediguadagnofacile.svg)  
