@@ -142,9 +142,9 @@ Invece, **ci sono dei casi particolari**:
 - $G_a(j\omega)$ *non a minima rotazione di fase - quindi avente singolarità, cioè zeri o poli, a parte reale $> 0$*: se la catena aperta è instabile allora la stabilità del sistema, se c'è, c'è solo a catena chiusa.  
 	- ![Pasted image 20240208164622.png](./img/Pasted%20image%2020240208164622.png)  
 >[!MATLAB]  
-`margin` ti da la lettura dei margini solo che funziona solo **sotto le ipotesi**.  
-Effettivamente ti restituisce un solo valore per ogni caso: un solo margine di guadagno, ad esempio.  
-In tal caso è probabile che ciò che ti restituisce sia il margine di attenuazione, ovvero la soglia minima del range; comunque, usare `allmargin` oppure usare `bodeplot` e graficare tutti i margini dovrebbe salvarti. Alla brutto dio, guarda i diagrammi direttamente.  
+>`margin` ti da la lettura dei margini solo che funziona solo **sotto le ipotesi**.  
+>Effettivamente ti restituisce un solo valore per ogni caso: un solo margine di guadagno, ad esempio.  
+>In tal caso è probabile che ciò che ti restituisce sia il margine di attenuazione, ovvero la soglia minima del range; comunque, usare `allmargin` oppure usare `bodeplot` e graficare tutti i margini dovrebbe salvarti. Alla brutto dio, guarda i diagrammi direttamente.  
 ## Picchi di risonanza della funzione a catena chiusa come margini indiretti di stabilità  
 È anche possibile ricavare delle informazioni sulla robustezza stabilità della catena chiusa "indirette", per esempio la presenza di un **"significativo" picco di risonanza** $M_r$ che fanno presupporre che siano, nella FdT di catena chiusa, **almeno due poli complessi coniugati con smorzamento "piccolo"**. Quanto più sono ampi i picchi di risonanza (quindi quanto più sono piccoli gli smorzamenti), tanto più il sistema è vicino alla condizione di instabilità, perchè uno smorzamento piccolo significa poli *vicini al semipiano di destra*, in particolare all'asse immaginario, e quindi poli sempre più vicini ad avere parte reale positiva invece che negativa (quindi ad essere instabili).  
   
