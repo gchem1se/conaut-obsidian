@@ -2,10 +2,7 @@
 share: true  
 tags:  
   - TODO  
-  - continuare  
 ---  
-#TODO: sta pagina fa cagare  
-  
 ## Criterio di Nyquist  
 Ora come ora la struttura completa del sistema controllato è questa:  
   
@@ -142,26 +139,85 @@ Invece, **ci sono dei casi particolari**:
 					- può succedere che le intersezioni che il diagramma polare ha con la circonferenza unitaria *non abbiano tutte fase $>-180\degree$*, quindi vedrai che alcuni punti di intersezione saranno nei quadranti primo e secondo del piano cartesiano.   
 						- ![Pasted image 20240208163856.png](./img/Pasted%20image%2020240208163856.png)  
 						- In tal caso, esisteranno **due margini di fase** - uno per la massima perdita di fase e uno per il massimo acquisto di fase. Quindi l'effettivo margine di fase è dato dall'intervallo compreso tra le due soglie.  
-- $G_a(j\omega)$ *non a minima rotazione di fase - quindi poli a parte reale $> 0$ - quindi instabile* (il problema è che se la catena aperta è instabile allora bisogna vedere cosa succede a catena chiusa per definire se il sistema in catena chiusa sia stabile o meno).  
+- $G_a(j\omega)$ *non a minima rotazione di fase - quindi avente singolarità, cioè zeri o poli, a parte reale $> 0$*: se la catena aperta è instabile allora la stabilità del sistema, se c'è, c'è solo a catena chiusa.  
 	- ![Pasted image 20240208164622.png](./img/Pasted%20image%2020240208164622.png)  
-#### Con MATLAB  
-`margin` ti da la lettura dei margini solo che funziona solo **con le ipotesi**. Altrimenti fai a mano.  
-### Picchi di risonanza della funzione a catena chiusa come margini indiretti di stabilità  
-È anche possibile ricavare delle informazioni sulla robustezza stabilità della catena chiusa "indirette", per esempio la presenza di un **"significativo" picco di risonanza** $M_r$ che fanno presupporre che siano, nella FdT di catena chiusa, **almeno due poli complessi coniugati con smorzamento "piccolo"**. Quanto più sono ampi i picchi di risonanza (quindi quanto più sono piccoli gli smorzamenti), tanto più il sistema è vicino alla condizione di instabilità, perchè uno smorzamento piccolo significa poli vicini al semipiano di destra, e quindi poli sempre più vicini ad avere parte reale positiva invece che negativa.  
+>[!MATLAB]  
+`margin` ti da la lettura dei margini solo che funziona solo **sotto le ipotesi**.  
+Effettivamente ti restituisce un solo valore per ogni caso: un solo margine di guadagno, ad esempio.  
+In tal caso è probabile che ciò che ti restituisce sia il margine di attenuazione, ovvero la soglia minima del range; comunque, usare `allmargin` oppure usare `bodeplot` e graficare tutti i margini dovrebbe salvarti. Alla brutto dio, guarda i diagrammi direttamente.  
+## Picchi di risonanza della funzione a catena chiusa come margini indiretti di stabilità  
+È anche possibile ricavare delle informazioni sulla robustezza stabilità della catena chiusa "indirette", per esempio la presenza di un **"significativo" picco di risonanza** $M_r$ che fanno presupporre che siano, nella FdT di catena chiusa, **almeno due poli complessi coniugati con smorzamento "piccolo"**. Quanto più sono ampi i picchi di risonanza (quindi quanto più sono piccoli gli smorzamenti), tanto più il sistema è vicino alla condizione di instabilità, perchè uno smorzamento piccolo significa poli *vicini al semipiano di destra*, in particolare all'asse immaginario, e quindi poli sempre più vicini ad avere parte reale positiva invece che negativa (quindi ad essere instabili).  
   
-Se la FdT a catena chiusa è $W(s)=y(s)/r(s)=K_rW_y(s)$ e chiamo $W_y(s)=y(s)/y_{\text{des}}(s)=\frac{G_a(s)}{1+G_a(s)}$, allora chiamo $W_r=\max\{|W_y(s)|\}$  
+Se la FdT a catena chiusa è $W(s)=y(s)/r(s)=K_rW_y(s)$ e chiamo $W_y(s)=y(s)/y_{\text{des}}(s)=\frac{G_a(s)}{1+G_a(s)}$, allora definisco $M_r:=\max\{|W_y(s)|\}$ (per )  
   
 $$M_r=\frac{W_r}{|W_y(0)|}=\frac{1}{2\zeta\sqrt{1-\zeta^2}}\qquad\zeta\in(0,1/\sqrt{2})$$  
   
-quindi, per esempio, valori tipici sono $M_r$ di qualche dB ($1\div5$) e $\zeta$ è $0.3\div 0.5$. **Valori anomali indicano poca lontananza dall'instabilità, quindi poca robustezza**.  
-#### Legame tra picchi di risonanza della FdT di catena chiusa e diagramma di Nyquist della FdT di catena aperta   
-**Non ho capito un cazzo del resto**, ma la parte importante sembra essere che **se costruisci le circonferenze descritte dalle equazioni** $$(\mathcal{R}-\mathcal{R}_0)^2+\mathcal{I}^2=\rho^2$$ ovvero circonferenze nel piano complesso di raggio $\rho$ e centro $(\mathcal{R}_0, 0)$, dove $$\mathcal{R}_0=\frac{M^2}{1-M^2},\ \rho=\frac{M}{|1-M^2|}$$  
-dove   
-$$M(j\omega)=|W_y(j\omega)|=\left|\frac{G_a(j\omega)}{1+G_a(j\omega)}\right|$$  
+Valori tipici sono $M_r$ di qualche dB ($1\div5$) e $\zeta$ è $0.3\div 0.5$. **Valori anomali indicano poca lontananza dall'instabilità, quindi poca robustezza**.  
   
-avrò, **al variare di $M$, una serie di circonferenze concentriche (cerchi M)**.  
+Allora succederà spesso che, nell'esercizio sul progetto del controllore, nel comunicarci la specifica sulla robustezza della stabilità del sistema controllato, non ci venga detto esplicitamente quali margini di guadagno e/o di fase il sistema debba mantenere, ma piuttosto ci venga dato un massimo assumibile dal picco di risonanza della catena chiusa (oppure altre specifiche che, tramite delle relazioni matematiche, ci riconducono ad avere vincoli sul picco di risonanza).   
+Andiamo quindi ad elaborare un criterio che ci dica, a partire dai diagrammi (in particolare di Nyquist e di Nichols) della funzione d'anello (= catena aperta) se la funzione di catena chiusa toccherà mai certi valori.  
+### Cerchi M  
+Andiamo a definire quali siano, sul piano complesso (e quindi nel diagramma di Nyquist, che si disegna appunto nel piano complesso) i *luoghi a modulo costante*.  
+La variazione del modulo della funzione di catena chiusa (qui a meno del fattore di scala) $W_y(s)$ è graficabile tramite la funzione complessa $$M(s=j\omega)=\left|\frac{G_a(j\omega)}{1+G_a(j\omega)}\right|$$  
+che si può anche scrivere, essendo $G_a(j\omega)$ una funzione complessa, come   
+$$M(j\omega)=\left|\frac{\Re+j\Im}{1+\Re+j\Im}\right|\implies M^2(j\omega)=\left|\frac{\Re+j\Im}{1+\Re+j\Im}\right|^2$$  
+Per trovare i luoghi a modulo costante pari ad $M_0$, eguagliamo l'espressione ad $M^2_0$ e tramite alcuni (chiavici) passaggi matematici arriviamo a scrivere l'espressione   
+$$(\Re-\Re_0)^2+\Im^2=\rho^2$$  
+con $\Re_0=\frac{M_0^2}{1-M_0^2}$ e $\rho=\frac{M_0}{|1-M_0^2|}$.  
+Il risultato, quindi, è che *i luoghi a modulo costante $M_0$, nel piano complesso, sono circonferenze di raggio e centro diversi e dipendenti da $M_0$, ma tutte con centro sull'asse reale, e simmetriche per l'asse immaginario*. Queste circonferenze sono dette *cerchi M*.  
   
-![Pasted image 20240208171758.png](./img/Pasted%20image%2020240208171758.png)  
+![Pasted image 20240527103819.png](./img/Pasted%20image%2020240527103819.png)  
   
-#continuare   
+Il criterio che ci assicura che la funzione in catena chiusa non avrà un picco di risonanza superiore a $M_0$ ci dice che *il diagramma di Nyquist della funzione di catena aperta deve essere esterno al cerchio M corrispondente ad $M_0$ per tutti i valore di $\omega$*.  
+  
+![Pasted image 20240527104103.png](./img/Pasted%20image%2020240527104103.png)  
+  
+![Pasted image 20240527104111.png](./img/Pasted%20image%2020240527104111.png)  
+  
+![Pasted image 20240527104120.png](./img/Pasted%20image%2020240527104120.png)  
+  
+>[!iInfo]  
+>**Luoghi a fase costante**  
+>Si potrebbero definire anche dei *cerchi N*, corrispondenti ai luoghi a fase costante, ma non sono di interesse pratico per il nostro corso. Comunque sì, anche in quel caso sono circonferenze. Hanno centro in $\left(-\frac{1}{2}, \frac{1}{2N}\right)$ e raggio $\frac{1}{2}\sqrt{\frac{N^2+1}{N^2}}$.  
+  
+> [!Warning]  
+>  **Relazioni tra specifiche**  
+> A volte non ci viene data neppure una specifica esplicita sul valore del picco di risonanza, ma invece ci vengono date altre specifiche (sulla catena chiusa o sulla catena aperta, sulla risposta nel dominio del tempo o sulla risposta nel dominio della frequenza) che sono correlate ad esso e quindi da cui possiamo estrapolarne, tramite relazioni matematiche, la specifica sul picco di risonanza e quindi sul minimo margine di fase da garantire in catena aperta perchè la catena chiusa sia asintoticamente stabile e con la robustezza voluta.  
+>   
+> Queste relazioni matematiche le enunciamo tenendo conto che i sistemi che vedremo in questo corso, quando non di secondo ordine, avranno comunque un *comportamento dominante di secondo ordine* e quindi saranno approssimabili come sistemi di secondo ordine. Questo ci permetterà di garantire la validità generale, *sebbene con una certa approssimazione*, di relazioni matematiche semplici.  
+>   
+> Maggiori informazioni: [IND03.Regime permanente e transitorio](./IND03.Regime%20permanente%20e%20transitorio.md)  
+>   
+> ![Pasted image 20240527112503.png](./img/Pasted%20image%2020240527112503.png)  
+>   
+> ![Pasted image 20240527112509.png](./img/Pasted%20image%2020240527112509.png)  
+>   
+  
+## Diagramma di Nichols  
+Il diagramma di Nichols è l'ennesimo modo di graficare una funzione di trasferimento. In particolare, si tratta di un diagramma che unisce i due diagrammi di Bode in uno solo, infatti ha come ascisse la fase espressa in gradi e come ordinate il modulo, espresso in dB.  
+Il risultato è un grafico i cui due assi principali sono l'asse a $0$ dB e l'asse a $-180°$, sul quale è estremamente facile leggere i margini di stabilità nel caso di stabilità regolare: infatti all'intersezione tra questi due assi troviamo il punto a coordinate $(-180, 0)$ che altro non è se non il *punto critico di Nyquist*, e i margini di stabilità sono definiti come la distanza del grafico della funzione di catena aperta rispetto a questo.  
+La distanza sulle ascisse sarà il margine di fase e la distanza sulle ordinate sarà il margine di guadagno.  
+  
+![Pasted image 20240527110107.png](./img/Pasted%20image%2020240527110107.png)  
+  
+![Pasted image 20240527110115.png](./img/Pasted%20image%2020240527110115.png)  
+  
+Inoltre anche sul diagramma di Nichols è possibile identificare i cerchi M e quindi leggere, anche da questo grafico, il valore di modulo e fase di $G_a(j\omega)$ per ogni $\omega$. L'insieme dei cerchi M (in blu) e dei cerchi N (in rosso) tracciati sul diagramma di Nichols prende il nome di *carta di Nichols*.  
+  
+![Pasted image 20240527110400.png](./img/Pasted%20image%2020240527110400.png)  
+  
+Sovrapponendoci il diagramma di Nichols della funzione in oggetto, quindi, possiamo applicare lo stesso criterio di cui parlavamo con il diagramma di Nyquist per il picco di risonanza. *Se il diagramma di Nichols della funzione non interseca mai il cerchio M corrispondente a $M_0$, allora la funzione in catena chiusa avrà picco di risonanza strettamente minore di $M_0$, quindi modulo ovunque minore di $M_0$*.  
+  
+![Pasted image 20240527110632.png](./img/Pasted%20image%2020240527110632.png)  
+  
+Ma il diagramma di Nichols ci offre, a questo punto, un modo facile di correlare i margini di guadagno e fase con la specifica sul picco di risonanza. Infatti la richiesta che il grafico della funzione di catena aperta non tocchi mai il cerchio M corrispondente ad un certo valore del picco di risonanza *ci impone vincoli sulle coordinate dei punti di intersezione dello stesso grafico con gli assi principali del diagramma di Nichols, quindi con i margini di stabilità*.  
+In particolare, noteremo che (almeno per le funzioni di trasferimento trattate nel nostro corso) il margine di guadagno *raramente influisce sulla specifica di robustezza tramite vincolo sul picco di risonanza e, in verità, sulla asintotica stabliità del sistema in catena chiusa in generale*, in quanto si vede bene dal diagramma di Nichols che è un vincolo abbastanza facile da rispettare.  
+Diverso invece per il *margine di fase*, che spesso diventa il vincolo principale.  
+  
+![Pasted image 20240527111107.png](./img/Pasted%20image%2020240527111107.png)  
+  
+Fondamentalmente, quando si tratterà di dover garantire una specifica sul picco di risonanza, dal diagramma di Nichols sovrapposto alla carta di Nichols della funzione in catena chiusa capiremo di quanto sarà necessario *spostare il grafico della funzione d'anello (catena aperta) verso destra e verso l'alto o il basso, dove spostare a destra vuol dire garantire un certo margine di fase tramite il controllore, mentre spostare in alto o in basso vuol dire inserire un fattore di guadagno statico nel controllore*.  
+  
+>[!Warning]  
+>Quando con le relazioni matematiche semplici che utilizziamo andiamo a calcolare il margine di fase da garantire partendo da altre specifiche, ad esempio tramite $m_\varphi M_r\approx60$, va sempre tenuto in considerazione che *stiamo usando equazioni approssimate* ed è possibile che esca un valore di $m_\varphi$ minore del minimo valore del margine di fase che si trova dal diagramma di Nichols della funzione di catena aperta sovrapposto alla carta di Nichols. **In ogni caso, il minimo margine di fase da garantire è quello che si trova da Nichols**.  
   
