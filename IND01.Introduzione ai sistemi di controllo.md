@@ -1,8 +1,6 @@
 ---  
 share: true  
 ---  
-  
-  
 ## Elementi comuni ai sistemi di controllo  
 - **Sistema**: ha come ingressi *disturbi* e una *variabile di comando* $u_C$, ha un'*uscita di interesse soggetta a controllo* $y_S$ e degli *stati interni non sempre accessibili e misurabili* $x$  
 	- nell'esempio, massa dell'auto; $y_S$ è la velocità dell'auto; $u_C$ è la forza sprigionata dal motore  
