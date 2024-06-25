@@ -108,7 +108,7 @@ share: true
 		- ![Pasted image 20240625205156.png](./img/Pasted%20image%2020240625205156.png)  
 - Non so come classificarli  
 	- Dato lo schema di un sistema e definita la $G(s)$ in due forme, dire qual è la coppia $K_\infty, K_\text{staz}$ (2.5)  
-		- ![Pasted image 20240625210156](./Pasted%20image%2020240625210156.png)  
+		- ![Pasted image 20240625210156.png](./img/Pasted%20image%2020240625210156.png)  
 	- (2.10)  
 		- ![Pasted image 20240625205130.png](./img/Pasted%20image%2020240625205130.png)  
 	- (2.11)  
