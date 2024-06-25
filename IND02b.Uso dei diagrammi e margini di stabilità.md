@@ -186,7 +186,7 @@ Il criterio che ci assicura che la funzione in catena chiusa non avrà un picco 
 >   
 > Queste relazioni matematiche le enunciamo tenendo conto che i sistemi che vedremo in questo corso, quando non di secondo ordine, avranno comunque un *comportamento dominante di secondo ordine* e quindi saranno approssimabili come sistemi di secondo ordine. Questo ci permetterà di garantire la validità generale, *sebbene con una certa approssimazione*, di relazioni matematiche semplici.  
 >   
-> Maggiori informazioni: [IND03.Regime permanente e transitorio](./IND03.Regime%20permanente%20e%20transitorio.md)  
+> Maggiori informazioni: [IND03.Analisi approfondita delle specifiche di progetto](./IND03.Analisi%20approfondita%20delle%20specifiche%20di%20progetto.md)  
 >   
 > ![Pasted image 20240527112503.png](./img/Pasted%20image%2020240527112503.png)  
 >   
