@@ -95,7 +95,7 @@ Nel realizzare il controllore per il sistema, l'unica specifica che il sistema i
 - Specifiche nel dominio del tempo, quindi su determinate caratteristiche della risposta del sistema, nel transitorio iniziale come in regime permanente    
 - La capacità di reagire in maniera ottimale ai disturbi, minimizzandone gli effetti o reiettandoli completamente  
 ### Specifiche sul regime permanente  
-Vedi [IND03.Regime permanente e transitorio > Precisione in regime permanente](./IND03.Regime%20permanente%20e%20transitorio.mdprecisione-in-regime-permanente).  
+Vedi [IND03.Analisi approfondita delle specifiche di progetto > Precisione in regime permanente](./IND03.Analisi%20approfondita%20delle%20specifiche%20di%20progetto.mdprecisione-in-regime-permanente).  
   
 Se il sistema è stabile, allora ha un regime permanente e si può definire un valore di regime $y_\infty$.   
 Si definisce **precisione** di un sistema la specifica di progetto che imporne che il sistema debba dare in output un $y_\infty$ uguale ad un valore noto (anche nullo) scelto in precedenza, o al massimo discostarsi da esso di un $e_{\max}$ anch'esso noto (avere un *errore di inseguimento* $|y_{\text{des}}-y_\infty|\le e_{\max}$).  
@@ -103,7 +103,7 @@ Si definisce **precisione** di un sistema la specifica di progetto che imporne c
 ![Pasted image 20240207125437.png](./img/Pasted%20image%2020240207125437.png)  
   
 ### Specifiche sulla risposta in transitorio  
-Vedi [IND03.Regime permanente e transitorio > Risposta transitoria](./IND03.Regime%20permanente%20e%20transitorio.mdrisposta-transitoria).  
+Vedi [IND03.Analisi approfondita delle specifiche di progetto > Risposta transitoria](./IND03.Analisi%20approfondita%20delle%20specifiche%20di%20progetto.mdrisposta-transitoria).  
   
 Nella maggior parte dei casi stiamo parlando di vincoli elaborati considerando ingressi particolari e "patologici", perchè mettono realmente il controllore alla prova; principalmente, noi considereremo specifiche sulla risposta al *gradino*, che essendo una funzione che salta istantaneamente dal valore nullo ad un valore costante di regime è sicuramente il caso peggiore contro cui il nostro controllore debba combattere.   
 Nel caso di sistemi di ordine dal secondo in poi, la risposta del sistema nel dominio del tempo potrà avere una sovraelongazione, per cui si potrà parlare di una **sovraelongazione massima** $\hat{s}={(y_\max-y_\infty)}/y_\infty$   
@@ -117,7 +117,7 @@ Altre caratteristiche che possono essere oggetto di specifica sono:
 ### Specifiche sulla risposta in frequenza  
 Considerando la $F(s)$ del sistema che si sta progettando, si potrebbero avere specifiche sulla sua **banda passante** e **picco di risonanza**. Infatti un sistema LTI si può anche vedere come un filtro e opererà correttamente all'interno di un certo range di frequenze.  
 ### Specifiche sui disturbi  
-Vedi [IND03.Regime permanente e transitorio > Disturbi ed effetti su regime permanente](./IND03.Regime%20permanente%20e%20transitorio.mddisturbi-ed-effetti-su-regime-permanente).  
+Vedi [IND03.Analisi approfondita delle specifiche di progetto > Disturbi ed effetti su regime permanente](./IND03.Analisi%20approfondita%20delle%20specifiche%20di%20progetto.mddisturbi-ed-effetti-su-regime-permanente).  
 ### Specifiche sulla robustezza della stabilità  
 Vedi [IND02b.Uso dei diagrammi e margini di stabilità > Criterio di Nyquist](./IND02b.Uso%20dei%20diagrammi%20e%20margini%20di%20stabilit%C3%A0.mdcriterio-di-nyquist).  
   
