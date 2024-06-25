@@ -10,7 +10,7 @@ i complementi algebrici sono
 Questo funziona con qualunque dimensione e qualunque matrice.  
 In particolare, in una matrice $2\times2$ la matrice aggiunta è calcolabile scambiando di *posto* gli elementi sulla diagonale e scambiando di *segno* gli elementi sulla antidiagonale.  
 In generale, invece, la matrice dei complementi algebrici ha come generico elemento   
-$$c_{i,j}=(-1)^{i+j}\text{det}(\small{\text{sottomatrice che si ottiene eliminando riga i e colonna j}})$$  
+$$c_{i,j}=(-1)^{i+j}\text{det}(\small{\text{sottomatrice che si ottiene eliminando riga i e colonna j dalla matrice $(sI-A)^T$}})$$  
 ## Scomposizione in fratti semplici  
 Questa cosa è essenziale perchè non vuoi davvero fare la trasformata di Laplace di funzioni complicate, quelle cose le fa MATLAB se pure ci va bene. Quindi noi cerchiamo di semplificarci la vita e davanti ad una funzione del genere:  
 $$F(s)=\frac{b_ms^m++b_{m-1}s^{m-1}+\text{...}+b_1s+b_0}{s^n+a_{n-1}s^{n-1}+\text{...}+a_1s+a_0}=\frac{N_F(s)}{D_F(s)}$$  
