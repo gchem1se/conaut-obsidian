@@ -1,0 +1,494 @@
+---  
+share: true  
+---  
+# Taragna  
+## Scraping delle 6 Tipologie LADISPE  
+- Classificazione (2.2, 3.7, 4.11, 6.1, 7.12)  
+- Modellistica  
+	- Elettrico  
+		- Determinare A e B (3.10, 4.3)  
+		- Determinare A, B, C, D (5.9)  
+		- Scrivere le equazioni di stato del sistema, ma c'è un componente non lineare (6.2)  
+	- Meccanico traslazione  
+		- Scrivere le equazioni del moto (1.1)  
+		- Scrivere le equazioni del moto, ma il sistema è in verticale (6.3)  
+		- Scrivere la funzione di trasferimento tra una forza esterna e una posizione (variabile di stato), in cui una forza è applicata ad un punto materiale (5.6)  
+	- Meccanico rotazione  
+		- Pendolo inverso  
+			- Scrivere le equazioni di stato (1.2)  
+			- Scrivere le equazioni del moto (4.4)  
+	- Termico  
+		- Un corpo dentro l'altro  
+			- Scrivere il polinomio caratteristico di A (1.13, 3.11)  
+			- Scrivere A, B, C (6.4)  
+		- Corpi separati, in contatto termico tra loro e con l'ambiente  
+			- Scrivere le equazioni dinamiche (non di stato) (7.2)  
+			- Scrivere la matrice A (5.4)  
+	- Elettrodinamico  
+		- Comandato in armatura  
+			- crivere le sole equazioni dinamiche (2.1, 7.8)  
+- Funzione di trasferimento  
+	- Calcolare la funzione di trasferimento  
+		- Date le equazioni di stato  
+			- Date 3 equazioni di stato, ma abbastanza semplici, della serie che ogni equazione di stato che mi serve ha un solo termine al secondo membro  
+				- Tempo discreto (2.3)  
+			- Date 2 equazioni di stato e un parametro, ma anche qui, le equazioni che mi servono davvero sono semplici  
+				- Tempo continuo (3.13)  
+			- Date le equazioni di stato, in cui compare anche una variabile interna da esplicitare (5.10)  
+		- Date le matrici di un sistema LTI MIMO, scrivere la funzione di trasferimento tra un'uscita specifica e un ingresso specifico (6.5, 7.13)  
+	- Date le sole dimensioni delle matrici di un sistema LTI e noto che il sistema è sia completamente osservabile che completamente raggiungibile, indicare la forma della corrispondente funzione di trasferimento (2.8)  
+	- Date le matrici in chiaro, con matrice 3x3 ma abbastanza "semplice" perchè piena di 0 (nel caso si trasformasse in equazioni si avrebbero equazioni di stato semplicissime, con un solo termine in ogni secondo membro che ci serve) dire la forma della funzione di trasferimento del sistema, in particolare il termine di grado massimo del numeratore e il denominatore completo (4.5)   
+	- Determinare l'insieme delle costanti di tempo dei poli del sistema data la funzione di trasferimento (6.13, 5.9)  
+- Stabilità interna  
+	- Analizzare la stabilità interna  
+		- Tempo continuo  
+		- Tempo discreto  
+			- Dati gli autovalori in chiaro (1.3, 3.3)  
+			- Data la matrice A 4x4 ma diagonale a blocchi (2.7)  
+			- Data la matrice A 3x3, e c'è un parametro, e la matrice è anche se non si capisce bene triangolare a blocchi (6.8, 7.7)  
+	- Analizzare la stabilità di un punto di equilibrio dato un sistema linearizzato di cui sono note le matrici A,B,C,D  
+		- Tempo continuo   
+			- 4x4, ma diagonale a blocchi (1.4, 6.9)  
+		- Tempo discreto   
+			- 3x3, in funzione di un parametro (5.2)  
+			- 4x4 ma triangolare a blocchi (7.11)  
+- Stabilità esterna  
+	- Determinare per quali valori di un parametro $p$ il sistema risulta esternamente stabile   
+		- Tempo continuo  
+			- Sistema di ordine superiore al secondo  
+				- un solo parametro (1.7, 3.4, 5.4)  
+				- due parametri (5.11)  
+		- Tempo discreto  
+			- Sistema di ordine superiore al secondo (4.12)  
+	- Dato il denominatore di una FdT, determinare degli intervalli di un parametro entro i quali si assicura stabilità oppure stabilità + altre condizioni  
+		- Tempo discreto   
+			- Sistema di secondo ordine (2.9)  
+- Risposta al gradino  
+	- Dato un grafico della risposta al gradino di un sistema, determinare la funzione di trasferimento  
+		- Con sovraelongazione (1.5)  
+		- Senza sovraelongazione (5.3)  
+	- Data una funzione di trasferimento, dire quale sia grafico della sua risposta al gradino  
+		- Senza sovraelongazione (2.12, 3.9)  
+		- Con sovraelongazione (4.13)  
+- Equilibrio  
+	- Determinare gli stati di equilibrio corrispondenti ad un ingresso di equilibrio noto  
+		- Tempo continuo   
+			- Con parametro (4.10)  
+			- Senza parametri (1.6)  
+		- Tempo discreto (4.9)  
+	- Linearizzare un sistema non lineare intorno ad un punto di funzionamento (2.6, 3.8, 5.13, 7.5)  
+- Uscita  
+	- Determinare i primi campioni dell'uscita nel tempo di un sistema a tempo discreto, data la sua funzione di trasferimento e un ingresso (5.12)  
+	- Determinare l'espressione analitica dell'uscita del sistema nel tempo  
+		- data la funzione di trasferimento e un ingresso  
+			- Tempo continuo (1.8, 3.1)  
+		- date le matrici e una condizione iniziale, ingresso nullo  
+			- Tempo continuo (4.7)  
+		- date le equazioni di stato, non sono semplici   
+			- Tempo discreto (6.6)  
+			- Tempo continuo (7.3)  
+		- dato il modello ingresso-uscita e un ingresso sinusoidale (5.7)  
+	- Calcolare il valore finale in regime permanente $y_\infty$  
+		- Dato un ingresso a gradino (1.9, 3.12, 5.5, 6.7)  
+		- Dato un ingresso sinusoidale (1.10, 3.2, 4.1, 5.10)  
+		- Dato un ingresso a rampa (4.2)  
+- Regolatore dinamico  
+	- Determinare i coefficienti di $K$  
+		- Matrice A 2x2 (1.11, 3.5)  
+		- Matrice A 3x3 (2.4, 4.6, 5.8)  
+		- Matrice A 3x3, ma in forma compagna inferiore (5.6)  
+	- Date le matrici del sistema in funzione di un parametro, dire per quali valori è possibile progettare una retroazione statica degli stati (controllare la raggiungibilità)  
+		- Matrice 2x2 (6.10)  
+	- Date le matrici del sistema in funzione di un parametro, dire per quali valori è possibile progettare un osservatore asintotico (controllare l'osservabilità)  
+		- Matrice 2x2 (7.1)  
+	- Determinare i coefficienti di $L$  
+		- Matrice A 3x3 (1.12, 3.6, 4.8, 5.1)  
+		- Matrice A 3x3, in forma compagna destra (2.13, 6.11)  
+	- Domanda del cazzo (6.12)  
+		- ![Pasted image 20240625205156.png](./img/Pasted%20image%2020240625205156.png)  
+- Non so come classificarli  
+	- Dato lo schema di un sistema e definita la $G(s)$ in due forme, dire qual è la coppia $K_\infty, K_\text{staz}$ (2.5)  
+		- ![Pasted image 20240625210156](./Pasted%20image%2020240625210156.png)  
+	- (2.10)  
+		- ![Pasted image 20240625205130.png](./img/Pasted%20image%2020240625205130.png)  
+	- (2.11)  
+		- ![Pasted image 20240625012343.png](./img/Pasted%20image%2020240625012343.png)  
+### Soluzioni  
+- 1  
+	- 1  
+		- non considerare $\dot{p_A}$ nel vettore degli stati; la seconda eqz del moto è $=0$, sfrutta questo per scrivere $\dot{p_A}$ in funzione di altro. Occhio al verso del sistema di riferimento.  
+	- 2  
+		- prendi come variabili di stato $[\theta,\dot{\theta}]$  
+		- il sistema ha delle Torque esterne che si calcolano come prodotto vettoriale tra il vettore lunghezza e la forza.  
+		- il vettore segnato con la X è *entrante* nel foglio  
+		- $\sin(\pi/2-x)=\cos(x)$  
+		- ==non ho capito perchè la coppia della forza peso non c'è==  
+	- 3  
+		- ricordati di calcolare il modulo dei complessi con la calcolatrice e ricordati la tabella di [TAR16.Stabilità interna per sistemi dinamici LTI > Se hai gli autovalori](TAR16.Stabilit%C3%A0%20interna%20per%20sistemi%20dinamici%20LTI.mdse-hai-gli-autovalori)  
+	- 4  
+		- calcoli gli autovalori dato che è diagonale a blocchi facilmente; poi [TAR16.Stabilità interna locale dell'equilibrio di sistemi dinamici non lineari per linearizzazione](./TAR16.Stabilit%C3%A0%20interna%20locale%20dell'equilibrio%20di%20sistemi%20dinamici%20non%20lineari%20per%20linearizzazione.md)  
+	- 5  
+		- leggi dal grafico tempo di picco $\hat{t}$ e sovraelongazione $\hat{s}$ e $y_\infty=K_\infty$  
+		- sai che ogni sistema di secondo ordine ha FdT del tipo $G(s)=K_\infty\cdot\frac{\omega_0^2}{s^2+2\zeta\omega_0s+\omega_0^2}$  
+		- usa le formule per trovare $\zeta$ e $\omega_0$   
+			- ![Pasted image 20240625005233.png](./img/Pasted%20image%2020240625005233.png)  
+	- 6  
+		- La condizione dell'equilibrio a tempo continuo è che le equazioni di stato si annullino.  
+		- Imponi la condizione e poi trova tutte le possibili combinazioni dei valori delle variabili di stato da tali equazioni, facendo ragionamenti del tipo "dalla prima equazione risulta che $x_1$ assume o questo o quel valore; se assume questo, $x_2$ assume... se invece $x_1$ assume quest'altro, $x_2$ assume..."  
+	- 7  
+		- Il sistema è di ordine superiore al secondo, quindi serve Cartesio + Routh  
+		- Cartesio vuole che tutti i coefficienti siano concordi, Routh vuole che la prima colonna della tabella di Routh sia fatta da coefficienti concordi  
+		- Routh parte dall'ordine del sistema e finisce a $0$  
+	- 8  
+		- Trasformi l'ingresso, lo moltiplichi alla FdT e antitrasformi tutto.  
+		- Laplace, s'intende.  
+		- Si mette sempre un gradino a moltiplicare ogni termine antitrasformato, forse perchè la trasformata che usiamo è unilatera dx.  
+		- Dato che c'è un termine al quadrato nel denominatore, devi usare la formula con la derivata per calcolare uno dei residui: non perdere tempo, la calcolatrice può calcolare il valore della derivata in un punto.  
+			- ![Pasted image 20240625204645.png](./img/Pasted%20image%2020240625204645.png)  
+	- 9  
+		- Prima verifichi se il sistema è stabile esternamente, poi usi [TAR21.Stabilità esterna e risposta a regime > Risposta in regime permanente](./TAR21.Stabilit%C3%A0%20esterna%20e%20risposta%20a%20regime.mdrisposta-in-regime-permanente)  
+		- In questo caso non è stabile esternamente  
+	- 10  
+		- Come 1.9  
+	- 11  
+		- Prima controlli la raggiungibilità (con la calcolatrice)  
+		- Il sistema è raggiungibile quindi fai tutto il panegirico (lunghissimo).  
+	- 12  
+		- Prima controlli l'osservabilità (con la calcolatrice)  
+		- Il sistema non è osservabile quindi ti fermi.  
+	- 13  
+		- Ricordati che solo il corpo esterno scambia calore con l'esterno e quindi ha il termine che ne tiene conto nelle pressioni termiche esterne  
+		- Sono tanti passaggi ma tutti brevi  
+- 2  
+	- 1  
+		- Le equazioni dinamiche sono solo quella di armatura (che praticamente copi dal formulario) e quelle meccaniche (che sono effettivamente da scrivere).  
+		- Nel testo ti da delle formule per la forza elettromotrice e la coppia motrice che sovrascrivono le equazioni canoniche di conversione dell'energie conespressioni più semplici.  
+	- 2  
+		- [TAR01.Classificazione dei sistemi > Riassunto classificazione sistema](./TAR01.Classificazione%20dei%20sistemi.mdriassunto-classificazione-sistema)  
+	- 3  
+		- Usa direttamente Laplace e calcola $G(s)=Y/U$.  
+	- 4  
+		- Prima controlli la raggiunibilità con la calcolatrice.  
+		- Non è raggiunibile, quindi ti fermi.  
+	- 5  
+		- ==Non so farlo.==  
+	- 6  
+		- Basta seguire le formule con le derivate parziali, molto semplice. [TAR13.Linearizzazione di sistemi dinamici > Conclusione](./TAR13.Linearizzazione%20di%20sistemi%20dinamici.mdconclusione)  
+	- 7  
+		- Calcoli facilmente gli autovalori dato che è diagonale a blocchi, poi [TAR16.Stabilità interna per sistemi dinamici LTI > Se hai gli autovalori](TAR16.Stabilit%C3%A0%20interna%20per%20sistemi%20dinamici%20LTI.mdse-hai-gli-autovalori)  
+	- 8  
+		- Il sistema è in forma minima, per cui non avrà più cancellazioni zero-polo e quindi la funzione di trasferimento avrà grado di termine massimo del numeratore e del denominatore pari alla dimensione di A  
+		- inoltre (credo) la presenza di un $D\ne0$ implica la presenza di un $K\ne1$ nella funzione di trasferimento. ==Non so farlo== per sicurezza.  
+	- 9  
+		- Essendo a tempo discreto bisognerebbe usare le 3 disequazioni ed eventualmente Jury.  
+		- Non serve Jury essendo di secondo ordine.  
+		- ==Non so farlo.== Non sono sicuro di saper fare la seconda richiesta.  
+	- 10  
+		- ==Non so farlo.== Credo sia Laplace e basta.  
+	- 11  
+		- ==Non so farlo.== Credo sia Laplace e basta.  
+	- 12  
+		- ==Non so farlo.== Non so se sia meglio cercare di ricavare smorzamento e pulsazione naturale dalla funzione di trasferimento oppure provare le 4 alternative che mi offre lui.  
+		- Per ricavare smorzamento e pulsazione naturale, si parlerebbe di questo:  
+			- ![Pasted image 20240625014340.png](./img/Pasted%20image%2020240625014340.png)  
+		- Sicuramente lo smorzamento $\zeta$ deve essere $1$, perchè alla fine non avrà sovraelongazione  
+		- E poi forse potrei usare il tempo di salita invece del tempo di picco?  
+	- 13  
+		- Essendo in forma canonica di osservabilità, posso già partire con il delirio (lunghissimo).  
+- 3  
+	- 1  
+		- Come 1.8  
+	- 2  
+		- Come 1.10  
+	- 3  
+		- Come 1.3  
+	- 4  
+		- Come 1.7  
+	- 5  
+		- Come 1.11  
+	- 6  
+		- Come 1.12  
+	- 7  
+		- Come 2.2  
+	- 8  
+		- Come 2.6  
+	- 9  
+		- Come 2.12  
+	- 10  
+		- Stai solo attento a considerare correttamente l'ordine delle variabili nei vettori che ti da lui  
+		- Guardando dal vettore delle variabili di stato che ti da lui puoi ricordarti le equazioni costitutive  
+		- Cerca di usare sempre il minor numero di equazioni e di non scriverle tutte e basta  
+	- 11  
+		- Come 1.13  
+	- 12  
+		- Come 1.9  
+	- 13  
+		- Usa direttamente Laplace, comunque dato che chiede la funzione di trasferimento $Y/U$ il senso è scrivere tutto ciò che sta nel secondo membro dell'espressione della $Y$ in funzione di $Y$ o di $U$ (in questo caso, va riscritta $X_1$, quindi $X_2$, in funzione di $U$)  
+- 4  
+	- 1  
+		- Come 1.10  
+	- 2  
+		- Prima controlli che sia stabile esternamente.  
+		- Dato che con l'ingresso a rampa non mi pare di avere una formula veloce, fai tutti i passaggi.  
+		- Devi usare il teorema del valore finale.  
+	- 3  
+		- Come 3.10  
+	- 4  
+		- Standard. Ricordati solo che gli smorzatori che stanno a identificare un attrito hanno formula $\beta(\dot{\theta}_\text{corpo}-0)$  
+	- 5  
+		- NON si può concludere nulla direttamente, data la possibilità che ci siano cancellazioni zero-polo (il sistema potrebbe non essere in forma minima e di sicuro non ti metti a controllarlo, altrimenti diventa lunghissimo).  
+		- Non puoi nemmeno concludere nulla immediatamente sul denominatore, sempre per le possibili cancellazioni zero-polo  
+		- Ti conviene trasformare in equazioni di stato e usare Laplace, tanto le equazioni sono semplici e finisci rapidamente  
+	- 6  
+		- Come 2.4  
+	- 7  
+		- Puoi usare direttamente la formula con le matrici per calcolare la $Y$, usi quella perchè hai le matrici e trasformando in equazioni e usando Laplace non sarebbe altrettanto veloce.  
+		- A quel punto antitrasformi.  
+	- 8  
+		- Come 3.6  
+	- 9  
+		- La condizione di equilibrio è che primo e secondo membro delle equazioni alle differenze siano uguali.  
+		- Imponi questa e cerchi le combinazioni possibili di valori assumibili dalle variabili di stato.  
+	- 10  
+		- Come 1.6, alla fine  
+	- 11  
+		- Come 2.2  
+	- 12  
+		- Usi le tre disequazioni magiche e poi Jury [TAR16.Stabilità interna per sistemi dinamici LTI > Criterio di Jury (per tempo discreto)](TAR16.Stabilit%C3%A0%20interna%20per%20sistemi%20dinamici%20LTI.mdcriterio-di-jury-per-tempo-discreto)  
+	- 13  
+		- Mi sa che la prima cosa da fare è controllare se ha sovraelongazione o no.  
+		- Avendo la funzione di trasferimento in chiaro, posso calcolare lo smorzamento: se è diverso da 1, allora ha sovraelongazione. A quel punto posso valutare tempo di picco / sovraelongazione e selezionare il grafico.  
+- 5  
+	- 1  
+		- Come 1.12  
+	- 2  
+		- Provi a calcolare gli autovalori in funzione di $k$ e ad imporre che abbiano tutti modulo strettamente minore di $1$.  
+		- In questo caso c'è un autovalore che non dipende da $k$ e che ha di per sè modulo maggiore di $1$, quindi il punto di equilibrio è da considerarsi instabile per ogni valore di $k$.  
+	- 3  
+		- ==Non so farlo==, penso che intanto bisogna dire che $\zeta=1$ e poi magari usi il tempo di salita (?) e il valore finale  
+	- 4  
+		- Banale, basta seguire le regole dei termici... in particolare ricorda che tutti i corpi sono in contatto termico con l'esterno.  
+	- 5  
+		- Come 1.9  
+	- 6  
+		- Va considerato il punto materiale di posizione $y_0$ per avere due corpi e quindi due equazioni del moto, anche se la seconda si eguaglia a zero.  
+		- Ricordati però che la velocità del punto materiale non è da mettere nel vettore delle variabili di stato.  
+		- Poi usi Laplace.  
+	- 7  
+		- Tutto regolare in realtà, ovvero dal modello ingresso/uscita ricavi facilmente la $G(s)$, la moltiplichi per la trasformata di Laplace dell'ingresso (sì, devi fare la trasformata di un seno) e poi antitrasformi.  
+		- La trasformata del seno è (dalle tavole)   
+			- ![Pasted image 20240625204524.png](./img/Pasted%20image%2020240625204524.png)  
+		- L'antitrasformata c'è da stare attenti, perchè compaiono due poli complessi coniugati. Bisogna quindi usare la formula (che è nelle tavole)  
+			- ![Pasted image 20240625204717.png](./img/Pasted%20image%2020240625204717.png)  
+			- ![Pasted image 20240625204633.png](./img/Pasted%20image%2020240625204633.png)  
+				- la $k$ sta lì perchè i poli complessi coniugati potrebbero anche avere molteplicità $>1$  
+	- 8  
+		- Come 2.4  
+	- 9  
+		- Come 6.13  
+	- 10  
+		- Dato che chiede la funzione di trasferimento $G(s)=Y/U$ è necessario esplicitare tutte le altre variabili che si trovano esplicitamente o non nell'espressione dell'uscita in funzione di $Y$ o $U$.  
+	- 11  
+		- C'è da scrivere una condizione che comprenda entrambi e magari che in un colpo solo dia vincoli ad entrambi. Per il resto è semplicemente da usare Cartesio + Routh come al solito.  
+	- 12  
+		- Tecnicamente dovrebbe essere semplice, fai l'uscita come $G(z)\cdot U(z)$, poi antitrasformi e calcoli $y(0), y(1)\dots y(3)$  
+		- Occhio alla trasformata del gradino nel dominio della trasformata zeta: è $\frac{z}{z-1}$.  
+		- Occhio a fare quella cosa del moltiplicare per $z$ i fratti semplici e dividere dopo.  
+		- Tuttavia, ==non so farlo==.  
+	- 13  
+		- Come 2.6  
+- 6  
+	- 1  
+		- Come 2.2  
+	- 2  
+		- Procedi come al solito, semplicemente consideri nota la variabile interna del diodo. La variabile del diodo infatti è nota nella sua espressione.  
+		- Al momento opportuno (quando devi scrivere le equazioni di stato) sostituisci la variabile interna con la sua espressione, che comunque ti è stata data.  
+		- A quel punto devi comunque scrivere l'espressione del diodo riformulandola in modo che sia scritta in funzione delle variabili di stato del sistema.  
+	- 3  
+		- Nulla di strano, semplicemente ricordati che esiste la forza peso e che è una forza esterna, e in questo caso è da considerarsi negativa perchè opposta nella sua direzione a quella presa come riferimento per il moto.  
+		- La forza peso è una forza esterna e va scritta nelle equazioni del moto, ma poi diventa costante nella equazione di stato, motivo per cui non è nel vettore degli ingressi del sistema.  
+	- 4  
+		- Come 1.13, solo che scrivi le matrici. Insomma, il solito sistema termico.  
+	- 5  
+		- Usa la formula con le matrici per scrivere la funzione di trasferimento, ma al posto di $C$ e $B$ metti $C_1$ e $B_1$, cioè considera solo le parti delle matrici relative all'uscita e all'ingresso che ti interessano.  
+		- Poi procedi come al solito, come se fosse un sistema SISO.  
+	- 6  
+		- Le equazioni di stato non sono semplici, quindi conviene trasformarle in matrici e fare la formula con le matrici per trovare l'uscita nel dominio della Zeta.  
+		- Ricordati che c'è una $z$ a moltiplicare la prima parte della formula dell'uscita.  
+		- Poi antitrasformi: ricordati quella cosa del moltiplicare per $z$ per i fratti semplici.  
+	- 7  
+		- Come 1.9  
+	- 8  
+		- La matrice è triangolare a blocchi, se lo vedi sei salvo almeno un pochino. In quel caso ti accorgi che devi controllare il polinomio caratteristico solo di una sottomatrice 2x2 e quindi bastano le 3 diseq.  
+		- Altrimenti puoi comunque farlo ma non hai scorciatoie, quindi farai il polinomio caratteristico con un procedimento più lungo, e poi le tre diseq + Jury dato che è di ordine superiore al secondo.  
+	- 9  
+		- Come 1.4  
+	- 10  
+		- Controlla la raggiungibilità e imponi quindi che la matrice di raggiungibilità abbia rango massimo, ovvero determinante diverso da $0$.  
+	- 11  
+		- Come 2.13  
+	- 12  
+		- Essendo completamente osservabile ma non completamente raggiungibile, si può fare solo lo stimatore asintotico.  
+	- 13  
+		- Le costanti di tempo si trovano con la formula  
+			- ![Pasted image 20240625200838.png](./img/Pasted%20image%2020240625200838.png)  
+			- quindi NON esistono costanti di tempo negative, in quel caso vuol dire che i poli sarebbero non stabili; **solo i poli stabili hanno costanti di tempo.**  
+- 7  
+	- 1  
+		- Imponi il determinante diverso da $0$ per la matrice di osservabilità.  
+	- 2  
+		- Abbastanza semplice, solo una rottura di coglioni. Il generatore di calore interessa solo il corpo all'interno del quale si trova. Ogni corpo scambia calore con l'universo e con i corpi con cui è in contatto.  
+	- 3  
+		- Le equazioni non sono semplici, quindi non usi Laplace, ma usi la formula per calcolare l'uscita con le matrici, e poi antitrasformi.  
+	- 4  
+		- Come 1.7  
+	- 5  
+		- Come 2.6  
+	- 6  
+		- Skippi check raggiungibilità, ma il resto lo fai.  
+	- 7  
+		- In realtà qui si capisce perchè è direttamente triangolare, non a blocchi.  
+		- Essendo questo, non ti serve fare Jury, perchè vedi immediatamente gli autovalori e ti basta imporre che abbiano modulo minore strettamente di $1$.  
+	- 8  
+		- Come 2.1  
+	- 9  
+		- Come 3.10 ma fai anche le altre matrici.  
+	- 10  
+		- Come 1.10  
+	- 11  
+		- Trova gli autovalori e controlla che siano a modulo strettamente minore di $1$.  
+	- 12  
+		- Come 2.2  
+	- 13  
+		- Come 6.5  
+# Indri  
+## Scraping delle 5 Tipologie LADISPE + BONUS specifica su sensibilità  
+- Tipologia 1  
+	- Esercizio 1   
+		- Sistema: F1 tipo 0, F2 tipo 1; stabilità regolare: sì  
+		- Disturbi: d1 costante intermedio, d2 costante uscita  
+		- Kr: 1  
+		- Specifiche statiche  
+			- Errore di inseguimento massimo alla rampa pari a ...    
+			- Effetto di d1 sull'uscita massimo pari a ...  
+			- Effetto di d2 sull'uscita massimo pari a ...  
+		- Specifiche dinamiche  
+			- banda passante pari a ... +- ... %   
+			- sovraelongazione massima pari a ...   
+		- Valutare   
+			- tempo di salita  
+			- picco di risonanza  
+			- errore di inseguimento massimo a un riferimento sinusoidale di frequenza pari a ... in assenza di disturbi  
+		- Discretizzazione   
+			- valutare tempo di salita e sovraelongazione  
+	- Esercizio 2  
+		- Nyquist  
+			- retroazione: negativa  
+			- modalità: valutazione stabilità per valori puntuali di K  
+			- zoom a fianco: no  
+- Tipologia 2  
+	- Esercizio 1		  
+		- Sistema: F1 tipo 0, F2 tipo 1; stabilità regolare: sì  
+		- Disturbi: d1 costante intermedio  
+		- Kr: 1  
+		- Specifiche statiche  
+			- Errore di inseguimento massimo al gradino nullo  
+			- Errore di inseguimento massimo alla parabola pari a ...  
+			- effetto di d sull'uscita massimo pari a ...  
+		- Specifiche dinamiche   
+			- banda passante pari a ... +- ... %  
+			- sovraelongazione massima pari a ...  
+		- Valutare  
+			- tempo di salita  
+			- picco di risonanza  
+			- valore massimo del comando applicato dal controllore con riferimento gradino  
+		- Discretizzazione  
+			- valutare tempo di salita e sovraelongazione  
+	- Esercizio 2  
+		- Nyquist   
+			- retroazione: negativa  
+			- modalità: risposta chiusa sugli intervalli di K e sui poli instabili   
+			- zoom a fianco: si  
+- Tipologia 3  
+	- Esercizio 1  
+		- Sistema   
+			- dato nella forma di servomeccanismo di posizione, con funzioni di trasferimento per attuatore, impianto e trasduttore di posizione. A = F1 (ed è solo un guadagno statico), G_P = F2 (tipo 1), T_P = 1 / Kr.  
+			- Stabilità regolare: no (il sistema ha guadagno stazionario negativo - il diagramma di Nyquist conferma i dubbi - serve Kc negativo)  
+			- Kr = 1  
+			- disturbi: d1 costante intermedio, d2 rampa sull'uscita, d_p sinusoidale sulla retroazione di frequenza data, dopo T_P. I disturbi sono dati come minori o uguali ad un certo valore massimo (ovviamente consideri il valore massimo come il valore del parametro caratteristico del disturbo, quindi procedi come sempre).  
+		- Specifiche statiche  
+			- errore stazionario di inseguimento alla rampa massimo pari a ...  
+			- effetto di d1 massimo pari a ... (qui detto come : errore stazionario in catena chiusa indotto dal disturbo d1 ... ma è uguale)  
+			- effetto di d2 massimo pari a ...  
+		- Specifiche dinamiche  
+			- tempo di salita massimo pari a ...  
+			- sovraelongazione massima pari a ...  
+		- Valutare  
+			- banda passante  
+			- picco di risonanza  
+			- valore massimo del comando indotto dal disturbo d_p (suppongo quindi senza riferimento, e uso simulink?)  
+		- Discretizzazione  
+			- valutare tempo di salita e sovraelongazione  
+	- Esercizio 2  
+		- Ci sarebbe un PID ma secondo me non è per noi, perchè ha specifiche, mentre al nostro esame non ci saranno specifiche sul PID  
+- Tipoogia 4  
+	- Esercizio 1  
+		- Sistema: F1 tipo 1, F2 tipo 0, Kr = 1; stabilità regolare: sì  
+		- Disturbi: d1 costante intermedio, d2 rampa sull'uscita  
+		- Specifiche statiche  
+			- errore di inseguimento alla rampa massimo pari a ...  
+			- effetto di d1 massimo pari a ...  
+			- effetto di d2 massimo pari a ...  
+		- Specifiche dinamiche  
+			- tempo di salita pari a ... +- ... %  
+			- picco di risonanza massimo pari a ...  
+		- Valutare  
+			- banda passante  
+			- sovraelongazione  
+			- valore massimo del comando in assenza di disturbi con riferimento gradino  
+		- Discretizzazione  
+			- Valutare tempo di salita e sovraelongazione massima   
+	- Esercizio 2  
+		- Nyquist  
+			- retroazione: positiva  
+			- modalità: valutazione stabilità per valori puntuali di K  
+			- zoom a fianco: no  
+		- PID  
+			- c'è questo che sarebbe il terzo esercizio ma è fattibile quindi lo metto  
+			- mi da lui N? sì  
+			- valutare  
+				- banda passante   
+				- picco di risonanza  
+- Tipologia 5  
+	- Esercizio 1  
+		- Sistema: F tipo 0, Kr = 1  
+		- Disturbi: d1 costante intermedio, d2 rampa sull'uscita, d3 sinusoidale di frequenza nota sulla retroazione  
+		- Specifiche statiche:  
+			- errore di inseguimento alla rampa massimo pari a ...  
+			- effetto di d1 nullo  
+			- effetto di d2 massimo pari a ... (molto piccolo)  
+		- Specifiche dinamiche  
+			- tempo di salita pari a ... +- ... %  
+			- sovraelongazione massima pari a ...  
+		- Valutare  
+			- banda passante  
+			- errore di inseguimento massimo in regime permanente a riferimento sinusoidale di frequenza nota   
+			- valore massimo del comando indotto da d3 (immagino con riferimento spento)  
+	- Esercizio 2  
+		- Niente di fattibile  
+- BONUS: Esercizio di progetto di un controllore con specifica sulla sensibilità (svolgimento a lezione e nelle videolezioni)  
+	- Sistema: F1 tipo 0, F2 tipo 1, Kr = 1  
+	- Disturbi: d1 costante intermedio  
+	- Specifiche statiche   
+		- effetto di d massimo pari a ...  
+		- errore di inseguimento alla rampa massimo pari a ...  
+	- Specifiche dinamiche  
+		- modulo della funzione di sensibilità pari strettamente minore di 1 in pulsazione nota (20 rad/s)  
+		- picco di risonanza massimo pari a ...  
+	- Valutare  
+		- tempo di salita  
+		- sovraelongazione  
+		- errore di inseguimento massimo alla sine wave di frequenza nota (2 rad/s)  
+		- effetto del disturbo sinusoidale di frequenza nota (200 rad/s) entrante INSIEME a y_des (tecnicamente sarebbe come rimuovere il riferimento e mettere questo come riferimento, quindi anche in questo caso diventa un errore di inseguimento quello che vai a calcolare)  
+	- Discretizzazione  
+		- valutare tempo di salita e sovraelongazione.  
