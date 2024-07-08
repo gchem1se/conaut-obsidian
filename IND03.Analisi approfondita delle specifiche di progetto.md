@@ -40,7 +40,7 @@ I vari contributi all'errore di inseguimento dovuti a disturbi polinomiali, **in
 > ![Pasted image 20240605191634.png](./img/Pasted%20image%2020240605191634.png)  
 >   
 > $K_{G_1}$ contiene $K_R$:   
-> $$K_{G_1}=CK_{F_1}/Kr$$  
+> $$K_{G_1}=K_CK_{F_1}/Kr$$  
   
 #### Errore di inseguimento totale  
 L'errore di inseguimento totale resta $e_{\infty}=y_{\text{des}}-y$.   

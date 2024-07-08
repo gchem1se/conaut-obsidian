@@ -24,9 +24,9 @@ share: true
 		- Corpi separati, in contatto termico tra loro e con l'ambiente  
 			- Scrivere le equazioni dinamiche (non di stato) (7.2)  
 			- Scrivere la matrice A (5.4)  
-	- Elettrodinamico  
+	- Elettromeccanico  
 		- Comandato in armatura  
-			- crivere le sole equazioni dinamiche (2.1, 7.8)  
+			- scrivere le sole equazioni dinamiche (2.1, 7.8)  
 - Funzione di trasferimento  
 	- Calcolare la funzione di trasferimento  
 		- Date le equazioni di stato  
@@ -119,10 +119,9 @@ share: true
 		- non considerare $\dot{p_A}$ nel vettore degli stati; la seconda eqz del moto è $=0$, sfrutta questo per scrivere $\dot{p_A}$ in funzione di altro. Occhio al verso del sistema di riferimento.  
 	- 2  
 		- prendi come variabili di stato $[\theta,\dot{\theta}]$  
-		- il sistema ha delle Torque esterne che si calcolano come prodotto vettoriale tra il vettore lunghezza e la forza.  
-		- il vettore segnato con la X è *entrante* nel foglio  
-		- $\sin(\pi/2-x)=\cos(x)$  
-		- ==non ho capito perchè la coppia della forza peso non c'è==  
+		- il sistema ha delle Torque esterne che si calcolano come prodotto vettoriale tra il vettore lunghezza e la forza. Il modulo del prodotto vettoriale è dato da $l\cdot F\cdot\sin(\alpha)$, con $\alpha$ l'angolo compreso tra i due vettori (considerati come se avessero la stessa origine però, qundi trasporta uno dei due). Il segno del prodotto vettoriale invece è dato dalla regola della mano destra.  
+		- il vettore segnato con la X è *entrante* nel foglio. Una forza peso perpendicolare al piano in cui si svolge il movimento, *per qualche motivo*, non genera una Torque esterna.  
+		- $\sin(\pi/2+x)=\cos(x)$ (scrivile nel formulario ste cose)  
 	- 3  
 		- ricordati di calcolare il modulo dei complessi con la calcolatrice e ricordati la tabella di [TAR16.Stabilità interna per sistemi dinamici LTI > Se hai gli autovalori](TAR16.Stabilit%C3%A0%20interna%20per%20sistemi%20dinamici%20LTI.mdse-hai-gli-autovalori)  
 	- 4  
@@ -171,28 +170,44 @@ share: true
 		- Prima controlli la raggiunibilità con la calcolatrice.  
 		- Non è raggiunibile, quindi ti fermi.  
 	- 5  
-		- ==Non so farlo.==  
+		- Si tratta di trovare il guadagno $K_\infty$ (che è il guadagno ad alta frequenza, $s\to\infty$) e il guadagno $K_\text{staz}$ (che è il guadagno in bassa frequenza, $s\to0$)  
+		- Dato che abbiamo lo schema di un sistema elettrico, senza calcolare esplicitamente la funzione di trasferimento e poi andare a sostituire $s=\infty$ e $s=0$, possiamo analizzare cosa succede ai componenti dinamici.   
+			- Gli induttori in alta frequenza diventano circuiti aperti, in bassa frequenza circuiti chiusi.  
+			- I condensatori in alta frequenza diventano circuiti chiusi, in bassa frequenza circuiti aperti.  
+		- Allora, ridisegnandoli, gli schemi diventano stupidi, possiamo quindi andare a calcolare rapidamente i guadagni computando $Y/U$.  
 	- 6  
 		- Basta seguire le formule con le derivate parziali, molto semplice. [TAR13.Linearizzazione di sistemi dinamici > Conclusione](./TAR13.Linearizzazione%20di%20sistemi%20dinamici.mdconclusione)  
 	- 7  
 		- Calcoli facilmente gli autovalori dato che è diagonale a blocchi, poi [TAR16.Stabilità interna per sistemi dinamici LTI > Se hai gli autovalori](TAR16.Stabilit%C3%A0%20interna%20per%20sistemi%20dinamici%20LTI.mdse-hai-gli-autovalori)  
 	- 8  
 		- Il sistema è in forma minima, per cui non avrà più cancellazioni zero-polo e quindi la funzione di trasferimento avrà grado di termine massimo del numeratore e del denominatore pari alla dimensione di A  
-		- inoltre (credo) la presenza di un $D\ne0$ implica la presenza di un $K\ne1$ nella funzione di trasferimento. ==Non so farlo== per sicurezza.  
+		- inoltre (*credo*) la presenza di un $D\ne0$ implica la presenza di un $K\ne1$ nella funzione di trasferimento.  
 	- 9  
 		- Essendo a tempo discreto bisognerebbe usare le 3 disequazioni ed eventualmente Jury.  
 		- Non serve Jury essendo di secondo ordine.  
-		- ==Non so farlo.== Non sono sicuro di saper fare la seconda richiesta.  
+		- Per la seconda richiesta bisogna mantenere i vincoli trovati prima ma anche aggiungere un vincolo che ci dia la sicurezza che le radici NON abbiano parte reale strettamente negativa, ma positiva.  
+			- In pratica, dobbiamo imporre che NON sia rispettato Cartesio (quindi che il coefficiente del termine di mezzo sia DISCORDE dagli altri, quindi che sia negativo).  
 	- 10  
-		- ==Non so farlo.== Credo sia Laplace e basta.  
+		- Usando la trasformata di Laplace e poi il teorema del valore finale si arriva a dare un vincolo tra $y_\infty$ e $K$, ovvero $y_\infty=80/K$.  
+		- L'esercizio non ci permette di avere informazioni specifiche su $K$, quindi ci tocca sostituire le varie opzioni di risposta del quiz e vedere quale rispecchia questo vincolo.  
+			- Sempre sperando che sia una sola, a rispettare questo vincolo. Però in teoria deve essere così:  
+			- ![Pasted image 20240627164852.png](./img/Pasted%20image%2020240627164852.png)  
 	- 11  
-		- ==Non so farlo.== Credo sia Laplace e basta.  
+		- Come in 1.10, va usata la trasformata di Laplace, ma dato che chiede l'ampiezza della $y(t)$ per $t\to\infty$ (cioè in regime permanente), posso usare la formula   
+			- ![Pasted image 20240627170324.png](./img/Pasted%20image%2020240627170324.png)  
+		- Comunque arriverò solo a determinare $A=0$. A quel punto bisogna sperare che, come in 1.10, nelle risposte che mi vengono proposte una sola abbia $A=0$.  
 	- 12  
-		- ==Non so farlo.== Non so se sia meglio cercare di ricavare smorzamento e pulsazione naturale dalla funzione di trasferimento oppure provare le 4 alternative che mi offre lui.  
-		- Per ricavare smorzamento e pulsazione naturale, si parlerebbe di questo:  
+		- Prima di tutto calcolati i poli della FdT.  
+		- Per ricavare smorzamento e pulsazione naturale dalla FdT, si usano:  
 			- ![Pasted image 20240625014340.png](./img/Pasted%20image%2020240625014340.png)  
-		- Sicuramente lo smorzamento $\zeta$ deve essere $1$, perchè alla fine non avrà sovraelongazione  
-		- E poi forse potrei usare il tempo di salita invece del tempo di picco?  
+		- Nel caso i poli non fossero complessi coniugati, ma reali, lo smorzamento sarebbe $\zeta=1$, quindi *non si avrebbe sovraelongazione*. Succede proprio questo in questo caso, quindi non posso usare le formule per trovarmi tempo di picco e sovraelongazione partendo da smorzamento e pulsazione naturale. Devo usare un'altra strada.  
+		- Dopo puoi calcolare la costante di tempo equivalente dalla FdT, pari alla somma delle costanti di tempo della FdT.  
+			- La costante di tempo relativa ad un polo si calcola come $\tau_p = \left|1/p\right|$.  
+			- La costante di tempo equivalente per sistemi di secondo ordine con smorzamento unitario è $\tau_\text{eq}=\tau_1+\tau_2$. In questo modo, la puoi calcolare dalla FdT.  
+			- La costante di tempo di una risposta al gradino, sia essa equivalente o meno, è visibile sul grafico ed è pari al tempo che impiega il grafico ad arrivare al $63\%$ del suo valore finale $y_\infty$.   
+		- $K=\text{costante al numeratore}/\text{termine noto denominatore}$.  
+		- Dal grafico, invece, il valore finale $y_\infty$ è uguale al guadagno, perchè $K = y_\infty / \overline{u}$ (se $\overline{u}$ è $1$, cioè se il gradino è unitario). Qui $K=2.5$.   
+		- Quindi combinando lo smorzamento unitario, la costante di tempo equivalente e il guadagno $K$, si arriva a dire quale sia il grafico corretto.    
 	- 13  
 		- Essendo in forma canonica di osservabilità, posso già partire con il delirio (lunghissimo).  
 - 3  
@@ -265,7 +280,13 @@ share: true
 		- Provi a calcolare gli autovalori in funzione di $k$ e ad imporre che abbiano tutti modulo strettamente minore di $1$.  
 		- In questo caso c'è un autovalore che non dipende da $k$ e che ha di per sè modulo maggiore di $1$, quindi il punto di equilibrio è da considerarsi instabile per ogni valore di $k$.  
 	- 3  
-		- ==Non so farlo==, penso che intanto bisogna dire che $\zeta=1$ e poi magari usi il tempo di salita (?) e il valore finale  
+		- Prima di tutto si considera che, dato che non si ha sovraelongazione, deve essere $\zeta=1$, ovvero la FdT deve avere due poli *reali*.  
+		- Per scrivere una FdT di questo tipo guardando solo il grafico è necessario ammettere che questi due poli reali siano *coincidenti*.  
+			- Una FdT avente solo due poli reali coincidenti ha la forma $G(s)=\frac{K}{(1+\tau_p s)^2}$, dove $\tau_p$ è la costante di tempo di uno dei due poli coincidenti: infatti, se i due poli reali sono coincidenti, avranno la stessa costante di tempo $\tau_1=\tau_2=\left|1/p\right|=\tau_p$. Allora la costante di tempo equivalente del sistema è $\tau=\tau_\text{eq}=2\cdot\tau_p$.  
+			- La costante di tempo equivalente, cioè la somma delle due, la leggi dal grafico come l'istante al quale il grafico tocca per la prima volta il $63\%$ del suo valore finale $y_\infty$.  
+			- Una volta trovata la costante di tempo equivalente, la dividi per $2$ ottenendo quella del singolo polo.  
+		- Il $K$ è pari a $y_\infty/\overline{u}$, quindi se il gradino è unitario, $K=y_\infty$.  
+		- Conoscendo quindi $\tau_p$ e $K$ puoi scrivere la FdT.  
 	- 4  
 		- Banale, basta seguire le regole dei termici... in particolare ricorda che tutti i corpi sono in contatto termico con l'esterno.  
 	- 5  
@@ -293,8 +314,7 @@ share: true
 	- 12  
 		- Tecnicamente dovrebbe essere semplice, fai l'uscita come $G(z)\cdot U(z)$, poi antitrasformi e calcoli $y(0), y(1)\dots y(3)$  
 		- Occhio alla trasformata del gradino nel dominio della trasformata zeta: è $\frac{z}{z-1}$.  
-		- Occhio a fare quella cosa del moltiplicare per $z$ i fratti semplici e dividere dopo.  
-		- Tuttavia, ==non so farlo==.  
+		- Occhio a fare quella cosa del fare i fratti semplici della funzione di trasferimento pre-divisa per $z$ e moltiplicare i fratti semplici per $z$ solo dopo averli calcolati, in modo da ritrovarti con qualcosa di anti-trasformabile con le tavole.  
 	- 13  
 		- Come 2.6  
 - 6  
@@ -315,7 +335,8 @@ share: true
 	- 6  
 		- Le equazioni di stato non sono semplici, quindi conviene trasformarle in matrici e fare la formula con le matrici per trovare l'uscita nel dominio della Zeta.  
 		- Ricordati che c'è una $z$ a moltiplicare la prima parte della formula dell'uscita.  
-		- Poi antitrasformi: ricordati quella cosa del moltiplicare per $z$ per i fratti semplici.  
+		- Poi antitrasformi: ricordati quella cosa del fare i fratti semplici della funzione di trasferimento pre-divisa per $z$ e moltiplicare i fratti semplici per $z$ solo dopo averli calcolati.  
+  
 	- 7  
 		- Come 1.9  
 	- 8  
@@ -386,6 +407,13 @@ share: true
 			- retroazione: negativa  
 			- modalità: valutazione stabilità per valori puntuali di K  
 			- zoom a fianco: no  
+	- Esercizio 3  
+		- PID  
+			- c'è questo che sarebbe il terzo esercizio ma è fattibile quindi lo metto  
+			- mi da lui N? sì  
+			- valutare  
+				- tempo di salita   
+				- sovraelongazione massima  
 - Tipologia 2  
 	- Esercizio 1		  
 		- Sistema: F1 tipo 0, F2 tipo 1; stabilità regolare: sì  
@@ -492,3 +520,40 @@ share: true
 		- effetto del disturbo sinusoidale di frequenza nota (200 rad/s) entrante INSIEME a y_des (tecnicamente sarebbe come rimuovere il riferimento e mettere questo come riferimento, quindi anche in questo caso diventa un errore di inseguimento quello che vai a calcolare)  
 	- Discretizzazione  
 		- valutare tempo di salita e sovraelongazione.  
+- BONUS: Esercizio di progetto di un controllore (svolgimento a lezione)  
+### Soluzioni  
+- Tipologia 1  
+	- Esercizio 1  
+		- Risultati dell'analisi delle specifiche  
+			- Numero di poli nell’origine del controllore:  
+			- Guadagno stazionario minimo del controllore:  
+			- Pulsazione di attraversamento desiderata:  
+			- Margine di fase minimo richiesto:  
+			- Eventuali commenti:  
+		- Funzione di trasferimento del controllore progettato (in forma fattorizzata in costanti di tempo):  
+			- $C(s)$:  
+			- Breve relazione sul progetto di $C(s)$:  
+		- Verifica del soddisfacimento delle specifiche:  
+			- a)  
+			- b)  
+			- c)  
+			- d)  
+			- e)  
+		- Valutazione delle prestazioni richieste ad anello chiuso:  
+			- $\alpha$)  
+			- $\beta$)  
+			- $\gamma$)  
+		- Discretizzazione del controllore:  
+			- Passo di campionamento $T$:  
+			- $C(z)$:  
+			- Motivazioni della scelta di $T$, metodo di discretizzazione utilizzato e valutazioni richieste ad anello chiuso:  
+	- Esercizio 2 (Nyquist)  
+		-   
+	- Esercizio 3 (PID)  
+		-   
+- Tipologia 2  
+- Tipologia 3  
+- Tipologia 4  
+- Tipologia 5  
+- Bonus sensibilità  
+- Bonus svolto  

@@ -7,4 +7,4 @@ share: true
 [IND03.Analisi approfondita delle specifiche di progetto](./IND03.Analisi%20approfondita%20delle%20specifiche%20di%20progetto.md)  
 [IND04.Progetto del controllore analogico](./IND04.Progetto%20del%20controllore%20analogico.md)  
 [IND05.Discretizzazione di un controllore analogico](./IND05.Discretizzazione%20di%20un%20controllore%20analogico.md)  
-[IND06.Controllori PID](IND06.Controllori%20PID.md)  
+[IND06.Controllori PID](./IND06.Controllori%20PID.md)  
